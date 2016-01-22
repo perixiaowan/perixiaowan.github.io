@@ -1,0 +1,200 @@
+ <!DOCTYPE html>  
+ <html lang="zh-cn" class="no-js">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>农产品摇一摇</title>  
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="email=no" />
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/animations.css" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/page.css" />
+        <link rel="stylesheet" href="css/shake.css"  media="all">
+        <link rel="stylesheet" href="css/colorbox.css" />
+
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script> 
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.colorbox.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                //Examples of how to assign the Colorbox event to elements
+               
+                $(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"75%"});
+               
+         
+
+             
+                
+                //Example of preserving a JavaScript event for inline calls.
+               /* $("#click").click(function(){ 
+                    $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+                    return false;
+                });*/
+            });
+        </script>
+
+
+
+    </head>
+
+	<body>
+
+
+
+        <div id="page-hd">
+            <div id="loading">
+                <div class="spinner">
+                    <div class="spinner-container container1">
+                        <div class="circle1">
+                        </div>
+                        <div class="circle2">
+                        </div>
+                        <div class="circle3">
+                        </div>
+                        <div class="circle4">
+                        </div>
+                    </div>
+                    <div class="spinner-container container2">
+                        <div class="circle1">
+                        </div>
+                        <div class="circle2">
+                        </div>
+                        <div class="circle3">
+                        </div>
+                        <div class="circle4">
+                        </div>
+                    </div>
+                    <div class="spinner-container container3">
+                        <div class="circle1">
+                        </div>
+                        <div class="circle2">
+                        </div>
+                        <div class="circle3">
+                        </div>
+                        <div class="circle4">
+                        </div>
+                    </div>
+                </div>
+                <p style="position:relative;top:50%">
+                    加载中...
+                </p>
+            </div> 
+        </div>
+
+        <div id="page-content">
+            <div class="page page-1 page-current">
+                <div class="fm02">
+                    <video width="320" height="240" controls="controls" poster="img/aa.jpg">
+                        <source src="http://video.xinhuatone.com/qyy/测试视频-2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="enter">
+                </div>
+            </div>
+            <div class="page page-2 hide">
+                <div class="yaoyiyao fm1">
+                    <img id="shake"  src="img/yaoyiyao.jpg" alt="yaoyiyao">
+                    <div class="fmp1">
+                       <img id="farm_introduction" class="fmpg1" src="img/farm_2.png" style="width:100%" >  
+                       <a class="group3" href="img/ohoopee1.jpg" title="农产品1_1"><button>点我看详细信息</button></a>
+                       <a class="group3" href="img/ohoopee2.jpg" title="农产品1_2"></a>
+                    </div>
+                   <div class="next hide">
+                      <img src="img/next.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="page page-3 hide">
+                <div class="fd1">
+                </div>
+                <div class="fd2">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="page-ft"></div>
+        <script type="text/javascript" src="js/zepto.js">
+        </script>
+        <script type="text/javascript" src="js/fx.js"></script>
+      
+        <script type="text/javascript" src="js/touch.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    
+        <div style="display:none;">
+            <script src="http://s95.cnzz.com/z_stat.php?id=1254115685&amp;web_id=1254115685" language="JavaScript"></script>
+        </div>
+
+    </body>
+    </html>
+
+
+	<script type="text/javascript">
+        function fenxiang(){
+            $(".next").show();
+        }
+
+		var SHAKE_THRESHOLD = 3000;
+		var last_update = 0;
+		var random = 0;
+		var x = y = z = last_x = last_y = last_z = 0;
+		
+		if (window.DeviceMotionEvent) {
+			window.addEventListener('devicemotion', deviceMotionHandler, false);
+		} else {
+			alert('not support mobile event');
+		}
+        
+	    var int=self.setInterval("removeClassShake()",2000);
+        var count = 0;
+        function removeClassShake(){
+            count++;
+            console.log("removeClassShake:"+count);
+            
+            $("#shake").removeClass("shake-slow");
+            $("#farm_introduction").removeClass("fmpg1");
+            
+        }
+
+		function deviceMotionHandler(eventData) {
+         
+        /*    shake();*/
+			var acceleration = eventData.accelerationIncludingGravity;  
+			var curTime = new Date().getTime(); 
+            
+			random = Math.ceil(Math.random()*5); //取1~5随机整数
+			if ((curTime - last_update) > 100) {
+				var diffTime = curTime - last_update;  
+				last_update = curTime;
+				x = acceleration.x;
+				y = acceleration.y;
+				z = acceleration.z;
+				var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+				
+                
+                if (speed > SHAKE_THRESHOLD) {
+                    /*shake();*/
+                    $("#shake").addClass("shake-slow");
+                    var indexfarm = "img/farm_"+random+".png";
+                    $("#farm_introduction").addClass("fmpg1").attr("src",indexfarm);
+                    
+                   /* $(".fmp1").css("backgroundImage","url("+indexfarm+")"); */
+                    fenxiang();
+                    
+                }  
+                /*$("#shake-slow").removeClass("shake-slow");*/
+				last_x = x;
+				last_y = y;
+				last_z = z;
+
+			}
+		} 
+		
+
+	</script>  
+
