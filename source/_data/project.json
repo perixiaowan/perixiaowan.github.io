@@ -1,0 +1,56 @@
+{
+  "HTML5电子书": {
+    "title": "HTML5 电子书",
+    "subTitle": "以Bootstrap的响应式导航为基础进行制作",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/mywork/mywork-1.JPG?raw=true",
+    "use" : ["HTML5"],
+    "link": "http://www.liuxiaowan.com:8080/html5-ebook/",
+    "data":"2016.04",
+    "direction": "本作品主要以Bootstrap的响应式导航为框架，配合css3和jquery，在总结html5的知识要点时，制作的一个网页版的电子书。"
+  },
+   "农产品摇一摇": {
+    "title": "农产品摇一摇",
+    "subTitle": "以HTML5+CSS3+Jquery进行的制作",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/lightapp/yaoyiyao.jpg?raw=true",
+    "use" : ["HTML5","CSS3","Jquery"],
+    "link": "http://www.liuxiaowan.com:8080/farmshake/",
+    "data":"2016.02",
+    "direction": "本作品是以16年许多贫困地区农产品滞销为背景，为促进农产品的销售而进行制作的移动端轻应用。使用了H5技术，配合Jquery，通过调用手机重力加速度的方式实现摇一摇功能，并能够随机显示任意一款农产品，点击农产品图片可以进入农产品的详细介绍。此款轻应用已于2016年2月在新华全媒头条向公众发表。"
+  },
+  "驾校模拟考试系统": {
+    "title": "驾校模拟考试系统",
+    "subTitle": "以Java+Struts+HIbernate+Spring+mysql+Jquery开发的考试系统",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/mywork/mywork-2.JPG?raw=true",
+    "use" : ["Java","SSH","Jquery","mysql"],
+    "link": "http://www.liuxiaowan.com:8080/driving/",
+    "data":"2016.01",
+    "direction": "根据目前已有的各种各样的驾校考试系统，仿照设计并开发的模拟考试系统，测试用的账号密码（test：123），管理员账号密码（admin：123456），欢迎大家使用并测试，代码将在代码重构之后在github上开源。"
+  },
+  "听歌曲猜机器人": {
+    "title": "听歌曲猜机器人",
+    "subTitle": "以HTML5+CSS3+Jquery进行的制作",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/lightapp/dabai.jpg?raw=true",
+    "use" : ["HTML5","CSS3","Jquery"],
+    "link": "http://www.liuxiaowan.com:8080/guessrobots/",
+    "data":"2015.11",
+    "direction": "本作品是以2015年11月即将召开的机器人大会为背景研发的轻应用产品。旨在通过趣味方式宣传此次大会即将展示的高科技产品，此款轻应用已于2016年11月在新华全媒头条向公众发表。"
+  },
+  "谁是我心目中的大圣？": {
+    "title": "谁是我心目中的大圣？",
+    "subTitle": "以HTML5+CSS3+Jquery进行的制作",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/lightapp/dasheng.jpg?raw=true",
+    "use" : ["HTML5","CSS3","Jquery"],
+    "link": "http://www.liuxiaowan.com:8080/dasheng/",
+    "data":"2015.07",
+    "direction": "本作品是以2015年07月大型国产动画片《大圣归来》为背景制作的轻型h5互动小应用。"
+  },
+  "网页新闻客户端新闻内容抓取": {
+    "title": "网页新闻客户端新闻内容抓取",
+    "subTitle": "以Java+Struts+HIbernate+Spring+mysql+Jquery开发的爬虫",
+    "img_link": "https://github.com/perixiaowan/MarkdownPhotos/blob/master/mywork/crawler.jpg?raw=true",
+    "use" : ["Java","SSH","Jquery","mysql"],
+    "link": "http://www.liuxiaowan.com:8080/xinhuacrawler/",
+    "data":"2014.03",
+    "direction": "本作品是以网易新闻客户端为测试环境，开发的一款小型爬虫程序，并将数据按新闻类别分类存入数据库。"
+  }
+}
