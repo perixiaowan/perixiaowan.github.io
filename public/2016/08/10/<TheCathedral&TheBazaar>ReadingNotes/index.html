@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>《大教堂和集市》读书笔记 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="真程序员 通常具备工程学和物理学背景，并常常是业余无线电爱好者  墨菲定律 是一种心理学效应，由Edward A. Murphy提出主要内容是：如果事情有变坏的可能，不管这种可能性有多小，它总会发生。  Blinkenlights这是黑客的新词，意为诊断大型机、小型机、更多早起的微型计算机以及现代网络硬件前面板的灯。">
+<meta name="keywords" content="原创,黑客,计算机,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大教堂和集市》读书笔记">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/08/10/<TheCathedral&TheBazaar>ReadingNotes/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="真程序员 通常具备工程学和物理学背景，并常常是业余无线电爱好者  墨菲定律 是一种心理学效应，由Edward A. Murphy提出主要内容是：如果事情有变坏的可能，不管这种可能性有多小，它总会发生。  Blinkenlights这是黑客的新词，意为诊断大型机、小型机、更多早起的微型计算机以及现代网络硬件前面板的灯。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-06-08T04:09:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《大教堂和集市》读书笔记">
+<meta name="twitter:description" content="真程序员 通常具备工程学和物理学背景，并常常是业余无线电爱好者  墨菲定律 是一种心理学效应，由Edward A. Murphy提出主要内容是：如果事情有变坏的可能，不管这种可能性有多小，它总会发生。  Blinkenlights这是黑客的新词，意为诊断大型机、小型机、更多早起的微型计算机以及现代网络硬件前面板的灯。">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>《大教堂和集市》读书笔记</strong>
+            </h1>
+            
+                <h2>好习惯成就一生，坏习惯毁人前程</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-08-10</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/原创/">原创</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/黑客/">黑客</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/计算机/">计算机</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/开源/">开源</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <blockquote>
+<p><strong>真程序员</strong></p>
+<p>通常具备工程学和物理学背景，并常常是业余无线电爱好者</p>
+</blockquote>
+<h3 id="墨菲定律"><a href="#墨菲定律" class="headerlink" title="墨菲定律"></a>墨菲定律</h3><blockquote>
+<p>是一种心理学效应，由Edward A. Murphy提出<br>主要内容是：如果事情有变坏的可能，不管这种可能性有多小，它总会发生。</p>
+</blockquote>
+<h3 id="Blinkenlights"><a href="#Blinkenlights" class="headerlink" title="Blinkenlights"></a>Blinkenlights</h3><pre><code>这是黑客的新词，意为诊断大型机、小型机、更多早起的微型计算机以及现代网络硬件前面板的灯。
+</code></pre><a id="more"></a>
+<h1 id="1、黑客圈简史"><a href="#1、黑客圈简史" class="headerlink" title="1、黑客圈简史"></a>1、黑客圈简史</h1><h3 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h3><blockquote>
+<p>MIT的计算机文化</p>
+</blockquote>
+<h3 id="ARPANET"><a href="#ARPANET" class="headerlink" title="ARPANET"></a>ARPANET</h3><blockquote>
+<p><strong>美国高级研究计划署The Advanced Research Projects Agency Network</strong></p>
+<p>它是早期的分组交换网络，并且是第一个实现TCP/IP协议套件的网络。<br>这两种技术成为互联网的技术基础。<br>它最初是由美国国防部的高级研究计划署资助。</p>
+</blockquote>
+<h3 id="ITS"><a href="#ITS" class="headerlink" title="ITS"></a>ITS</h3><blockquote>
+<p>Incompatible Time-sharing System<br>不兼容分时系统</p>
+</blockquote>
+<h3 id="LISP语言"><a href="#LISP语言" class="headerlink" title="LISP语言"></a>LISP语言</h3><blockquote>
+<p>LISP是一种通用高级计算机程序语言，长期以来垄断人工智能领域的应用。LISP作为因应人工智能而设计的语言，是第一个声明式系内函数式程序设计语言，有别于命令式系内过程式的C、Fortran和面向对象的Java、C#等结构化程序设计语言。</p>
+</blockquote>
+<pre><code>也是黑客圈最喜爱的编程语言之一
+</code></pre><h3 id="KISS原则"><a href="#KISS原则" class="headerlink" title="KISS原则"></a>KISS原则</h3><blockquote>
+<p><strong>Keep It Simple，Stupid</strong><br>原则：在设计中应注重简约的原则。<br>应用在商业书信、设计电脑软件、动画、工程上。</p>
+</blockquote>
+<h3 id="UUCP"><a href="#UUCP" class="headerlink" title="UUCP"></a>UUCP</h3><blockquote>
+<p><strong>Unix至Unix的拷贝Unix-to-Unix Copy</strong></p>
+<p>Unix系统的一项功能，允许计算机之间以存储-转发方式交换email和消息<br>它是Internet兴起之前Unix系统之间联网的主要方式</p>
+</blockquote>
+<h3 id="Usenet或NewsGroup"><a href="#Usenet或NewsGroup" class="headerlink" title="Usenet或NewsGroup"></a>Usenet或NewsGroup</h3><blockquote>
+<p><strong>新闻组</strong></p>
+<p>就是一个基于网络的计算机组合，这些计算机被称为新闻服务器，不同的用户通过一些软件可连接到新闻服务器上，阅读其他人的消息并可以参与讨论。</p>
+<p>它是一个完全交互式的超级电子论坛， 是任何一个网络用户都能进行相互交流的工具。</p>
+</blockquote>
+<h3 id="AT-amp-T"><a href="#AT-amp-T" class="headerlink" title="AT&amp;T"></a>AT&amp;T</h3><blockquote>
+<p><strong>美国电话电报公司American Telephone&amp;Telegraph</strong></p>
+</blockquote>
+<h3 id="HURD-GNU-Hurd内核"><a href="#HURD-GNU-Hurd内核" class="headerlink" title="HURD(GNU/Hurd内核)"></a>HURD(GNU/Hurd内核)</h3><blockquote>
+<p>GNU Hurd 是一组运行在GNU Mach或L4上的守护进程，用来实现UNIX 实现了的文件系统、网络协议、及文件访问控制等其他功能。</p>
+</blockquote>
+<h1 id="2、大教堂与集市"><a href="#2、大教堂与集市" class="headerlink" title="2、大教堂与集市"></a>2、大教堂与集市</h1><h3 id="fetchmail"><a href="#fetchmail" class="headerlink" title="fetchmail"></a>fetchmail</h3><blockquote>
+<p>它是一个下载邮件的应用程序，支持POP2,POP3,APOP,IMAP以及ETRN-capable server.他与其他收件程序(Pine,popclient等等)最大的不同是在从邮件服务器获得邮件后不是直接存入本地信箱,而是将邮件送入本地邮件系统进行再次投递.</p>
+</blockquote>
+<p>两种不同的开发模式：</p>
+<ul>
+<li>‘大教堂’模式</li>
+<li>Linux世界采用的‘集市’模式</li>
+</ul>
+<p>两种模式的不同点在于他们对软件排错有着完全对立的认识。</p>
+<h2 id="集市模式的成功"><a href="#集市模式的成功" class="headerlink" title="集市模式的成功"></a>集市模式的成功</h2><h3 id="nethack"><a href="#nethack" class="headerlink" title="nethack"></a>nethack</h3><blockquote>
+<p>是一款最初在1987年发布的单人冒险探索游戏（Roguelike）。</p>
+</blockquote>
+<h3 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h3><blockquote>
+<p>著名的集成开发环境和文本编辑器。Emacs被公认为是最受专业程序员喜爱的代码编辑器之一，另外一个vim。</p>
+</blockquote>
+<pre><code>到底是什么让Linux社区能够源源不断的产生这么多好软件？
+
+- 好的软件作品，往往源自于开发者的个人需要
+- 优秀的程序员知道写什么，卓越的程序员知道改写（和重用）什么。
+- 计划扔掉一个吧，迟早你会这么做的。
+- 如果你有正确的态度，有趣的事情自然会找到你。
+- 当你对一个程序不再感兴趣时，你最后的责任就是把它交给一个可以胜任的接棒者。
+- 把你的用户当成开发合作者对待，如果想让代码质量快速提升并有效排错，这是最省心的途径。
+- 早发布，常发布，倾听用户的反馈。
+- 如果有足够多的beta测试者和合作开发者，几乎所有问题都会很快显现，然后自然有人会把它解决。
+- 聪明的数据结构配上愚笨的代码，远比反过来要好得多。
+- 如果你把bate测试者当做最珍贵的资源对待，他们就会成为你最珍贵的资源。
+- 仅次于拥有好主意的是，识别来自用户的好主意，有时后者会更好。
+- 设计上的完美不是没有东西可以再加，而是没有东西可以再减。
+- 任何工具都应具备预期内的功能，但一个伟大的工具能给你带来预期外的功能。
+- 写网关类软件时，尽可能不要干扰数据流，而且绝不要扔掉信息，除非接收方强迫你这么做。
+- 想要解决一个有趣的问题，先去找一个让你感兴趣的问题。
+- 如果开发协调者有一个至少像Internet这样好的沟通媒介，并且知道如何不靠强制来领导，那么多人合作必然强于单兵作战。
+
+一个部分可行的方案开始，明显要比从零开始容易得多。
+</code></pre><blockquote>
+<p>在你第一次把问题解决的时候，你往往并不了解这个问题， 第二次你才可能知道怎么把事情做好。所以，如果你想做对事情，至少要再做一次</p>
+</blockquote>
+<h2 id="拥有用户的重要性"><a href="#拥有用户的重要性" class="headerlink" title="拥有用户的重要性"></a>拥有用户的重要性</h2><blockquote>
+<p>用户越多就越能有效对抗系统的复杂性。</p>
+</blockquote>
+<h2 id="早发布，常发布"><a href="#早发布，常发布" class="headerlink" title="早发布，常发布"></a>早发布，常发布</h2><blockquote>
+<p><strong>德尔菲效应（Delphi effect）</strong></p>
+<p>一群专家（或一群无知的家伙）的平均观点要比一个随机选择的人的观点更有预见性</p>
+<p>也称专家调查法，是一种采用通讯方式分别将所需解决的问题单独发送到各个专家手中，征询意见，然后回收汇总全部专家的意见，并整理出综合意见。随后将该综合意见和预测问题再分别反馈给专家，再次征询意见，各专家依据综合意见修改自己原有的意见，然后再汇总。这样多次反复，逐步取得比较一致的预测结果的决策方法。</p>
+</blockquote>
+<blockquote>
+<p> Brooks(&lt;人月神话&gt;的作者)：对于一个被广泛使用的软件，其维护成本通常是开发成本的40%或者更多</p>
+<p> 令人惊奇的是，这个成本受到用户数的严重影响，用户越多，发现的bug就越多。</p>
+</blockquote>
+<h2 id="多少只眼睛才能驯服复杂性"><a href="#多少只眼睛才能驯服复杂性" class="headerlink" title="多少只眼睛才能驯服复杂性"></a>多少只眼睛才能驯服复杂性</h2><ul>
+<li>宏观上观察到集市模式能极大加速代码拍错和演化</li>
+<li>只要有一个对出错条件在源码级别上的提示性描述（即便不完整），大多数bug在大多数时间里很容易被发现</li>
+<li>Brooks定律：在一个已经延期的项目上增加人手，只会让项目更加延期。随着开发人员数数目的增长，项目复杂度和沟通成本按照人数的平方增加，而工作成果只会呈线性增长</li>
+</ul>
+<h2 id="集市模式成功的前提"><a href="#集市模式成功的前提" class="headerlink" title="集市模式成功的前提"></a>集市模式成功的前提</h2><ol>
+<li>可以用集市模式测试、排错和完善项目。</li>
+<li><p>可以简陋、有错、不完整，文档可以少的可怜。但至少要做到</p>
+<ul>
+<li>能运行</li>
+<li>让潜在的合作开发者相信，这个软件在可预见的未来，能演变成一个非常棒的东西。</li>
+</ul>
+</li>
+<li><p>项目领导人必须要有高度的设计直觉和聪明才智    </p>
+</li>
+<li>一个协调者是否拥有卓越的原创设计能力，并不是项目成败的决定性因素，但他能否能识别出别人的优秀创意，则一定是最关键的。</li>
+<li>在软件设计上表现的聪明而有原创性，容易养成一个不好的习惯：在应该保持软件健壮性和简单性的时候，往往下意识把它弄得既华丽又复杂。</li>
+<li>一个和设计才能有一样重要地位的是:集市项目的协调人或领导人必须要有很好的人际交往和沟通能力。</li>
+</ol>
+<h2 id="管理与马其诺防线"><a href="#管理与马其诺防线" class="headerlink" title="管理与马其诺防线"></a>管理与马其诺防线</h2><ul>
+<li>未来软件产业的经济关键是服务价值</li>
+<li>软件管理的五个功能：<ul>
+<li>明确目标并让大家朝同一个方向努力。</li>
+<li>监督并确保关键细节不被遗漏；</li>
+<li>激励人们去做那些乏味但必要的“体力活”。</li>
+<li>组织人员部署并获得最佳生产力。</li>
+<li>调配项目所需的资源。</li>
+</ul>
+</li>
+</ul>
+<p>软件工程中最广为人知的一条大众定理是：传统软件项目中的60%到70%，要么是从未被完成，要么被他们的用户拒绝。</p>
+<blockquote>
+<p>一个快乐的程序员是一个既没有被浪费也没有被压垮（由于不适当的目标或过程中充满压力与冲突）的人，乐趣预示着效率。</p>
+</blockquote>
+<h1 id="3、开垦心智层"><a href="#3、开垦心智层" class="headerlink" title="3、开垦心智层"></a>3、开垦心智层</h1><pre><code>所谓“开垦心智层”，就是每个开源项目创始人所从事的活动。
+</code></pre><blockquote>
+<p><strong>黑客的礼物文化</strong></p>
+<p>即通过付出时间、精力和创意，参与者在竞争中获取声望的文化。</p>
+</blockquote>
+<h2 id="开源世界的矛盾"><a href="#开源世界的矛盾" class="headerlink" title="开源世界的矛盾"></a>开源世界的矛盾</h2><blockquote>
+<p>实际做的和他们所声称的并不一致，也即开源文化的“官方”意识形态和他们的实践并不一致</p>
+</blockquote>
+<h2 id="黑客意识形态的多样性"><a href="#黑客意识形态的多样性" class="headerlink" title="黑客意识形态的多样性"></a>黑客意识形态的多样性</h2><blockquote>
+<p><strong>FSF</strong><br>自由软件基金会（Free Software Foundation）<br>是一个致力于推广自由软件的美国民间非盈利性组织。致力于消除对计算机程序在复制、分发、理解和修改方面的限制。</p>
+</blockquote>
+<h2 id="理论宽松，实践严格"><a href="#理论宽松，实践严格" class="headerlink" title="理论宽松，实践严格"></a>理论宽松，实践严格</h2><blockquote>
+<p><strong>Debian自由软件准则</strong><br>形成了开放源码定义（OSD）<br>定义指出：开源许可证必须保护任何个人或团体无条件修改开源软件的权利</p>
+<p>隐含的规则是：任何人能干任何事，没有任何事情可以阻止人们获得任意开源产品、复制其源码、推进其向不同方向演进，并都可声称是该产品</p>
+<p>这种演进上的分化称为“分支”<br>最重要的特点是它派生出一个随后不能交换代码的竞争项目，并导致开发社区潜在的分裂。</p>
+</blockquote>
+<pre><code>文化禁忌中的一些准则
+1. 分化一个项目会遇到强大的社会压力，只有在极为必要的情况下才使用，而且要重新命名和做出大量的公开解释。
+2. 在没有项目主持人认可的情况下发布更新是令人不悦的，除非是特殊情况（如本质上不重要的移植bug修复）
+3. 在项目历史、致谢表或维护列表中移除某个人的名字是绝对不可以的，除非当事人明确表示同意。
+</code></pre><h2 id="开源社区背后隐藏的社会动力学及激励结构"><a href="#开源社区背后隐藏的社会动力学及激励结构" class="headerlink" title="开源社区背后隐藏的社会动力学及激励结构"></a>开源社区背后隐藏的社会动力学及激励结构</h2><h3 id="所有权和开放源码"><a href="#所有权和开放源码" class="headerlink" title="所有权和开放源码"></a>所有权和开放源码</h3><blockquote>
+<p><strong>所有权问题</strong></p>
+<p>一个软件项目的“所有者”就是在社区中众所周知的对软件版本改动有唯一发布权的那个人</p>
+</blockquote>
+<ul>
+<li>官方补丁：由公众认可的维护者发布，人们会接受它并将它合并到软件中；</li>
+<li>流氓补丁：由第三方发布，它很少见，且常不被信任。</li>
+</ul>
+<p><strong>三种方式获得开源项目的所有权</strong></p>
+<ul>
+<li>去创建这个项目</li>
+<li>获取前任对所有权的移交</li>
+<li>一个项目需要维护单项目所有者已经消失或失去兴趣了，如果你想维护该项目，则需要努力找到这个“所有者”，如果找不到，可以在相关场所声明该项目似乎是个“孤儿”，你想为它负责。</li>
+</ul>
+<h3 id="Locke及土地所有权"><a href="#Locke及土地所有权" class="headerlink" title="Locke及土地所有权"></a>Locke及土地所有权</h3><h2 id="所有者权利和声誉激励"><a href="#所有者权利和声誉激励" class="headerlink" title="所有者权利和声誉激励"></a>所有者权利和声誉激励</h2><pre><code>黑客厌恶项目分化的原因
+
+1. 分化钱的项目贡献者会面临声誉风险，若要控制该风险，他们只能在分化后的两个子项目上同时保持活跃，但这通常是不显示的。
+2. 分化后的两个子项目有着或多或少平行的演化路线，分支倾向于分裂合作开发者社区，使两个子项目的人手都比父项目的人手更少。
+
+黑客厌恶流氓补丁的原因
+
+1. 发布“流氓”补丁，会让项目所有者陷入声誉风险，即便官方代码是完美的，所有者仍然会因补丁中的bug而被抨击。
+2. “流氓”补丁会产生子版本间的兼容问题，会使bug跟踪变得异常复杂，会额外增加维护者的工作流，因为维护者捕捉自己错误的工作量就已经够多了。
+</code></pre><h2 id="谦虚的价值"><a href="#谦虚的价值" class="headerlink" title="谦虚的价值"></a>谦虚的价值</h2><blockquote>
+<p><strong>zero-day warez</strong><br>在正版软件上市当天就发布出来的破解版本</p>
+</blockquote>
+<pre><code>在学术圈，公开批评他人有缺陷的作品是赢得声誉的重要方式，而类似行为在黑客文化中会被严厉禁止。
+</code></pre><h2 id="声誉竞争模型的推论"><a href="#声誉竞争模型的推论" class="headerlink" title="声誉竞争模型的推论"></a>声誉竞争模型的推论</h2><ul>
+<li><p>相比增量改进现有软件的‘me,too’产品，创意十足的产品会让人获得更多荣誉</p>
+<p>  备注：’me,too’产品解释为‘仿造’</p>
+</li>
+<li><p>开源项目发展的总体趋势的两个倾向</p>
+<ul>
+<li>填补空白</li>
+<li>类别杀手</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>GIMP</strong><br>github开源项目<br>是跨平台的图像处理程序，是GNU图像处理程序的缩写（GNU Image Manipulation Program）<br>包括几乎所有处理所需的功能，号称Linux下的PhotoShop</p>
+</blockquote>
+<p><strong>黑客定义</strong></p>
+<blockquote>
+<p>所谓黑客，是一个通过贡献礼物表现出他既拥有技术能力又懂得声誉竞争如何运转的人。</p>
+</blockquote>
+<h2 id="好礼物的标准定义"><a href="#好礼物的标准定义" class="headerlink" title="好礼物的标准定义"></a>好礼物的标准定义</h2><ol>
+<li><p>如果它不能像我所预期的那样工作，那就不是好的—不管它多么聪明和有原创性</p>
+<p> <strong>预期</strong>要求：根据项目所处阶段和开发者对该阶段的说明，用户能准确的估计风险。</p>
+</li>
+<li><p>在心智层的拓展性工作要比在某功能域内（对现有作品）的重复性工作好。</p>
+</li>
+<li>能进入主要发行版的作品比不能进入的好，在所有主要发行版中都包含的作品最令人尊敬</li>
+<li>‘使用’是最真实的赞美，类别杀手比同类竞争者好。</li>
+<li>相比那些只挑有趣和简单工作的人，长期致力于艰苦和乏味工作（如调试、写文档）的人更令人钦佩</li>
+<li><p>重要的功能扩展比低层次的修补好</p>
+<p> 拥有全新‘品牌标识’的工作比为已有品牌增添功能更能吸引注意力。</p>
+</li>
+</ol>
+<h2 id="项目组织结构和所有权"><a href="#项目组织结构和所有权" class="headerlink" title="项目组织结构和所有权"></a>项目组织结构和所有权</h2><blockquote>
+<p><strong>子系统所有者</strong></p>
+<p>一个合作开发者在承担起维护某个子系统的责任后，通常有机会掌控子系统及其对外接口的实现，其决策仅受项目领导人的修正。</p>
+</blockquote>
+<pre><code>习惯上，如果项目有合作开发者，‘独裁者’或项目领导人应该在关键决策上征询合作开发者的意见，尤其当决策关乎某个合作开发者所“拥有”（也即投入了时间并为之负责）的子系统时，一个有智慧的领导者，会认识到项目内部财产边界的作用，不会轻易干扰或推翻子系统所有者做出的决定。
+</code></pre><blockquote>
+<p>一些非常大型的项目则完全抛弃了善意独裁者模型，其做法是将合作开发者转为投票委员，或是在资深合作开发者内部轮流掌权。</p>
+</blockquote>
+<p>然而这些组织形式非常复杂，并被认为是不稳定和运行困难的。</p>
+<h2 id="冲突和冲突的解决"><a href="#冲突和冲突的解决" class="headerlink" title="冲突和冲突的解决"></a>冲突和冲突的解决</h2><blockquote>
+<p>设计权的分布和所有权的分散会导致项目角色复杂性的增加。</p>
+</blockquote>
+<p>优点：有效激励分配机制<br>缺点：稀释了项目领导者的权利，稀释了领导者平息潜在冲突的权利。</p>
+<p><strong>解决冲突的方法</strong></p>
+<ul>
+<li>责任背后是权利：有关设计的技术争议很少真的引起严重冲突，可由领土规则解决，即责任背后是权利。</li>
+<li>资深者胜：如果两个或更多个贡献者有分歧，该分歧在客观上很难解决，并且谁也不拥有该分歧的领土权，那么在整个项目中投入工作最多的一方胜出。</li>
+<li><p>其他情况，由项目领导人来决断。</p>
+<p>若想让这些冲突解决机制生效，需要整个黑客社区愿意执行它们，唯一可用的执行机制是“批判”和“放逐”<br>即：公开谴责那些破坏习俗的人，并拒绝和他们再次合作。</p>
+</li>
+</ul>
+<h2 id="文化移入及学术界关联"><a href="#文化移入及学术界关联" class="headerlink" title="文化移入及学术界关联"></a>文化移入及学术界关联</h2><blockquote>
+<p>黑客界多数准则都是通过事例来传承的，很多黑客习俗都是自组织的。</p>
+</blockquote>
+<h2 id="礼物胜过交换"><a href="#礼物胜过交换" class="headerlink" title="礼物胜过交换"></a>礼物胜过交换</h2><blockquote>
+<p>基于声誉竞争的礼物文化可能是通过合作产生（和检验）高质量创造性工作的全世界范围内的最佳方法。</p>
+</blockquote>
+<p><strong>获取最高软件生产力的药方</strong></p>
+<pre><code>如果你想获得最有效率的产品，你必须放弃促进程序员生产力。
+做好他们的后勤，让他们自己做主，并忘掉最后期限。
+在传统的管理者看来，这种几近疯狂的宽容注定失败----但它的确有效，使用这种方法，开源文化正势如破竹的痛击着它的对手。
+</code></pre><h2 id="结论：从习惯到习惯法"><a href="#结论：从习惯到习惯法" class="headerlink" title="结论：从习惯到习惯法"></a>结论：从习惯到习惯法</h2><h1 id="魔法锅"><a href="#魔法锅" class="headerlink" title="魔法锅"></a>魔法锅</h1><blockquote>
+<p>礼物文化：通过送出礼物而竞争社会地位</p>
+</blockquote>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/08/10/<TheCathedral&TheBazaar>ReadingNotes/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/08/10/<TheCathedral&TheBazaar>ReadingNotes/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

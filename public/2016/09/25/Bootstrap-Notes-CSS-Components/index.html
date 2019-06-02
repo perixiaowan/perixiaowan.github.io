@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Bootstrap-Notes-组件（1） | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0.题记绝大部份的网页需要利用框架才能构建出绚丽的页面；Bootstrap的组件包括20种。 具体组件名称请参阅： 1.Glyphicons 字体图标 源码文件：glyphicons.less. 包括200个来自 Glyphicon Halflings 的字体图标。  使用方法通过使用CSS3中的@font-face特性来设置字体，通过它可以将服务器上的字体设置为Web页面字体，且可以完全兼容所有">
+<meta name="keywords" content="Bootstrap,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap-Notes-组件（1）">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/09/25/Bootstrap-Notes-CSS-Components/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="0.题记绝大部份的网页需要利用框架才能构建出绚丽的页面；Bootstrap的组件包括20种。 具体组件名称请参阅： 1.Glyphicons 字体图标 源码文件：glyphicons.less. 包括200个来自 Glyphicon Halflings 的字体图标。  使用方法通过使用CSS3中的@font-face特性来设置字体，通过它可以将服务器上的字体设置为Web页面字体，且可以完全兼容所有">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-09-25T09:22:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bootstrap-Notes-组件（1）">
+<meta name="twitter:description" content="0.题记绝大部份的网页需要利用框架才能构建出绚丽的页面；Bootstrap的组件包括20种。 具体组件名称请参阅： 1.Glyphicons 字体图标 源码文件：glyphicons.less. 包括200个来自 Glyphicon Halflings 的字体图标。  使用方法通过使用CSS3中的@font-face特性来设置字体，通过它可以将服务器上的字体设置为Web页面字体，且可以完全兼容所有">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Bootstrap-Notes-组件（1）</strong>
+            </h1>
+            
+                <h2>性躁心粗者，一事无成；心平气和者，百福自集。</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-09-25</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/bootstrap/">Bootstrap</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/前端/">前端</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="0-题记"><a href="#0-题记" class="headerlink" title="0.题记"></a>0.题记</h1><p>绝大部份的网页需要利用框架才能构建出绚丽的页面；Bootstrap的组件包括20种。</p>
+<p>具体组件名称请参阅：<a href="http://www.liuxiaowan.com/2016/09/07/Bootstrap-Notes-Structure/" target="_blank" rel="noopener"></a></p>
+<h1 id="1-Glyphicons-字体图标"><a href="#1-Glyphicons-字体图标" class="headerlink" title="1.Glyphicons 字体图标"></a>1.Glyphicons 字体图标</h1><hr>
+<p><strong>源码文件</strong>：glyphicons.less.</p>
+<p>包括200个来自 Glyphicon Halflings 的字体图标。</p>
+<hr>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>通过使用CSS3中的<code>@font-face</code>特性来设置字体，通过它可以将服务器上的字体设置为Web页面字体，且可以完全兼容所有浏览器。</p>
+<hr>
+<p>原理：利用特殊的文字在特殊的字体上显示特殊的效果，比如A在特殊字体上显示成圆圈的形式。且可以通过<code>color:#ff0</code>设置图标的颜色。</p>
+<hr>
+<ul>
+<li><p>第一种方式：</p>
+<p>  <i class="glyphicon glyphicon-search"></i> 搜索 </p>
+</li>
+<li><p>第二种方式： </p>
+<p>  <span class="glyphicon glyphicon-search"></span> 搜索 </p>
+</li>
+</ul>
+<p>⚠️注意：</p>
+<ol>
+<li>为设置正确补白，图标和文本之间添加一个空格；</li>
+<li>不要和其他组件混用；</li>
+<li>图标类只应用在不包含任何文本内容或子元素的元素上；</li>
+</ol>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul>
+<li>编辑器中的小图标 </li>
+<li>button元素</li>
+<li>nav列表元素</li>
+<li>表单的输入框前面或后面加上一个小图标：只需在<code>input-group-addon</code>样式元素内应用一个span或i元素即可</li>
+</ul>
+<p><strong>实例（在输入框前添加图标）：</strong></p>
+<pre><code>&lt;div class=&quot;control-group&quot;&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;span class=&quot;input-group-addon&quot;&gt;
+                &lt;span class=&quot;glyphicon glyphicon-envelope&quot;&gt;&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;input class=&quot;col col-lg-4 form-control&quot; id=&quot;inputIcon&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p><strong>如果要在普通文本上显示这些特殊字符，需要在字符前添加<code>&amp;#x</code></strong></p>
+<pre><code>&lt;span class=&quot;glyphicon&quot;&gt;&amp;#xe001&lt;/span&gt;    //显示玻璃杯
+</code></pre><h2 id="各种格式字体的说明"><a href="#各种格式字体的说明" class="headerlink" title="各种格式字体的说明"></a>各种格式字体的说明</h2><p>不同版本的浏览器支持不同的字体，为了让浏览器全部兼容，需要进行特殊设置，其中，涉及到<code>format</code>的问题。</p>
+<ul>
+<li>TureType(.ttf)格式：是Windows和Mac中最常用字体。不能被网站优化；</li>
+<li>OpenType(.otf)格式：一种原始的字体格式。内置在<code>TureType</code>的基础上；</li>
+<li>Web Open Font Format(.woff)格式：是Web字体中最佳格式。是一个开放的TureType／OpenType的压缩版本；</li>
+<li>Embedded Open Type(.eot):IE专用字体。可以从TureType创建此格式字体；</li>
+<li>SVG(.svg)格式:基于SVG字体渲染的一种格式。</li>
+</ul>
+<h1 id="2-下拉菜单"><a href="#2-下拉菜单" class="headerlink" title="2.下拉菜单"></a>2.下拉菜单</h1><blockquote>
+<p><strong>源码文件</strong>：dropdowns.less</p>
+</blockquote>
+<p>各种交互状态下的菜单展示需要和JavaScript的Dropdown插件配合才能使用。</p>
+<h2 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p>下拉菜单正常显示<br> 在该父元素上设定<code>posision:relative;</code>或直接再加上<code>.dropdown</code>样式。</p>
+<p> <code>&lt;div class=&quot;dropdown&quot;&gt;...&lt;/div&gt;</code></p>
+<p> 或</p>
+<p> <code>&lt;div style＝&quot;posision:relative;&quot;&gt;...&lt;/div&gt;</code></p>
+</li>
+<li><p>分割符</p>
+<p> <code>&lt;li role=&quot;presentation&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;</code></p>
+</li>
+<li><p>菜单标题的功能（类似于分组标题）</p>
+<p> <code>&lt;li role=&quot;presentation&quot; class=&quot;dropdown-header&quot;&gt;&lt;/li&gt;</code></p>
+</li>
+<li><p>菜单相对于父容器右对齐</p>
+<p> 为 <code>.dropdown-menu</code> 添加 <code>.dropdown-menu-right</code> 类可以让菜单右对齐。<br> <code>&lt;ul class=&quot;dropdown-menu dropdown-menu-right&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;...&lt;/ul&gt;</code></p>
+</li>
+<li><p>设置子菜单向上弹出：将<code>dropdown</code>样式换成<code>dropup</code></p>
+</li>
+<li>新版子菜单功能删除了，如果需要可以在自定义文件中添加老版相关子菜单的css代码即可。</li>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><pre><code>&lt;div class=&quot;dropdown&quot;&gt;
+  &lt;button class=&quot;btn btn-default dropdown-toggle&quot; type=&quot;button&quot; id=&quot;dropdownMenu1&quot; data-toggle=&quot;dropdown&quot;&gt;
+    Dropdown
+    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdownMenu1&quot;&gt;
+    &lt;li role=&quot;presentation&quot;&gt;&lt;a role=&quot;menuitem&quot; tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;&lt;a role=&quot;menuitem&quot; tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;&lt;a role=&quot;menuitem&quot; tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;&lt;a role=&quot;menuitem&quot; tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><h1 id="3-按钮组"><a href="#3-按钮组" class="headerlink" title="3.按钮组"></a>3.按钮组</h1><blockquote>
+<p><strong>源码文件</strong>：button-groups.less</p>
+</blockquote>
+<h2 id="使用方法-2"><a href="#使用方法-2" class="headerlink" title="使用方法"></a>使用方法</h2><pre><code>多个按钮外部使用一个容器元素（比如div），然后在容器上应用`.btn-group`样式即可。
+</code></pre><p><strong>提示</strong></p>
+<blockquote>
+<p>当为<code>.btn-group</code>中的元素应用工具提示或弹出框时，必须指定 <code>container: &#39;body&#39;</code> 选项，这样可以避免不必要的副作用</p>
+</blockquote>
+<h2 id="按钮工具栏"><a href="#按钮工具栏" class="headerlink" title="按钮工具栏"></a>按钮工具栏</h2><pre><code>&lt;div class=&quot;btn-toolbar&quot; role=&quot;toolbar&quot;&gt;
+  &lt;div class=&quot;btn-group&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;btn-group&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;btn-group&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><p>只要给 <code>.btn-group</code> 加上 <code>.btn-group-*</code> 类，为按钮组中的每个按钮都调整尺寸了。</p>
+<h2 id="垂直排列"><a href="#垂直排列" class="headerlink" title="垂直排列"></a>垂直排列</h2><pre><code>&lt;div class=&quot;btn-group-vertical&quot;&gt;
+  ...
+&lt;/div&gt;
+</code></pre><h2 id="两端对齐排列的按钮组（自适应分组）"><a href="#两端对齐排列的按钮组（自适应分组）" class="headerlink" title="两端对齐排列的按钮组（自适应分组）"></a>两端对齐排列的按钮组（自适应分组）</h2><p><strong>关于<code>&lt;button&gt;</code>和<code>&lt;a&gt;</code>元素</strong></p>
+<pre><code>只须将一系列 .btn 元素包裹到 `.btn-group.btn-group-justified` 中即可。
+
+该样式仅完美的支持a元素的按钮，`button`元素支持不太好。
+</code></pre><p><strong>原理</strong></p>
+<pre><code>利用了CSS的`display:table`和`display:table-cell`特性，能够解决所有在使用绝对定位和浮动定位进行多列布局时所遇到的问题。
+</code></pre>
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/09/25/Bootstrap-Notes-CSS-Components/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/09/25/Bootstrap-Notes-CSS-Components/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

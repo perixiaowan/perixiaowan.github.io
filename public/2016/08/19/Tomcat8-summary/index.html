@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Tomcat8知识要点的总结 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 基础知识Tomcat关键目录 /bin :存放用于启动及关闭的文件，以及其他一些脚本 /conf ：配置文件及相关的DTD。最重要的文件是server.xml，这是容器的主配置文件。 /log: 日志文件 /webapps: 存放Web应用的相关文件  配置Tomcat 配置文件中的所有信息在启动时才被读取，改动文件后，必须重启容器才能生效。">
+<meta name="keywords" content="原创,服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat8知识要点的总结">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/08/19/Tomcat8-summary/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="1 基础知识Tomcat关键目录 /bin :存放用于启动及关闭的文件，以及其他一些脚本 /conf ：配置文件及相关的DTD。最重要的文件是server.xml，这是容器的主配置文件。 /log: 日志文件 /webapps: 存放Web应用的相关文件  配置Tomcat 配置文件中的所有信息在启动时才被读取，改动文件后，必须重启容器才能生效。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-06-08T03:45:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat8知识要点的总结">
+<meta name="twitter:description" content="1 基础知识Tomcat关键目录 /bin :存放用于启动及关闭的文件，以及其他一些脚本 /conf ：配置文件及相关的DTD。最重要的文件是server.xml，这是容器的主配置文件。 /log: 日志文件 /webapps: 存放Web应用的相关文件  配置Tomcat 配置文件中的所有信息在启动时才被读取，改动文件后，必须重启容器才能生效。">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Tomcat8知识要点的总结</strong>
+            </h1>
+            
+                <h2>你可以用笑容改变别人，但不要让别人改变了你的笑容</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-08-19</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/原创/">原创</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/服务器/">服务器</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1 基础知识"></a>1 基础知识</h1><h2 id="Tomcat关键目录"><a href="#Tomcat关键目录" class="headerlink" title="Tomcat关键目录"></a>Tomcat关键目录</h2><ul>
+<li>/bin :存放用于启动及关闭的文件，以及其他一些脚本</li>
+<li>/conf ：配置文件及相关的DTD。最重要的文件是server.xml，这是容器的主配置文件。</li>
+<li>/log: 日志文件</li>
+<li>/webapps: 存放Web应用的相关文件</li>
+</ul>
+<h2 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h2><blockquote>
+<p>配置文件中的所有信息在启动时才被读取，改动文件后，必须重启容器才能生效。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="解决方案和帮助手册"><a href="#解决方案和帮助手册" class="headerlink" title="解决方案和帮助手册"></a>解决方案和帮助手册</h2><pre><code>1. 当前文档
+完整读完Apache Tomcat提供的帮助文档，可以省下很多时间和精力。参考链接[http://tomcat.apache.org/tomcat-8.0-doc/index.html](http://tomcat.apache.org/tomcat-8.0-doc/index.html &quot;Apache Tomcat8帮助文档&quot;)
+
+2. Tomcat FAQ
+参考链接[http://wiki.apache.org/tomcat/FAQ](http://wiki.apache.org/tomcat/FAQ &quot;Tomcat FAQ&quot;)
+
+3. Tomcat WIKI
+参考链接：[http://wiki.apache.org/tomcat/](http://wiki.apache.org/tomcat/ &quot;Tomcat WIKI&quot;)
+
+4. jGuru上的Tomcat FAQ
+参考链接：[http://www.jguru.com/faq/java-tools/tomcat](http://www.jguru.com/faq/java-tools/tomcat &quot;jGuru上的Tomcat FAQ&quot;)
+
+5. Tomcat邮件列表：Google搜索
+6. Tomcat用户邮件列表
+7. Tomcat开发者邮件列表：该邮件列表是针对Tomcat自身的开发研讨而专门设立的。
+</code></pre><h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2 安装"></a>2 安装</h1><pre><code>安装方面重要文档：RUNNING.txt
+</code></pre><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><blockquote>
+<p>只有当Tomcat运行时，Tomcat的管理Web应用工具才能使用</p>
+</blockquote>
+<h1 id="3-第一个应用"><a href="#3-第一个应用" class="headerlink" title="3 第一个应用"></a>3 第一个应用</h1><h1 id="4-Tomcat-Web应用部署"><a href="#4-Tomcat-Web应用部署" class="headerlink" title="4 Tomcat Web应用部署"></a>4 Tomcat Web应用部署</h1><h2 id="部署web应用"><a href="#部署web应用" class="headerlink" title="部署web应用"></a>部署web应用</h2><ol>
+<li>静态部署，启动Tomcat之前安装web应用</li>
+<li><p>动态部署，使用Tomcat Manager应用直接操控已经部署好的Web应用</p>
+<p> Tomcat Manager是一种能交互使用的web应用，还可以利用编程的方式（通过基于URL的API）来部署并管理Web应用</p>
+</li>
+</ol>
+<ul>
+<li>Apache Tomcat Maven Plugin工程提供了与Apache Maven的集成</li>
+<li>客户端配置器（TCD）：通过命令行来使用，提供一些额外的功能，比如：编译与验证Web应用，以及将应用打包成Web应用资源（WAR）文件</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用Tomcat Manager部署应用需要进行一些配置，可以参考 Tomcat Manager手册<a href="http://tomcat.apache.org/tomcat-8.0-doc/manager-howto.html" title="Tomcat Manager手册" target="_blank" rel="noopener">http://tomcat.apache.org/tomcat-8.0-doc/manager-howto.html</a></p>
+<p>使用客户端部署器进行部署，请参考链接<a href="http://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html#Deploying_using_the_Client_Deployer_Package" target="_blank" rel="noopener">http://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html#Deploying_using_the_Client_Deployer_Package</a></p>
+<h2 id="关于上下文"><a href="#关于上下文" class="headerlink" title="关于上下文"></a>关于上下文</h2><blockquote>
+<p>上下文在Tomcat中就是Web应用的意思<br>上下文描述符文件是一个XML文件；</p>
+</blockquote>
+<pre><code>**上下文描述符文件位置**
+1. $CATALINA_BASE/conf/[enginename]/[hostname]/[webappname].xml
+2. $CATALINA_BASE/webapps/[webappname]/META-INF/context.xml
+
+如果某个web应用没有相应的上下文描述符文件，Tomcat就会使用默认值配置该应用
+</code></pre><h2 id="在Tomcat启动时进行部署"><a href="#在Tomcat启动时进行部署" class="headerlink" title="在Tomcat启动时进行部署"></a>在Tomcat启动时进行部署</h2><ul>
+<li>需先把web应用静态的部署到Tomcat中，然后在重启</li>
+<li>部署位置由appBase目录属性决定，只有当主机deployOnStartup属性为true时，应用才会在Tomcat启动时进行自动部署</li>
+</ul>
+<p>部署具体步骤：</p>
+<ol>
+<li>先部署上下文描述文件</li>
+<li>再对没被任何上下文描述符文件引用过的膨胀Web应用进行部署，如果在appBase中已存在与这种应用有关的.war文件，且要比膨胀应用文件更新，则会将膨胀应用文件夹清楚，转而从.war文件中部署web应用。</li>
+<li>部署.war文件</li>
+</ol>
+<blockquote>
+<p><strong>备注</strong> 膨胀Web应用是未经压缩的Web应用资源文件</p>
+</blockquote>
+<h2 id="在运行中的Tomcat服务器上进行动态应用部署"><a href="#在运行中的Tomcat服务器上进行动态应用部署" class="headerlink" title="在运行中的Tomcat服务器上进行动态应用部署"></a>在运行中的Tomcat服务器上进行动态应用部署</h2><ul>
+<li>如主机的autoDeploy属性为true，主机会在必要时尝试动态部署并更新Web应用</li>
+<li>如果unpackWARs属性设为false，则WAR文件不会膨胀，这是Web应用将部署为一个压缩文档。</li>
+<li>如果/WEB-INF/web.xml文件更新，则重新加载Web应用</li>
+<li>如果用来部署Web应用的上下文描述符更新，则重新部署该Web应用</li>
+</ul>
+<h2 id="使用Tomcat-Manager进行部署"><a href="#使用Tomcat-Manager进行部署" class="headerlink" title="使用Tomcat Manager进行部署"></a>使用Tomcat Manager进行部署</h2><h2 id="使用客户端部署进行部署"><a href="#使用客户端部署进行部署" class="headerlink" title="使用客户端部署进行部署"></a>使用客户端部署进行部署</h2><p>暂略</p>
+<h1 id="5-Tomcat-Manager"><a href="#5-Tomcat-Manager" class="headerlink" title="5 Tomcat Manager"></a>5 Tomcat Manager</h1><p>参考文献：《Tomcat8权威指南（极客学院）》</p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/08/19/Tomcat8-summary/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/08/19/Tomcat8-summary/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

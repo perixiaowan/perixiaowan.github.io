@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python笔记（三）-数字 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数字常量 十六进制：以0x或0X开头 八进制：以数字0o或o0开头 hex(I),oct(I),bin(I)：把一个整数分别转换为十六进制，八进制，二进制 int(str,base)：根据每个给定的进制把一个运行时字符串转换为一个整数 complex(real,imag)：创建复数 浮点数无法精确的表现一些值：交互提示模式下结果的自动回显会比打印语句显示更多的数字位数。 &amp;gt;&amp;gt;&amp;gt;">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python笔记（三）-数字">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/07/26/python-3-digit/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="数字常量 十六进制：以0x或0X开头 八进制：以数字0o或o0开头 hex(I),oct(I),bin(I)：把一个整数分别转换为十六进制，八进制，二进制 int(str,base)：根据每个给定的进制把一个运行时字符串转换为一个整数 complex(real,imag)：创建复数 浮点数无法精确的表现一些值：交互提示模式下结果的自动回显会比打印语句显示更多的数字位数。 &amp;gt;&amp;gt;&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-07-29T05:53:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python笔记（三）-数字">
+<meta name="twitter:description" content="数字常量 十六进制：以0x或0X开头 八进制：以数字0o或o0开头 hex(I),oct(I),bin(I)：把一个整数分别转换为十六进制，八进制，二进制 int(str,base)：根据每个给定的进制把一个运行时字符串转换为一个整数 complex(real,imag)：创建复数 浮点数无法精确的表现一些值：交互提示模式下结果的自动回显会比打印语句显示更多的数字位数。 &amp;gt;&amp;gt;&amp;gt;">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python笔记（三）-数字</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-07-26</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="数字常量"><a href="#数字常量" class="headerlink" title="数字常量"></a>数字常量</h2><ul>
+<li>十六进制：以<code>0x</code>或<code>0X</code>开头</li>
+<li>八进制：以数字<code>0o</code>或<code>o0</code>开头</li>
+<li><code>hex(I),oct(I),bin(I)</code>：把一个整数分别转换为十六进制，八进制，二进制</li>
+<li><code>int(str,base)</code>：根据每个给定的进制把一个运行时字符串转换为一个整数</li>
+<li><code>complex(real,imag)</code>：创建复数</li>
+<li><p>浮点数无法精确的表现一些值：交互提示模式下结果的自动回显会比打印语句显示更多的数字位数。</p>
+<pre><code>&gt;&gt;&gt; num = 1/3.0
+&gt;&gt;&gt; num
+0.3333333333333333
+&gt;&gt;&gt; print(num)
+0.3333333333333333
+&gt;&gt;&gt; &apos;%e&apos;%num
+&apos;3.333333e-01&apos;
+&gt;&gt;&gt; &apos;%4.2f&apos;%num
+&apos;0.33&apos; 
+</code></pre></li>
+<li><code>repr</code>把任意对象变换成它们的字符串表示</li>
+</ul>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><ul>
+<li><code>／</code>：真除法（无论任何类型都会保持小数部分）</li>
+<li><p><code>//</code>：Floor除法，省略掉结果的小数部分。</p>
+<pre><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.floor(2.5)
+2
+&gt;&gt;&gt; math.floor(-2.5)
+-3
+&gt;&gt;&gt; math.trunc(2.5)
+2
+&gt;&gt;&gt; math.trunc(-2.5)
+-2
+</code></pre></li>
+</ul>
+<h2 id="十六进制，八进制和二进制记数"><a href="#十六进制，八进制和二进制记数" class="headerlink" title="十六进制，八进制和二进制记数"></a>十六进制，八进制和二进制记数</h2><pre><code>//八进制-&gt;十进制
+&gt;&gt;&gt; 0o1,0o20,0o377
+(1, 16, 255)
+//十六进制-&gt;十进制
+&gt;&gt;&gt; 0x01,0x10,0xFF
+(1, 16, 255)
+//二进制-&gt;十进制
+&gt;&gt;&gt; 0b1,0b10000,0b11111111
+(1, 16, 255)
+
+//十进制-&gt;八进制，十六进制，二进制
+&gt;&gt;&gt; oct(64),hex(64),bin(64)
+(&apos;0o100&apos;, &apos;0x40&apos;, &apos;0b1000000&apos;)
+
+&gt;&gt;&gt; int(&apos;64&apos;),int(&apos;100&apos;,8),int(&apos;40&apos;,16),int(&apos;1000000&apos;,2)
+(64, 64, 64, 64)
+&gt;&gt;&gt; int(&apos;0x40&apos;,16),int(&apos;0b1000000&apos;,2)
+(64, 64)
+
+&gt;&gt;&gt; eval(&apos;64&apos;),eval(&apos;0o100&apos;),eval(&apos;0x40&apos;),eval(&apos;0b1000000&apos;)
+(64, 64, 64, 64)
+
+&gt;&gt;&gt; &apos;{0:o},{1:x},{2:b}&apos;.format(64,64,64)
+&apos;100,40,1000000&apos;
+
+&gt;&gt;&gt; &apos;%o,%x,%X&apos; %(64,255,255)
+&apos;100,ff,FF&apos;
+</code></pre><ul>
+<li><code>bit_length</code>函数：允许查询以二进制表示一个数字的值所需的位数。通过<code>bin</code>函数和内置函数<code>len</code>得到二进制的字符串的长度，再减去2，可以得到同样的效果，但效果低。</li>
+</ul>
+<h2 id="内置的数学工具"><a href="#内置的数学工具" class="headerlink" title="内置的数学工具"></a>内置的数学工具</h2><pre><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; 
+&gt;&gt;&gt; math.pi,math.e
+(3.141592653589793, 2.718281828459045)
+&gt;&gt;&gt; math.sin(2*math.pi/180)
+0.03489949670250097
+&gt;&gt;&gt; math.sqrt(144),math.sqrt(2)
+(12.0, 1.4142135623730951)
+&gt;&gt;&gt; pow(2,4),2**4
+(16, 16)
+&gt;&gt;&gt; abs(-42.0),sum((1,2,3,4))
+(42.0, 10)
+&gt;&gt;&gt; min(3,1,2,4),max(3,1,2,4)
+(1, 4)
+
+&gt;&gt;&gt; math.floor(2.567),math.floor(-2.567)
+(2, -3)
+&gt;&gt;&gt; math.trunc(2.567),math.trunc(-2.567)
+(2, -2)
+&gt;&gt;&gt; int(2.567),int(-2.567)
+(2, -2)
+&gt;&gt;&gt; round(2.567),round(-2.467),round(2.567,2)
+(3, -2, 2.57)
+
+&gt;&gt;&gt; &apos;%.1f&apos; % 2.567,&apos;{0:.2f}&apos;.format(2.567)
+(&apos;2.6&apos;, &apos;2.57&apos;)
+</code></pre><h3 id="计算平方根的3种方式"><a href="#计算平方根的3种方式" class="headerlink" title="计算平方根的3种方式"></a>计算平方根的3种方式</h3><pre><code>math.sqrt(144)
+144 ** .5
+pow(144,.5)
+</code></pre><ul>
+<li>python的命名空间对应于<code>builtins</code></li>
+</ul>
+<h2 id="random模块"><a href="#random模块" class="headerlink" title="random模块"></a>random模块</h2><pre><code>&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.random()
+0.5370569315252408
+&gt;&gt;&gt; random.randint(1,10)
+5
+&gt;&gt;&gt; random.choice([&apos;Life of Brian&apos;,&apos;Holy Grail&apos;,&apos;Meaning of Life&apos;])
+&apos;Meaning of Life&apos;
+</code></pre><h2 id="小数数字-amp-设置全局精度"><a href="#小数数字-amp-设置全局精度" class="headerlink" title="小数数字&amp;设置全局精度"></a>小数数字&amp;设置全局精度</h2><ul>
+<li><p>小数对象是有固定的位数和小数点的浮点数</p>
+<pre><code>&gt;&gt;&gt; import decimal
+&gt;&gt;&gt; decimal.getcontext().prec=4
+&gt;&gt;&gt; decimal.Decimal(1)/decimal.Decimal(7)
+Decimal(&apos;0.1429&apos;)
+</code></pre></li>
+</ul>
+<h2 id="分数类型"><a href="#分数类型" class="headerlink" title="分数类型"></a>分数类型</h2><pre><code>&gt;&gt;&gt; from fractions import Fraction
+&gt;&gt;&gt; x = Fraction(1,3)
+&gt;&gt;&gt; y = Fraction(4,6)
+&gt;&gt;&gt; x
+Fraction(1, 3)
+&gt;&gt;&gt; y
+Fraction(2, 3)
+&gt;&gt;&gt; print(y)
+2/3
+
+&gt;&gt;&gt; Fraction(.25)
+Fraction(1, 4)
+
+&gt;&gt;&gt; 0.1+0.1+0.1-0.3
+5.551115123125783e-17
+&gt;&gt;&gt; from fractions import Fraction
+&gt;&gt;&gt; Fraction(1,10)+Fraction(1,10)+Fraction(1,10) - Fraction(3,10)
+Fraction(0, 1)
+&gt;&gt;&gt; from decimal import Decimal
+&gt;&gt;&gt; Decimal(&apos;0.1&apos;)+Decimal(&apos;0.1&apos;)+Decimal(&apos;0.1&apos;)-Decimal(&apos;0.3&apos;)
+Decimal(&apos;0.0&apos;)
+</code></pre><h2 id="分数转换和混合类型"><a href="#分数转换和混合类型" class="headerlink" title="分数转换和混合类型"></a>分数转换和混合类型</h2><ul>
+<li><p>浮点数转换成分数<code>as_integer_ratio</code> <code>Fraction.from_float</code></p>
+<pre><code>&gt;&gt;&gt; (2.5).as_integer_ratio()
+(5, 2)    
+
+&gt;&gt;&gt; Fraction.from_float(1.75)
+Fraction(7, 4)
+</code></pre></li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ul>
+<li>唯一的，不可变的对象的一个无序集合</li>
+<li>可以迭代，可以根据需要增长或缩短</li>
+<li>可以包含各种对象类型</li>
+<li><p>集合初始化的几种方法：</p>
+<pre><code>&gt;&gt;&gt; set([1,2,3,4])
+{1, 2, 3, 4}
+&gt;&gt;&gt; set(&apos;spam&apos;)
+{&apos;p&apos;, &apos;a&apos;, &apos;m&apos;, &apos;s&apos;}
+&gt;&gt;&gt; {1,2,3,4}
+{1, 2, 3, 4}
+&gt;&gt;&gt; S={&apos;s&apos;,&apos;p&apos;,&apos;a&apos;,&apos;m&apos;}
+&gt;&gt;&gt; S.add(&apos;alot&apos;)    
+&gt;&gt;&gt; S
+{&apos;p&apos;, &apos;alot&apos;, &apos;a&apos;, &apos;m&apos;, &apos;s&apos;}
+</code></pre></li>
+<li><p>集合数学操作</p>
+<pre><code>&gt;&gt;&gt; S1 = {1,2,3,4}
+&gt;&gt;&gt; S1 &amp; {1,3}
+{1, 3}
+&gt;&gt;&gt; {1,5,3,6}|S1
+{1, 2, 3, 4, 5, 6}
+&gt;&gt;&gt; S1- {1,3,4}
+{2}
+&gt;&gt;&gt; S1 &gt; {1,3}
+True
+
+&gt;&gt;&gt; S1
+{1, 2, 3, 4}
+&gt;&gt;&gt; S1.intersection((1,3))
+{1, 3}
+
+&gt;&gt;&gt; S1.issubset(range(-1,1))
+False
+&gt;&gt;&gt; S1.issubset(range(-1,8))
+True
+</code></pre></li>
+<li><p>python中{}仍然是一个字典，如需表示空的集合，使用<code>set</code>函数</p>
+</li>
+<li>集合只能包含不可变的对象类型，因此，列表和字典不能嵌入到集合中。</li>
+</ul>
+<h2 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h2><pre><code>&gt;&gt;&gt; type(True)
+&lt;type &apos;bool&apos;&gt;
+&gt;&gt;&gt; isinstance(True,int)
+True
+&gt;&gt;&gt; True==1
+True
+&gt;&gt;&gt; True is 1
+False
+&gt;&gt;&gt; True or False
+True
+&gt;&gt;&gt; True + 4
+5
+</code></pre><h2 id="数字扩展（NumPy）"><a href="#数字扩展（NumPy）" class="headerlink" title="数字扩展（NumPy）"></a>数字扩展（NumPy）</h2><ul>
+<li>NumbPy： Python扩展，提供了高级的数字编程工具，例如：矩阵数据类型，向量处理和高级的计算库</li>
+<li>可以通过Python的<code>PyPI</code>站点找到对数字编程的其他支持。</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/07/26/python-3-digit/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/07/26/python-3-digit/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Linux中对limits.conf配置文件的优化 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="引言Linux中所有东西都是文件，系统配置的最大打开文件数以及单个进程能够打开的最大文件数都是由linux文件句柄限制的，默认一般都是1024,生产服务器用其实很容易就达到这个数量。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux中对limits.conf配置文件的优化">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/06/22/2017-06-linux-limitsconf-optimize/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="引言Linux中所有东西都是文件，系统配置的最大打开文件数以及单个进程能够打开的最大文件数都是由linux文件句柄限制的，默认一般都是1024,生产服务器用其实很容易就达到这个数量。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-07-13T14:10:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux中对limits.conf配置文件的优化">
+<meta name="twitter:description" content="引言Linux中所有东西都是文件，系统配置的最大打开文件数以及单个进程能够打开的最大文件数都是由linux文件句柄限制的，默认一般都是1024,生产服务器用其实很容易就达到这个数量。">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Linux中对limits.conf配置文件的优化</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-06-22</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/linux/">Linux</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><em>Linux</em>中所有东西都是文件，系统配置的最大打开文件数以及单个进程能够打开的最大文件数都是由<em>linux</em>文件句柄限制的，默认一般都是<em>1024</em>,生产服务器用其实很容易就达到这个数量。</p>
+<a id="more"></a>
+<h2 id="limits-conf配置文件"><a href="#limits-conf配置文件" class="headerlink" title="limits.conf配置文件"></a><em>limits.conf</em>配置文件</h2><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><code>limits.conf</code>文件实际是<code>Linux PAM</code>（插入式认证模块，<code>Pluggable Authentication Modules</code>中 <code>pam_limits.so</code> 的配置文件），突破系统的默认限制，对系统访问资源有一定保护作用，当用户访问服务器时，服务程序将请求发送到PAM模块，PAM模块根据服务名称在<code>/etc/pam.d</code>目录下选择一个对应的服务文件，然后根据服务文件的内容选择具体的PAM模块进行处理。该文件是针对用户进行限制的。</p>
+<h3 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h3><pre><code>&lt;domain&gt;  &lt;type&gt;  &lt;item&gt;  &lt;value&gt;
+</code></pre><p><strong>1. domain</strong></p>
+<ul>
+<li>需要限制的用户名；</li>
+<li>需要限制的用户组，必须使用 @group 格式；</li>
+<li>通配符*，表示默认，意为限制所有用户；</li>
+<li>通配符%，使用%group 格式，限制匹配的用户组；</li>
+</ul>
+<p><strong>2. type</strong></p>
+<ul>
+<li>soft：强制软限制，即当前系统生效的设置值；</li>
+<li>hard：强制硬限制，表明系统中所能设定的最大值，soft 的限制不能比 hard 限制高；</li>
+<li><ul>
+<li>就表明同时设置了 soft 和 hard 的值；</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. item(可以是如下其中一项)</strong></p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>core</td>
+<td>限制内核文件的大小（limits the core file size(KB)）</td>
+</tr>
+<tr>
+<td>data</td>
+<td>最大数据大小（KB）(max data size)</td>
+</tr>
+<tr>
+<td>fsize</td>
+<td>最大文件大小（KB）(maximum filesize);</td>
+</tr>
+<tr>
+<td>memlock</td>
+<td>最大锁定的内存地址空间（max locked-in-memory address space(KB)）</td>
+</tr>
+<tr>
+<td>nofile</td>
+<td>打开文件的最大数目(max number of open files)</td>
+</tr>
+<tr>
+<td>rss</td>
+<td>最大持久设置大小(max resident set size(KB))</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>最大栈大小(max stack size(KB))</td>
+</tr>
+<tr>
+<td>cpu</td>
+<td>以分钟为单位的最大CPU时间(max CPU time(MIN))</td>
+</tr>
+<tr>
+<td>nproc</td>
+<td>进程最大数目(max number of processes)</td>
+</tr>
+<tr>
+<td>as</td>
+<td>地址空间限制(address space limit)</td>
+</tr>
+<tr>
+<td>maxlogins</td>
+<td>此用户允许登录的最大数目(max number of logins for this user)</td>
+</tr>
+<tr>
+<td>maxsyslogins</td>
+<td>此系统允许登陆的最大数目(max number of logins on the system)</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>用户程序运行的优先级(the priority to run user process with)</td>
+</tr>
+<tr>
+<td>locks</td>
+<td>此用户可以锁定的文件最大数目(max number of file locks the user can hold)</td>
+</tr>
+<tr>
+<td>sigpending</td>
+<td>等待信号的最大数目(max number of pending signals)</td>
+</tr>
+<tr>
+<td>msgqueue</td>
+<td>POSIX消息队列可占用的最大内存(max memory used by POSIX message queues(bytes))</td>
+</tr>
+<tr>
+<td>nice</td>
+<td>被允许的最大优先级(max nice priority allowed to raise to)</td>
+</tr>
+<tr>
+<td>rtprio</td>
+<td>最大实时优先级(max realtime priority)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h3><p><code>cat /etc/security/limits.conf</code></p>
+<pre><code>#*               soft    core            0
+#*               hard    rss             10000
+#@student        hard    nproc           20
+#@faculty        soft    nproc           20
+#@faculty        hard    nproc           50
+#ftp             hard    nproc           0
+#@student        -       maxlogins       4
+
+*              hard    nproc   16384
+*              soft    nofile  2048
+*              hard    nofile  65536
+</code></pre>
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/06/22/2017-06-linux-limitsconf-optimize/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/06/22/2017-06-linux-limitsconf-optimize/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>TensorFlowMNIST-1 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="==定义：== softmax模型可以用来给不同的对象分配概率。  W代表权重， b代表数字 i 类的偏置量，j 代表给定图片 x 的像素索引用于像素求和。  将上述证据转换成概率y。">
+<meta name="keywords" content="MachineLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlowMNIST-1">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/01/09/TensorFlowMNIST-1/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="==定义：== softmax模型可以用来给不同的对象分配概率。  W代表权重， b代表数字 i 类的偏置量，j 代表给定图片 x 的像素索引用于像素求和。  将上述证据转换成概率y。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist1.png">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist4.png">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/softmax-regression-scalargraph.png">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist10.png">
+<meta property="og:updated_time" content="2017-06-08T03:59:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlowMNIST-1">
+<meta name="twitter:description" content="==定义：== softmax模型可以用来给不同的对象分配概率。  W代表权重， b代表数字 i 类的偏置量，j 代表给定图片 x 的像素索引用于像素求和。  将上述证据转换成概率y。">
+<meta name="twitter:image" content="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>TensorFlowMNIST-1</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-01-09</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/machinelearning/">MachineLearning</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>==定义：== softmax模型可以用来给不同的对象分配概率。</p>
+<p><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist1.png" alt="对于给定的输入图片 x 它代表的是数字 i 的证据"></p>
+<p>W代表权重， b代表数字 i 类的偏置量，j 代表给定图片 x 的像素索引用于像素求和。</p>
+<p><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist4.png" alt="将上述证据转换成概率y"></p>
+<p>将上述证据转换成概率y。</p>
+<a id="more"></a>
+<h1 id="softmax回归-softmax-regression"><a href="#softmax回归-softmax-regression" class="headerlink" title="softmax回归(softmax regression)"></a>softmax回归(softmax regression)</h1><p><a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/mnist_beginners.html" target="_blank" rel="noopener">softmax回归</a></p>
+<h3 id="回归模型图示化："><a href="#回归模型图示化：" class="headerlink" title="回归模型图示化："></a>回归模型图示化：</h3><p><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/softmax-regression-scalargraph.png" alt="image"></p>
+<hr>
+<h1 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h1><p>一个入门级的计算机视觉数据集，它包含各种手写数字图片</p>
+<p><a href="http://colah.github.io/posts/2014-10-Visualizing-MNIST/" target="_blank" rel="noopener">Visualizing MNIST: An Exploration of Dimensionality Reduction</a></p>
+<p>==mnist==是一个轻量级的类。它以==Numpy数组==的形式存储着训练、校验和测试数据集。同时提供了一个函数，用于在迭代中获得==minibatch==。</p>
+<hr>
+<h1 id="示例目标"><a href="#示例目标" class="headerlink" title="示例目标"></a>示例目标</h1><p>将训练一个机器学习模型用于预测图片里面的数字</p>
+<h1 id="实现回归模型"><a href="#实现回归模型" class="headerlink" title="实现回归模型"></a>实现回归模型</h1><h2 id="NumPy函数"><a href="#NumPy函数" class="headerlink" title="NumPy函数"></a>NumPy函数</h2><blockquote>
+<p>把类似矩阵乘法这样的复杂运算使用其他外部语言实现</p>
+</blockquote>
+<h1 id="code"><a href="#code" class="headerlink" title="code"></a>code</h1><h2 id="实现回归模型-1"><a href="#实现回归模型-1" class="headerlink" title="实现回归模型"></a>实现回归模型</h2><p><a href="https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/tutorials/mnist/input_data.py" target="_blank" rel="noopener">input_data代码地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import input_data  </span><br><span class="line"></span><br><span class="line">import tensorflow as tf</span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;, one_hot=True)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(tf.float32, [None, 784])</span><br><span class="line">W = tf.Variable(tf.zeros([784,10]))</span><br><span class="line">b = tf.Variable(tf.zeros([10]))</span><br><span class="line">y = tf.nn.softmax(tf.matmul(x,W) + b)</span><br></pre></td></tr></table></figure>
+<h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><p>训练模型，首先需要定义一个指标来评估这个模型是好的。在机器学习，通常定义指标来表示一个模型是坏的，这个指标称为成本（cost）或损失（loss），然后尽量最小化这个指标。然而，这两种方式是相同的。</p>
+<h3 id="交叉熵定义（cross-entropy）"><a href="#交叉熵定义（cross-entropy）" class="headerlink" title="交叉熵定义（cross-entropy）"></a>交叉熵定义（cross-entropy）</h3><p>一个非常常见的，非常漂亮的成本函数。它产生于信息论里面的信息压缩编码技术。</p>
+<p><img src="http://wiki.jikexueyuan.com/project/tensorflow-zh/images/mnist10.png" alt="交叉熵定义"></p>
+<p><a href="http://colah.github.io/posts/2015-09-Visual-Information/" target="_blank" rel="noopener">交叉熵参考资料</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;为了计算交叉熵，需要添加一个新的占位符用于输入正确值&quot;&quot;&quot;</span><br><span class="line">y_ = tf.placeholder(&quot;float&quot;, [None,10])</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;交叉熵计算&quot;&quot;&quot;</span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;TensorFlow用梯度下降算法以0.01的学习速率最小化交叉熵&quot;&quot;&quot;</span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;在运行计算之前，我们需要添加一个操作来初始化我们创建的变量&quot;&quot;&quot;</span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;可以在一个Session里面启动我们的模型，并且初始化变量&quot;&quot;&quot;</span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;开始训练模型，让模型循环训练1000次！&quot;&quot;&quot;</span><br><span class="line">for i in range(1000):</span><br><span class="line">  batch_xs, batch_ys = mnist.train.next_batch(100)</span><br><span class="line">  sess.run(train_step, feed_dict=&#123;x: batch_xs, y_: batch_ys&#125;)</span><br></pre></td></tr></table></figure>
+<p><a href="http://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener">反向传播算法(backpropagation algorithm)</a></p>
+<p>使用一小部分的随机数据来进行训练被称为<strong>随机训练（stochastic training）</strong></p>
+<p>每一次训练我们可以使用不同的数据子集，这样做既可以减少计算开销，又可以最大化地学习到数据集的总体特性。</p>
+<h2 id="评估模型"><a href="#评估模型" class="headerlink" title="评估模型"></a>评估模型</h2><h3 id="tf-argmax函数"><a href="#tf-argmax函数" class="headerlink" title="tf.argmax函数"></a>tf.argmax函数</h3><p>能给出某个tensor对象在某一维上的其数据最大值所在的索引值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">tf.argmax 它能给出某个tensor对象在某一维上的其数据最大值所在的索引值。</span><br><span class="line">用 tf.equal 来检测预测是否真实标签匹配，并生成一组布尔值</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;可以把布尔值转换成浮点数，然后取平均值。&quot;&quot;&quot;</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;计算所学习到的模型在测试数据集上面的正确率。&quot;&quot;&quot;</span><br><span class="line">print(sess.run(accuracy, feed_dict=&#123;x: mnist.test.images, y_: mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
+<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>约 91% 准确率，相对较低，最好的模型甚至可以获得超过99.7％的准确率！</p>
+<p><a href="http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html" target="_blank" rel="noopener">使用各种方法后的准确率比较表</a></p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/01/09/TensorFlowMNIST-1/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/01/09/TensorFlowMNIST-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

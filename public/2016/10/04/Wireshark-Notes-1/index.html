@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Wireshark-Notes（简介） | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最流行的网络嗅探器之一，能在多种平台上抓取和分析网络包。命令行形式TShark">
+<meta name="keywords" content="Wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireshark-Notes（简介）">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/10/04/Wireshark-Notes-1/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="最流行的网络嗅探器之一，能在多种平台上抓取和分析网络包。命令行形式TShark">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-06-08T04:01:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wireshark-Notes（简介）">
+<meta name="twitter:description" content="最流行的网络嗅探器之一，能在多种平台上抓取和分析网络包。命令行形式TShark">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Wireshark-Notes（简介）</strong>
+            </h1>
+            
+                <h2>你之所以看到我在笑，不是因为我过得很好，而是我想过得很好。</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-10-04</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/wireshark/">Wireshark</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <blockquote>
+<p>最流行的网络嗅探器之一，能在多种平台上抓取和分析网络包。<br>命令行形式<code>TShark</code></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h2><p><strong>打开wireshark legacy</strong></p>
+<h3 id="只抓包头"><a href="#只抓包头" class="headerlink" title="只抓包头"></a>只抓包头</h3><ul>
+<li>捕获–&gt;选项（Capture–&gt;Options）</li>
+<li>在<code>Limit each package to ** bytes</code> 输入需要抓取的字节数</li>
+</ul>
+<h3 id="只抓必要的包"><a href="#只抓必要的包" class="headerlink" title="只抓必要的包"></a>只抓必要的包</h3><ul>
+<li>捕获–&gt;选项（Capture–&gt;Options）</li>
+<li>在<code>Capture Filter</code>中输入<code>host **.**.**.**</code></li>
+</ul>
+<h2 id="TCP的几个标志位"><a href="#TCP的几个标志位" class="headerlink" title="TCP的几个标志位"></a>TCP的几个标志位</h2><h3 id="SYN标志位"><a href="#SYN标志位" class="headerlink" title="SYN标志位"></a>SYN标志位</h3><pre><code>表示正在发起连接请求，因为连接是双向的，所以建立连接时，双方都要发一个SYN
+</code></pre><h3 id="FIN标志位"><a href="#FIN标志位" class="headerlink" title="FIN标志位"></a>FIN标志位</h3><pre><code>表示正在请求终止连接，因为连接是双星的，所以终止连接时，双方都要发一个FIN
+</code></pre><h3 id="RST标志位"><a href="#RST标志位" class="headerlink" title="RST标志位"></a>RST标志位</h3><pre><code>用于重置一个混乱的连接，或者拒绝一个无效的请求。
+</code></pre><h2 id="Seq号"><a href="#Seq号" class="headerlink" title="Seq号"></a>Seq号</h2><p><code>三次握手</code>时，seq号并不是从0开始的。如果seq=0，则有可能是wireshark启用了<code>Relative Sequence Number</code>。</p>
+<p>如果需要关闭，在<code>Edit&gt;Preferences&gt;Protocols&gt;TCP</code>里设置即可。</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><pre><code>1. 客户端：我想建立连接，发送初始序号seq=X，如果答应就回复X+1
+2. 服务器：收到，Ack=X+1,我也想建立连接，发送初始序号seq=Y，如果答应就回复Y+1；
+3. 客户端：收到，seq=X+1；Ack=Y+1
+</code></pre><h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><pre><code>1. 客户端：我希望断开连接，seq=X，ack=Y；
+2. 服务器：断开吧，seq=Y，ack=X+1；
+3. 服务器：我也想断开，seq=Y，ack=X+1；
+4. 客户端：断开吧，seq=X+1，ack=Y+1。
+</code></pre><h2 id="TCP包的确认"><a href="#TCP包的确认" class="headerlink" title="TCP包的确认"></a>TCP包的确认</h2><pre><code>可以累积起来确认，当收到多个包的时候，只需确认最后一个即可。
+</code></pre>
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/10/04/Wireshark-Notes-1/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/10/04/Wireshark-Notes-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

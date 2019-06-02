@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>《鸟哥的Linux私房菜》读书笔记 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在学习过程中记录的一些常用命令，供日常参考。">
+<meta name="keywords" content="原创,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《鸟哥的Linux私房菜》读书笔记">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/07/28/Linux-Reading-notes/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="在学习过程中记录的一些常用命令，供日常参考。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/QGBp07o.jpg">
+<meta property="og:image" content="http://i.imgur.com/K50Yv9n.jpg">
+<meta property="og:updated_time" content="2017-06-08T04:03:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《鸟哥的Linux私房菜》读书笔记">
+<meta name="twitter:description" content="在学习过程中记录的一些常用命令，供日常参考。">
+<meta name="twitter:image" content="http://i.imgur.com/QGBp07o.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>《鸟哥的Linux私房菜》读书笔记</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-07-28</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/原创/">原创</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/linux/">Linux</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>在学习过程中记录的一些常用命令，供日常参考。</p>
+<a id="more"></a>
+<h1 id="1-在线求助"><a href="#1-在线求助" class="headerlink" title="1    在线求助"></a>1    在线求助</h1><h2 id="1-1-man-page"><a href="#1-1-man-page" class="headerlink" title="1.1 man page"></a>1.1 man page</h2><h3 id="1-1-1-壳程序"><a href="#1-1-1-壳程序" class="headerlink" title="1.1.1    壳程序"></a>1.1.1    壳程序</h3><pre><code>文本模式登入后所取得的程序被称为壳，这是因为这支程序负责最外面跟使用者沟通，所以被戏称为壳程序
+</code></pre><h3 id="1-1-2-指令太长可以使用-进行分行"><a href="#1-1-2-指令太长可以使用-进行分行" class="headerlink" title="1.1.2    指令太长可以使用\进行分行"></a>1.1.2    指令太长可以使用\进行分行</h3><h3 id="1-1-3-英文大小写字母是不一样的"><a href="#1-1-3-英文大小写字母是不一样的" class="headerlink" title="1.1.3    英文大小写字母是不一样的"></a>1.1.3    英文大小写字母是不一样的</h3><h3 id="1-1-4-语系的支持："><a href="#1-1-4-语系的支持：" class="headerlink" title="1.1.4    语系的支持："></a>1.1.4    语系的支持：</h3><pre><code>echo $LANG 或 locale
+</code></pre><h2 id="1-2-基础指令的操作"><a href="#1-2-基础指令的操作" class="headerlink" title="1.2    基础指令的操作"></a>1.2    基础指令的操作</h2><h3 id="1-2-1-date-显示日期与时间的指令"><a href="#1-2-1-date-显示日期与时间的指令" class="headerlink" title="1.2.1    date:显示日期与时间的指令"></a>1.2.1    date:显示日期与时间的指令</h3><pre><code>date格式化：date +%Y/%m/%d 或 date +%H:%M
+</code></pre><h3 id="1-2-2-cal-显示日历的指令"><a href="#1-2-2-cal-显示日历的指令" class="headerlink" title="1.2.2    cal:显示日历的指令"></a>1.2.2    cal:显示日历的指令</h3><pre><code>cal [month][year]
+</code></pre><h3 id="1-2-3-bc"><a href="#1-2-3-bc" class="headerlink" title="1.2.3    bc"></a>1.2.3    bc</h3><pre><code>简单好用的计算器(如需小数点下位数，需执行scale=number,quit离开)
+</code></pre><h3 id="1-2-4-ctrl-d"><a href="#1-2-4-ctrl-d" class="headerlink" title="1.2.4    ctrl+d"></a>1.2.4    ctrl+d</h3><pre><code>类似于exit,能够直接离开
+</code></pre><h2 id="1-3-Linux系统的在线求助"><a href="#1-3-Linux系统的在线求助" class="headerlink" title="1.3    Linux系统的在线求助"></a>1.3    Linux系统的在线求助</h2><h3 id="1-3-1-man-之后，主动搜索关键词"><a href="#1-3-1-man-之后，主动搜索关键词" class="headerlink" title="1.3.1    man 之后，主动搜索关键词"></a>1.3.1    man 之后，主动搜索关键词</h3><pre><code>向下搜索：输入/word，向上搜索：?string
+</code></pre><p>1.3.2    man之后，常见的几个数字意义</p>
+<p>如DATE(1)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>内容说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>用户在shell环境中可以操作的指令或可执行文件</td>
+</tr>
+<tr>
+<td>2</td>
+<td>系统核心可呼叫的函数与工具等</td>
+</tr>
+<tr>
+<td>3</td>
+<td>一些常用的函数与函式库，大部分为C的函式库</td>
+</tr>
+<tr>
+<td>4</td>
+<td>装置档案的说明，通常在/dev下的档案</td>
+</tr>
+<tr>
+<td>5</td>
+<td>配置文件或者是某些档案的格式</td>
+</tr>
+<tr>
+<td>6</td>
+<td>游戏</td>
+</tr>
+<tr>
+<td>7</td>
+<td>惯例与协议等，例如Linux文件系统、网络协议、ASCII code等等的说明</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系统管理员可用的管理指令</td>
+</tr>
+<tr>
+<td>9</td>
+<td>跟kernel有关的文件</td>
+</tr>
+</tbody>
+</table>
+<p>1.3.3    man 之后，大致分为几个部分</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>内容说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NAME</td>
+<td>简短的指令，数据名称说明</td>
+</tr>
+<tr>
+<td>SYNOPSIS</td>
+<td>简短的指令下达语法简介</td>
+</tr>
+<tr>
+<td>DESCRIPITION</td>
+<td>较为完整的说明，这部分最好仔细看看</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>针对SYNOPSIS部分中，有列举的所有可用的选项说明</td>
+</tr>
+<tr>
+<td>COMMANDS</td>
+<td>当这个程序在执行的时候，可以在此程序中下达的指令</td>
+</tr>
+<tr>
+<td>FIFES</td>
+<td>这个程序或数据所使用或参考或连结到的某些档案</td>
+</tr>
+<tr>
+<td>SEE ALSO</td>
+<td>可以参考的，跟这个指令或数据有相关的其他说明</td>
+</tr>
+<tr>
+<td>EXAMPLE</td>
+<td>一些可以参考的范例</td>
+</tr>
+<tr>
+<td>BUGS</td>
+<td>是否有相关的bug</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>man –f 指令（相当于whatis [指令或数据]）:找出命令的所有完整名称</li>
+<li>man –k 指令（相当于apropos[指令或数据]） 找出含有该指令的关键字的所有档案</li>
+<li>whatis和apropos指令能使用，必须要建立whatis数据库才行，建立方法：makewhatis</li>
+</ul>
+<h2 id="1-4-man-和-info的区别"><a href="#1-4-man-和-info的区别" class="headerlink" title="1.4    man 和 info的区别"></a>1.4    man 和 info的区别</h2><h3 id="1-4-1-man-page"><a href="#1-4-1-man-page" class="headerlink" title="1.4.1    man page"></a>1.4.1    man page</h3><pre><code>一口气输出一堆信息
+</code></pre><h3 id="1-4-2-info-page"><a href="#1-4-2-info-page" class="headerlink" title="1.4.2    info page"></a>1.4.2    info page</h3><pre><code>将文件数据拆成一个一个的段落，每个段落用自己的页面来撰写，并且各个页面中还有类似网页的【超链接】来跳到各不同的页面中，每个独立的页面也被成为一个节点。
+</code></pre><h3 id="1-4-3-info-page-文件放置"><a href="#1-4-3-info-page-文件放置" class="headerlink" title="1.4.3    info page 文件放置"></a>1.4.3    info page 文件放置</h3><pre><code>/usr/share/info/
+</code></pre><h3 id="1-4-4-usr-share-doc"><a href="#1-4-4-usr-share-doc" class="headerlink" title="1.4.4    /usr/share/doc"></a>1.4.4    /usr/share/doc</h3><p>1.4.5    man page 显示内容的档案放置目录</p>
+<pre><code>/usr/share/man/ 、/usr/local/man
+</code></pre><h2 id="1-5-观察系统的使用状态"><a href="#1-5-观察系统的使用状态" class="headerlink" title="1.5    观察系统的使用状态"></a>1.5    观察系统的使用状态</h2><h3 id="1-5-1-who"><a href="#1-5-1-who" class="headerlink" title="1.5.1    who"></a>1.5.1    who</h3><pre><code>查看当前在线用户及详细信息
+</code></pre><h3 id="1-5-2-netstat-–a"><a href="#1-5-2-netstat-–a" class="headerlink" title="1.5.2    netstat –a"></a>1.5.2    netstat –a</h3><pre><code>查看网络的联机状态
+</code></pre><h3 id="1-5-3-ps-–aux"><a href="#1-5-3-ps-–aux" class="headerlink" title="1.5.3    ps –aux"></a>1.5.3    ps –aux</h3><pre><code>查看背景执行的程序
+</code></pre><h2 id="1-6-几个与关机-重启相关的指令"><a href="#1-6-几个与关机-重启相关的指令" class="headerlink" title="1.6    几个与关机/重启相关的指令"></a>1.6    几个与关机/重启相关的指令</h2><h3 id="1-6-1-sync"><a href="#1-6-1-sync" class="headerlink" title="1.6.1    sync"></a>1.6.1    sync</h3><pre><code>将数据同步写入硬盘中的指令（系统关机或重启之前最好多执行几次）
+</code></pre><h3 id="1-6-2-shutdown"><a href="#1-6-2-shutdown" class="headerlink" title="1.6.2    shutdown"></a>1.6.2    shutdown</h3><pre><code>管用的关机指令
+</code></pre><h3 id="1-6-3-reboot，halt，poweroff"><a href="#1-6-3-reboot，halt，poweroff" class="headerlink" title="1.6.3    reboot，halt，poweroff"></a>1.6.3    reboot，halt，poweroff</h3><pre><code>重新启动
+</code></pre><h3 id="1-6-4-halt和shutdown的区别："><a href="#1-6-4-halt和shutdown的区别：" class="headerlink" title="1.6.4    halt和shutdown的区别："></a>1.6.4    halt和shutdown的区别：</h3><ul>
+<li>halt：能够不理会目前系统状况下，进行硬件关机</li>
+<li>shutdown：可以依据目前已启动的服务来逐次关闭各服务后才关机</li>
+<li>Linux的7种执行等级</li>
+<li>run level 0:关机</li>
+<li>run level 3:纯文本模式</li>
+<li>run level 5:含有图形接口模式</li>
+<li>run level 6:重新启动</li>
+</ul>
+<h3 id="1-6-6-fsck"><a href="#1-6-6-fsck" class="headerlink" title="1.6.6    fsck"></a>1.6.6    fsck</h3><pre><code>文件系统检查的指令
+</code></pre><h3 id="1-6-7-如果根目录损坏"><a href="#1-6-7-如果根目录损坏" class="headerlink" title="1.6.7    如果根目录损坏"></a>1.6.7    如果根目录损坏</h3><pre><code>可以使用Live CD利用光盘开机进入Linux操作系统，然后fsck设备名
+</code></pre><h2 id="1-7-建议划分的磁盘区块"><a href="#1-7-建议划分的磁盘区块" class="headerlink" title="1.7    建议划分的磁盘区块"></a>1.7    建议划分的磁盘区块</h2><pre><code>/   /boot   /usr    /home   /var
+</code></pre><h2 id="1-8-root密码忘记，更改方法"><a href="#1-8-root密码忘记，更改方法" class="headerlink" title="1.8    root密码忘记，更改方法"></a>1.8    root密码忘记，更改方法</h2><p><a href="http://jingyan.baidu.com/article/fec7a1e51096481191b4e746.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/fec7a1e51096481191b4e746.html</a></p>
+<h1 id="2-Linux的档案权限与目录配置"><a href="#2-Linux的档案权限与目录配置" class="headerlink" title="2    Linux的档案权限与目录配置"></a>2    Linux的档案权限与目录配置</h1><h2 id="2-1-Linux用户身份与群组记录的档案"><a href="#2-1-Linux用户身份与群组记录的档案" class="headerlink" title="2.1    Linux用户身份与群组记录的档案"></a>2.1    Linux用户身份与群组记录的档案</h2><h3 id="2-1-1-etc-passwd"><a href="#2-1-1-etc-passwd" class="headerlink" title="2.1.1    /etc/passwd"></a>2.1.1    /etc/passwd</h3><pre><code>记录系统上账号和root相关信息
+</code></pre><h3 id="2-1-2-etc-shadow"><a href="#2-1-2-etc-shadow" class="headerlink" title="2.1.2    /etc/shadow"></a>2.1.2    /etc/shadow</h3><pre><code>记录个人的密码
+</code></pre><h3 id="2-1-3-etc-group"><a href="#2-1-3-etc-group" class="headerlink" title="2.1.3    /etc/group"></a>2.1.3    /etc/group</h3><pre><code>所有的组名
+</code></pre><h2 id="2-2-基本命令"><a href="#2-2-基本命令" class="headerlink" title="2.2    基本命令"></a>2.2    基本命令</h2><h3 id="2-2-1-ls-–l-–full-time"><a href="#2-2-1-ls-–l-–full-time" class="headerlink" title="2.2.1    ls –l –full-time"></a>2.2.1    ls –l –full-time</h3><pre><code>能够显示完整的时间格式
+</code></pre><h3 id="2-2-2-权限修改指令"><a href="#2-2-2-权限修改指令" class="headerlink" title="2.2.2    权限修改指令"></a>2.2.2    权限修改指令</h3><ul>
+<li>chgrp:改变档案所属群组</li>
+<li>chown：改变档案拥有者</li>
+<li>chmod：改变档案的权限，SUID,SGID,SBIT等的特性</li>
+<li>能不能进入目录和X权限有关，和r权限无关</li>
+<li>不管other身份是否具有某文件的r w x权限，只要在自己的home目录下，都有删除该文件</li>
+</ul>
+<h2 id="2-3-FIFO-数据输送文件"><a href="#2-3-FIFO-数据输送文件" class="headerlink" title="2.3    FIFO-数据输送文件"></a>2.3    FIFO-数据输送文件</h2><pre><code>主要的目的解决多个程序同时存取一个档案所造成的错误问题
+</code></pre><h2 id="2-4-档案名"><a href="#2-4-档案名" class="headerlink" title="2.4    档案名"></a>2.4    档案名</h2><pre><code>避免将档案档名的开头以-或+来命名
+</code></pre><h2 id="2-5-Linux目录配置的依据"><a href="#2-5-Linux目录配置的依据" class="headerlink" title="2.5    Linux目录配置的依据"></a>2.5    Linux目录配置的依据</h2><pre><code>FHS（Filesystem Hierarchy Standard）标准
+</code></pre><ul>
+<li>重点在于规范每个特定的目录下应该要放置什么样的数据</li>
+<li>根据FHS，目录定义为</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>：</th>
+<th>可分享的</th>
+<th>不可分享的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不变的（static）</td>
+<td>/usr（软件放置处）</td>
+<td>/etc（配置文件）</td>
+</tr>
+<tr>
+<td>不变的（static）</td>
+<td>/opt(第三方协力软件)</td>
+<td>/boot(开机与核心档)</td>
+</tr>
+<tr>
+<td>可变动的（variable）</td>
+<td>/var/mail(使用者邮件信箱)</td>
+<td>/var/run（程序相关）</td>
+</tr>
+<tr>
+<td>可变动的（variable）</td>
+<td>/var/spool/news(新闻组)</td>
+<td>/var/lock(程序相关)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-6-Linux登录数据记录位置"><a href="#2-6-Linux登录数据记录位置" class="headerlink" title="2.6    Linux登录数据记录位置"></a>2.6    Linux登录数据记录位置</h2><pre><code>/var/log/wtmp
+</code></pre><h2 id="2-7-文件类型"><a href="#2-7-文件类型" class="headerlink" title="2.7    文件类型"></a>2.7    文件类型</h2><h3 id="2-7-1-连结档"><a href="#2-7-1-连结档" class="headerlink" title="2.7.1    连结档"></a>2.7.1    连结档</h3><pre><code>类似Windows系统底下的快捷方式，第一个属性为l，例：lrwxrwxrwx
+</code></pre><h3 id="2-7-2-设备与装置文件"><a href="#2-7-2-设备与装置文件" class="headerlink" title="2.7.2    设备与装置文件"></a>2.7.2    设备与装置文件</h3><pre><code>与系统周边及存储等相关的一些档案，通常都集中在/dev这个目录下，通常分为两种
+- 区块（block）设备档：储存数据，字符b
+- 字符（character）设备文件：一些串行端口接口设备，字符c
+</code></pre><h3 id="2-7-3-数据接口文件（socket），第一个属性为s"><a href="#2-7-3-数据接口文件（socket），第一个属性为s" class="headerlink" title="2.7.3    数据接口文件（socket），第一个属性为s"></a>2.7.3    数据接口文件（socket），第一个属性为s</h3><h3 id="2-7-4-数据传送文件，第一个属性为p"><a href="#2-7-4-数据传送文件，第一个属性为p" class="headerlink" title="2.7.4    数据传送文件，第一个属性为p"></a>2.7.4    数据传送文件，第一个属性为p</h3><h2 id="2-8-lib-modules-放置核心相关的模块（驱动程序）"><a href="#2-8-lib-modules-放置核心相关的模块（驱动程序）" class="headerlink" title="2.8    /lib/modules/放置核心相关的模块（驱动程序）"></a>2.8    /lib/modules/放置核心相关的模块（驱动程序）</h2><h2 id="2-9-proc"><a href="#2-9-proc" class="headerlink" title="2.9    /proc"></a>2.9    /proc</h2><pre><code>本身是一个“虚拟文件系统”，放置的数据都是在内存当中，例如：系统核心、行程信息、周边装置的状态及网络状态
+</code></pre><h2 id="2-10-下面五个目录不可与根目录分开在不同的分割槽"><a href="#2-10-下面五个目录不可与根目录分开在不同的分割槽" class="headerlink" title="2.10    下面五个目录不可与根目录分开在不同的分割槽"></a>2.10    下面五个目录不可与根目录分开在不同的分割槽</h2><ul>
+<li>/etc：配置文件 </li>
+<li>/bin：重要执行档 </li>
+<li>/dev：所需要的装置档案 </li>
+<li>/lib：执行档所需的函式库不核心所需的模块 </li>
+<li>/sbin：重要的系统执行文件 </li>
+</ul>
+<h2 id="2-11-usr"><a href="#2-11-usr" class="headerlink" title="2.11    usr"></a>2.11    usr</h2><pre><code>Unix Software Resource Unix操作系统软件资源
+</code></pre><h2 id="2-12-selinux"><a href="#2-12-selinux" class="headerlink" title="2.12    /selinux"></a>2.12    /selinux</h2><pre><code>此目录的内容数据是在内存中的信息，不会占用任何硬盘容量，它是Linux核心的重要外挂功能之一，Secure Enhance Linux的执行目录
+</code></pre><h2 id="2-13-代表本目录"><a href="#2-13-代表本目录" class="headerlink" title="2.13    ./代表本目录"></a>2.13    ./代表本目录</h2><pre><code>如果执行文件放置在本目录，但本目录并非正规的执行文件目录（/bin,/usr/bin等为正规），需要严格指定该执行档案，例./文件名.sh
+</code></pre><h2 id="2-14-查看Linux基本信息"><a href="#2-14-查看Linux基本信息" class="headerlink" title="2.14    查看Linux基本信息"></a>2.14    查看Linux基本信息</h2><ul>
+<li>uname –r 可以察看实际的核心版本</li>
+<li>lsb_release –a：查看LSB版本</li>
+</ul>
+<h2 id="2-15-要开放目录给任何人浏览时，应至少给予r及x的权限，但w权限不可随便给"><a href="#2-15-要开放目录给任何人浏览时，应至少给予r及x的权限，但w权限不可随便给" class="headerlink" title="2.15    要开放目录给任何人浏览时，应至少给予r及x的权限，但w权限不可随便给"></a>2.15    要开放目录给任何人浏览时，应至少给予r及x的权限，但w权限不可随便给</h2><h2 id="2-16"><a href="#2-16" class="headerlink" title="2.16"></a>2.16</h2><pre><code>/bin放置的是一般用户惯用的指令，/sbin是系统管理员才会使用的指令，它们俩都与开机、单人维护模式有关，更多执行档被放置到/usr/bin及/usr/sbin底下
+</code></pre><h1 id="3-Linux档案与目录管理"><a href="#3-Linux档案与目录管理" class="headerlink" title="3    Linux档案与目录管理"></a>3    Linux档案与目录管理</h1><h2 id="3-1-–-代表前一个工作目录"><a href="#3-1-–-代表前一个工作目录" class="headerlink" title="3.1    – 代表前一个工作目录"></a>3.1    – 代表前一个工作目录</h2><h2 id="3-2-pwd-–P显示确实的路径"><a href="#3-2-pwd-–P显示确实的路径" class="headerlink" title="3.2    pwd –P显示确实的路径"></a>3.2    pwd –P显示确实的路径</h2><h2 id="3-3-mkdir"><a href="#3-3-mkdir" class="headerlink" title="3.3    mkdir"></a>3.3    mkdir</h2><ul>
+<li>–m 创建目录，并配置权限</li>
+<li>–p 直接将所需要的目录递归建立起来</li>
+</ul>
+<h2 id="3-4-rmdir-仅能“删除空的目录”"><a href="#3-4-rmdir-仅能“删除空的目录”" class="headerlink" title="3.4    rmdir 仅能“删除空的目录”"></a>3.4    rmdir 仅能“删除空的目录”</h2><h2 id="3-5-echo-PATH-表示后面接的是变量"><a href="#3-5-echo-PATH-表示后面接的是变量" class="headerlink" title="3.5    echo $PATH  $表示后面接的是变量"></a>3.5    echo $PATH  $表示后面接的是变量</h2><h2 id="3-6-使用PATH-”-PATH”-root"><a href="#3-6-使用PATH-”-PATH”-root" class="headerlink" title="3.6    使用PATH=”$PATH”:/root"></a>3.6    使用PATH=”$PATH”:/root</h2><pre><code>将/root路径加入到PATH中
+</code></pre><h2 id="3-7-ll-ls-–l"><a href="#3-7-ll-ls-–l" class="headerlink" title="3.7    ll=ls –l"></a>3.7    ll=ls –l</h2><h2 id="3-8-cp复制"><a href="#3-8-cp复制" class="headerlink" title="3.8    cp复制"></a>3.8    cp复制</h2><ul>
+<li>cp –a 源文件  目标文件  会将将档案所有特性都一起复制过来</li>
+<li>cp –s 建立符合链接，类似一个快捷方式</li>
+<li>cp –l  实体链接</li>
+<li>cp –d 可以将链接文件的属性复制来</li>
+<li><p>可以将多个数据文件一次复制到同一个目录中去</p>
+<p>  例：cp ~/.bashrc ~/.bash_history /tmp</p>
+</li>
+</ul>
+<h2 id="3-9-删除带-开头的档案"><a href="#3-9-删除带-开头的档案" class="headerlink" title="3.9        删除带-开头的档案"></a>3.9        删除带-开头的档案</h2><pre><code>rm ./–aaa-
+</code></pre><h2 id="3-10-touch（修改档案时间或建置新档）"><a href="#3-10-touch（修改档案时间或建置新档）" class="headerlink" title="3.10    touch（修改档案时间或建置新档）"></a>3.10    touch（修改档案时间或建置新档）</h2><h3 id="3-10-1-可以建立空档案"><a href="#3-10-1-可以建立空档案" class="headerlink" title="3.10.1    可以建立空档案"></a>3.10.1    可以建立空档案</h3><h3 id="3-10-2-时间参数"><a href="#3-10-2-时间参数" class="headerlink" title="3.10.2    时间参数"></a>3.10.2    时间参数</h3><ul>
+<li>mtime：modification time 当该档案的内容数据变更时，会更新此时间</li>
+<li>ctime: status time当该档案状态改变时，会更新此时间，如权限和属性</li>
+<li>atime：access time 当档案的内容被取用时，更新此时间</li>
+</ul>
+<h3 id="3-10-3-如果系统时间来自未来，touch一下即可，三个时间参数都会变成当前时间"><a href="#3-10-3-如果系统时间来自未来，touch一下即可，三个时间参数都会变成当前时间" class="headerlink" title="3.10.3    如果系统时间来自未来，touch一下即可，三个时间参数都会变成当前时间"></a>3.10.3    如果系统时间来自未来，touch一下即可，三个时间参数都会变成当前时间</h3><h2 id="3-11-rename"><a href="#3-11-rename" class="headerlink" title="3.11    rename"></a>3.11    rename</h2><pre><code>可以用来更改大量档案的档名
+</code></pre><h2 id="3-12-取得路径的文件名与目录名称"><a href="#3-12-取得路径的文件名与目录名称" class="headerlink" title="3.12    取得路径的文件名与目录名称"></a>3.12    取得路径的文件名与目录名称</h2><h3 id="3-12-1-basename-取得最后档案名"><a href="#3-12-1-basename-取得最后档案名" class="headerlink" title="3.12.1    basename 取得最后档案名"></a>3.12.1    basename 取得最后档案名</h3><pre><code>例：basename /etc/sysconfig/network  输出：network
+</code></pre><h3 id="3-12-2-dirname-取得目录名"><a href="#3-12-2-dirname-取得目录名" class="headerlink" title="3.12.2    dirname 取得目录名"></a>3.12.2    dirname 取得目录名</h3><pre><code>例：dirname /etc/sysconfig/network 输出：/etc/sysconfig
+</code></pre><h2 id="3-13-档案内容查阅"><a href="#3-13-档案内容查阅" class="headerlink" title="3.13    档案内容查阅"></a>3.13    档案内容查阅</h2><h3 id="3-13-1-cat"><a href="#3-13-1-cat" class="headerlink" title="3.13.1    cat"></a>3.13.1    cat</h3><pre><code>由第一行开始显示档案内容
+-A 显示完整内容（包含特殊字符） tab(^I表示) 断行字符($表示)
+</code></pre><h3 id="3-13-2-tac"><a href="#3-13-2-tac" class="headerlink" title="3.13.2    tac"></a>3.13.2    tac</h3><pre><code>从最后一行开始显示
+</code></pre><h3 id="3-13-3-nl"><a href="#3-13-3-nl" class="headerlink" title="3.13.3    nl"></a>3.13.3    nl</h3><pre><code>显示的时候，顺道输出行号
+</code></pre><h3 id="3-13-4-more"><a href="#3-13-4-more" class="headerlink" title="3.13.4    more"></a>3.13.4    more</h3><pre><code>一页一页的显示档案内容
+</code></pre><h3 id="3-13-5-less类似more，它可以往前翻页"><a href="#3-13-5-less类似more，它可以往前翻页" class="headerlink" title="3.13.5    less类似more，它可以往前翻页"></a>3.13.5    less类似more，它可以往前翻页</h3><h3 id="3-13-6-head只看头几行"><a href="#3-13-6-head只看头几行" class="headerlink" title="3.13.6    head只看头几行"></a>3.13.6    head只看头几行</h3><pre><code>例：head –n -100 文档   除了后面100行数据都打印
+</code></pre><h3 id="3-13-7-tail-只看最后几行"><a href="#3-13-7-tail-只看最后几行" class="headerlink" title="3.13.7    tail 只看最后几行"></a>3.13.7    tail 只看最后几行</h3><pre><code>例：tail –f 文档名  持续监测后面所接的文档，tail –n +100 文档名，档案从100行后都会被列出来
+</code></pre><h3 id="3-13-8-od-以二进制的方式读取档案内容"><a href="#3-13-8-od-以二进制的方式读取档案内容" class="headerlink" title="3.13.8    od 以二进制的方式读取档案内容"></a>3.13.8    od 以二进制的方式读取档案内容</h3><h2 id="3-14-档案与目录的默认权限与隐藏权限"><a href="#3-14-档案与目录的默认权限与隐藏权限" class="headerlink" title="3.14    档案与目录的默认权限与隐藏权限"></a>3.14    档案与目录的默认权限与隐藏权限</h2><ul>
+<li>其他系统隐藏属性，chattr来设定，lsattr来查看</li>
+<li>chattr +i 文档，设置一个档案无法被删除，改名，或者写入等，取消-i</li>
+<li>lsattr 查看隐藏的属性</li>
+</ul>
+<h2 id="3-15-umask-档案预设权限"><a href="#3-15-umask-档案预设权限" class="headerlink" title="3.15    umask(档案预设权限)"></a>3.15    umask(档案预设权限)</h2><h3 id="3-15-1-档案预设权限666"><a href="#3-15-1-档案预设权限666" class="headerlink" title="3.15.1    档案预设权限666"></a>3.15.1    档案预设权限666</h3><pre><code>-rw-rw-rw-   -022 == -rw-r—r--
+</code></pre><h3 id="3-15-2-目录预设权限777"><a href="#3-15-2-目录预设权限777" class="headerlink" title="3.15.2    目录预设权限777"></a>3.15.2    目录预设权限777</h3><pre><code>drwxrwxrwx  -022 == -drwxr-xr-x
+</code></pre><h3 id="3-15-3-修改值"><a href="#3-15-3-修改值" class="headerlink" title="3.15.3    修改值"></a>3.15.3    修改值</h3><pre><code>直接在umask后面添加数字即可
+</code></pre><h2 id="3-16-Set-UID-简称SUID特殊权限，限制和功能如下"><a href="#3-16-Set-UID-简称SUID特殊权限，限制和功能如下" class="headerlink" title="3.16    Set UID,简称SUID特殊权限，限制和功能如下"></a>3.16    Set UID,简称SUID特殊权限，限制和功能如下</h2><ul>
+<li>仅对二进制程序有效</li>
+<li>执行者对于该程序需要具有x的可执行权限</li>
+<li>本权限仅在执行该程序的过程中有效</li>
+<li>执行者将具有该程序拥有者的权限</li>
+<li>对目录无效</li>
+</ul>
+<h2 id="3-17-Set-GID，功能如下"><a href="#3-17-Set-GID，功能如下" class="headerlink" title="3.17    Set GID，功能如下"></a>3.17    Set GID，功能如下</h2><ul>
+<li>SGID对二进制程序有用</li>
+<li>程序执行者对于该程序来说，需具备x的权限</li>
+<li>执行者在执行的过程中将会获得该程序群组的支持</li>
+</ul>
+<h2 id="3-18-Sticky-Bit，简称SBIT，对于目录的作用"><a href="#3-18-Sticky-Bit，简称SBIT，对于目录的作用" class="headerlink" title="3.18    Sticky Bit，简称SBIT，对于目录的作用"></a>3.18    Sticky Bit，简称SBIT，对于目录的作用</h2><ul>
+<li>当用户对于此目录具有w,x权限，亦即具有写入的权限时；</li>
+<li>当用户在该目录下建立档案或目录时，仅有自己与root才有权利删除该档案</li>
+</ul>
+<h2 id="3-19-SUID（4）-SGID（2）-SBIT（1）权限设定"><a href="#3-19-SUID（4）-SGID（2）-SBIT（1）权限设定" class="headerlink" title="3.19    SUID（4）/SGID（2）/SBIT（1）权限设定"></a>3.19    SUID（4）/SGID（2）/SBIT（1）权限设定</h2><pre><code>例 chmod 4755 filename
+</code></pre><h2 id="3-20-file-观察文件类型"><a href="#3-20-file-观察文件类型" class="headerlink" title="3.20    file  观察文件类型"></a>3.20    file  观察文件类型</h2><h2 id="3-21-搜索"><a href="#3-21-搜索" class="headerlink" title="3.21    搜索"></a>3.21    搜索</h2><h3 id="3-21-1-which-脚本文件名的搜索（执行档）"><a href="#3-21-1-which-脚本文件名的搜索（执行档）" class="headerlink" title="3.21.1    which 脚本文件名的搜索（执行档）"></a>3.21.1    which 脚本文件名的搜索（执行档）</h3><pre><code>-a列出所有可以找到的同名执行文件，非仅显示第一个；which预设是找PATH内所规范的目录，bash内建的指令不会查找
+</code></pre><h3 id="3-21-2-whereis-寻找特定档案"><a href="#3-21-2-whereis-寻找特定档案" class="headerlink" title="3.21.2    whereis(寻找特定档案)"></a>3.21.2    whereis(寻找特定档案)</h3><pre><code>速度快的原因：系统内的所有档案都记录在一个数据库档案里，使用whereis都会以此数据库档案的内容为准
+</code></pre><h3 id="3-21-3-locate"><a href="#3-21-3-locate" class="headerlink" title="3.21.3    locate"></a>3.21.3    locate</h3><ul>
+<li>方便忘记完整档案名时使用；</li>
+<li>它是由“已建立的数据库/var/lib/mlocate/”里面的数据所搜寻到的，缺点，数据库更新频率慢</li>
+<li>手动更新数据库方法：updatedb</li>
+</ul>
+<h3 id="3-21-4-find"><a href="#3-21-4-find" class="headerlink" title="3.21.4    find"></a>3.21.4    find</h3><p>可以找到n天内，或者n天前更动过的内容档案</p>
+<ul>
+<li>find /etc –newer /etc/passwd ：寻找/etc底下的档案，如果档案日期比/etc/passwd新就列出</li>
+<li>find /home –user vbird:寻找/home 底下属于vbird的档案</li>
+<li>find / -nouser 搜寻系统中不属于任何人的档案</li>
+<li>find / -perm +7000 –exec ls –l {} \;</li>
+<li>find     参数-a 表示and，-o表示or</li>
+</ul>
+<h2 id="3-22-alias-命令别名"><a href="#3-22-alias-命令别名" class="headerlink" title="3.22    alias 命令别名"></a>3.22    alias 命令别名</h2><h2 id="3-23-id-账号-查阅账号的属性"><a href="#3-23-id-账号-查阅账号的属性" class="headerlink" title="3.23    id 账号 查阅账号的属性"></a>3.23    id 账号 查阅账号的属性</h2><h1 id="4-Linux磁盘与文件系统管理"><a href="#4-Linux磁盘与文件系统管理" class="headerlink" title="4    Linux磁盘与文件系统管理"></a>4    Linux磁盘与文件系统管理</h1><h2 id="4-1-磁盘分区完毕后，格式化的原因"><a href="#4-1-磁盘分区完毕后，格式化的原因" class="headerlink" title="4.1    磁盘分区完毕后，格式化的原因"></a>4.1    磁盘分区完毕后，格式化的原因</h2><pre><code>以便成为操作系统能够利用的“文件系统格式”
+</code></pre><h2 id="4-2-文件系统运作"><a href="#4-2-文件系统运作" class="headerlink" title="4.2    文件系统运作"></a>4.2    文件系统运作</h2><h3 id="4-2-1-档案权限（rwx）与文件属性（拥有者、群组、时间参数等）"><a href="#4-2-1-档案权限（rwx）与文件属性（拥有者、群组、时间参数等）" class="headerlink" title="4.2.1    档案权限（rwx）与文件属性（拥有者、群组、时间参数等）"></a>4.2.1    档案权限（rwx）与文件属性（拥有者、群组、时间参数等）</h3><h3 id="4-2-2-inode"><a href="#4-2-2-inode" class="headerlink" title="4.2.2    inode"></a>4.2.2    inode</h3><pre><code>放置档案权限和属性，一个档案占用一个inode，有档案数据放置的block号码
+</code></pre><h3 id="4-2-3-data-block区块"><a href="#4-2-3-data-block区块" class="headerlink" title="4.2.3    data block区块"></a>4.2.3    data block区块</h3><pre><code>放置实际数据，若档案太大，会占用多个block
+</code></pre><h3 id="4-2-4-superblock超级区块"><a href="#4-2-4-superblock超级区块" class="headerlink" title="4.2.4    superblock超级区块"></a>4.2.4    superblock超级区块</h3><pre><code>记录整个文件系统的整体信息，包括inode与block的总量、使用量、剩余量等，以及文件系统的格式与相关信息等，大小：1024bytes
+</code></pre><h3 id="4-2-5-优点"><a href="#4-2-5-优点" class="headerlink" title="4.2.5    优点"></a>4.2.5    优点</h3><pre><code>可以一口气将多个block内容全部读出来
+</code></pre><h3 id="4-2-6-由于ext是索引式文件系统，基本不需要碎片整理"><a href="#4-2-6-由于ext是索引式文件系统，基本不需要碎片整理" class="headerlink" title="4.2.6    由于ext是索引式文件系统，基本不需要碎片整理"></a>4.2.6    由于ext是索引式文件系统，基本不需要碎片整理</h3><h2 id="4-3-data-block（资料区块）"><a href="#4-3-data-block（资料区块）" class="headerlink" title="4.3    data block（资料区块）"></a>4.3    data block（资料区块）</h2><ul>
+<li>block大小与数量在格式化完就不能再改变</li>
+<li>每个block内最多放置一个档案的数据</li>
+<li>如档案大于block的大小，则一个档案会占用多个block数量</li>
+<li>如档案小于block，则该block的剩余容量就不能够再被使用了</li>
+</ul>
+<h2 id="4-4-inode-table"><a href="#4-4-inode-table" class="headerlink" title="4.4    inode table"></a>4.4    inode table</h2><h3 id="4-4-1-每个inode大小均固定为128bytes"><a href="#4-4-1-每个inode大小均固定为128bytes" class="headerlink" title="4.4.1    每个inode大小均固定为128bytes"></a>4.4.1    每个inode大小均固定为128bytes</h3><h3 id="4-4-2-每个档案都仅会占用一个inode"><a href="#4-4-2-每个档案都仅会占用一个inode" class="headerlink" title="4.4.2    每个档案都仅会占用一个inode"></a>4.4.2    每个档案都仅会占用一个inode</h3><h3 id="4-4-3-文件系统能够建立的档案数量与inode的数量有关"><a href="#4-4-3-文件系统能够建立的档案数量与inode的数量有关" class="headerlink" title="4.4.3    文件系统能够建立的档案数量与inode的数量有关"></a>4.4.3    文件系统能够建立的档案数量与inode的数量有关</h3><h2 id="4-5-superblock"><a href="#4-5-superblock" class="headerlink" title="4.5    superblock"></a>4.5    superblock</h2><h3 id="4-5-1-只有在第一个block-group内会含有superblock"><a href="#4-5-1-只有在第一个block-group内会含有superblock" class="headerlink" title="4.5.1    只有在第一个block group内会含有superblock"></a>4.5.1    只有在第一个block group内会含有superblock</h3><h3 id="4-5-2-大小1024bytes"><a href="#4-5-2-大小1024bytes" class="headerlink" title="4.5.2    大小1024bytes"></a>4.5.2    大小1024bytes</h3><h2 id="4-6-Filesystem-Description（文件系统描述说明）"><a href="#4-6-Filesystem-Description（文件系统描述说明）" class="headerlink" title="4.6    Filesystem Description（文件系统描述说明）"></a>4.6    Filesystem Description（文件系统描述说明）</h2><pre><code>可以描述每个block group的开始与结束的block号码，以及说明每个区段（superblock，bitmap，inodemap，data block）分别介于哪一个block号码之间
+</code></pre><h2 id="4-7-查看Linux支持的文件系统"><a href="#4-7-查看Linux支持的文件系统" class="headerlink" title="4.7    查看Linux支持的文件系统"></a>4.7    查看Linux支持的文件系统</h2><pre><code>ls –l /lib/modules/$(uname -r)/kernel/fs
+</code></pre><h2 id="4-8-已加载到内存中支持的文件系统"><a href="#4-8-已加载到内存中支持的文件系统" class="headerlink" title="4.8    已加载到内存中支持的文件系统"></a>4.8    已加载到内存中支持的文件系统</h2><pre><code>cat /proc/filesystems
+</code></pre><h2 id="4-9-Linux管理认识的文件系统"><a href="#4-9-Linux管理认识的文件系统" class="headerlink" title="4.9    Linux管理认识的文件系统"></a>4.9    Linux管理认识的文件系统</h2><pre><code>通过一个名为Virtual Filesystem Switch的核心功能去读取filesystem
+</code></pre><h2 id="4-10-proc"><a href="#4-10-proc" class="headerlink" title="4.10    /proc"></a>4.10    /proc</h2><pre><code>这个目录本身是一个虚拟文件系统，放置的数据都是在内存中，如系统核心、行程信息、周边装置的状态及网络状态等，本身不占用任何硬盘空间上
+</code></pre><h2 id="4-11-磁盘与目录的容量"><a href="#4-11-磁盘与目录的容量" class="headerlink" title="4.11    磁盘与目录的容量"></a>4.11    磁盘与目录的容量</h2><h3 id="4-11-1-df"><a href="#4-11-1-df" class="headerlink" title="4.11.1    df"></a>4.11.1    df</h3><pre><code>列出文件系统的整体磁盘使用量
+</code></pre><h3 id="4-11-2-du"><a href="#4-11-2-du" class="headerlink" title="4.11.2    du"></a>4.11.2    du</h3><pre><code>评估文件系统的磁盘使用量
+</code></pre><ul>
+<li>直接输入，不加任何选项时，会分析“当前所在目录”的档案与目录所占用的硬盘空间</li>
+<li>du –sm /* 检查根目录底下每个目录所占用的容量</li>
+</ul>
+<h2 id="4-12-实体链接和符号链接"><a href="#4-12-实体链接和符号链接" class="headerlink" title="4.12    实体链接和符号链接"></a>4.12    实体链接和符号链接</h2><h3 id="4-12-1-Hard-Link实体链接，硬式链接或实际连结"><a href="#4-12-1-Hard-Link实体链接，硬式链接或实际连结" class="headerlink" title="4.12.1    Hard Link实体链接，硬式链接或实际连结"></a>4.12.1    Hard Link实体链接，硬式链接或实际连结</h3><pre><code>只是在当前目录价的block多写入了一个关联数据，既不会增加inode也不会耗用block数量
+</code></pre><ul>
+<li>不能跨Filesystem</li>
+<li>不能link目录</li>
+</ul>
+<h3 id="4-12-2-Symbolic-Link-符号链接，亦即快捷方式"><a href="#4-12-2-Symbolic-Link-符号链接，亦即快捷方式" class="headerlink" title="4.12.2    Symbolic Link 符号链接，亦即快捷方式"></a>4.12.2    Symbolic Link 符号链接，亦即快捷方式</h3><ul>
+<li>建立一个独立的档案，读取档案link的那个档案档名</li>
+<li>修改符号链接档，实体文件也会跟着修改</li>
+</ul>
+<h3 id="4-12-3-当建立一个新目录时，新目录link数为2，上层目录数-1"><a href="#4-12-3-当建立一个新目录时，新目录link数为2，上层目录数-1" class="headerlink" title="4.12.3    当建立一个新目录时，新目录link数为2，上层目录数+1"></a>4.12.3    当建立一个新目录时，新目录link数为2，上层目录数+1</h3><h2 id="4-13-延伸分割最好能够包含所有未分割的区间"><a href="#4-13-延伸分割最好能够包含所有未分割的区间" class="headerlink" title="4.13    延伸分割最好能够包含所有未分割的区间"></a>4.13    延伸分割最好能够包含所有未分割的区间</h2><ul>
+<li>SATA硬盘最多能够支持15号的分割槽</li>
+<li>IDE则可以支持到63号</li>
+<li>fdisk无法处理大于2TB以上的磁盘分区槽</li>
+</ul>
+<h2 id="4-14-磁盘格式化（make-filesystem）"><a href="#4-14-磁盘格式化（make-filesystem）" class="headerlink" title="4.14    磁盘格式化（make filesystem）"></a>4.14    磁盘格式化（make filesystem）</h2><h3 id="4-14-1-mkfs"><a href="#4-14-1-mkfs" class="headerlink" title="4.14.1    mkfs"></a>4.14.1    mkfs</h3><pre><code>例：mkfs –t ext3 /dev/hd2
+</code></pre><h3 id="4-14-2-格式化话需要指定详细信息，使用mke2fs"><a href="#4-14-2-格式化话需要指定详细信息，使用mke2fs" class="headerlink" title="4.14.2    格式化话需要指定详细信息，使用mke2fs"></a>4.14.2    格式化话需要指定详细信息，使用mke2fs</h3><h2 id="4-15-磁盘检验：fsck，badblocks"><a href="#4-15-磁盘检验：fsck，badblocks" class="headerlink" title="4.15    磁盘检验：fsck，badblocks"></a>4.15    磁盘检验：fsck，badblocks</h2><pre><code>badblocks用来检查硬盘或软盘扇区有没有坏轨的指令
+</code></pre><h2 id="4-16-磁盘挂载和卸除"><a href="#4-16-磁盘挂载和卸除" class="headerlink" title="4.16    磁盘挂载和卸除"></a>4.16    磁盘挂载和卸除</h2><ul>
+<li>单一文件系统不应该被重复挂载在不同的挂载点（目录）中</li>
+<li>单一目录不应该重复挂载多个文件系统</li>
+<li>要作为挂载点的目录，理论上应该都是空目录才是</li>
+<li>挂载命令：mount</li>
+<li>linux支持的文件系统之驱动程序都写在如下目录中：<br>  /lib/modules/$(uname -r)/kernel/fs/</li>
+</ul>
+<ul>
+<li>正确的磁盘文件名要看你的光驱是什么连接接口的环境</li>
+<li>如果带有中文文件名的数据，可以指定挂载文件系统使用的语系，使用iocharset=utf-8</li>
+<li>mount –bind :将某个目录挂载到其他目录</li>
+<li>umount（将装置档案卸除）：如果挂载的是目录，一定要用挂载点</li>
+<li>e2label：修改文件系统标头（Label）</li>
+<li>tune2fs：可以列出superblock的内容，还可以更新文件系统，ext2变成ext3等</li>
+</ul>
+<h2 id="4-17-dumpe2fs"><a href="#4-17-dumpe2fs" class="headerlink" title="4.17    dumpe2fs"></a>4.17    dumpe2fs</h2><pre><code>每个区段与superblock的信息都可以使用该指令来查询
+</code></pre><h2 id="4-18-hdparm"><a href="#4-18-hdparm" class="headerlink" title="4.18    hdparm"></a>4.18    hdparm</h2><pre><code>可以帮助设定一些进阶参数
+</code></pre><h2 id="4-19-dump"><a href="#4-19-dump" class="headerlink" title="4.19    dump"></a>4.19    dump</h2><pre><code>一个用来作为备份的指令，可以透过fstab指定哪个文件系统必须进行dump备份，0代表不做dump备份，1代表每天进行dump的动作，2代表其他不定日期的dump备份动作
+</code></pre><h2 id="4-20-etc-fstab"><a href="#4-20-etc-fstab" class="headerlink" title="4.20    /etc/fstab"></a>4.20    /etc/fstab</h2><pre><code>开机时的配置文件，主要记录的是挂载的文件系统
+</code></pre><h2 id="4-21-挂载光盘-DVD映像文件，无需刻录成光盘，也能使用"><a href="#4-21-挂载光盘-DVD映像文件，无需刻录成光盘，也能使用" class="headerlink" title="4.21    挂载光盘/DVD映像文件，无需刻录成光盘，也能使用"></a>4.21    挂载光盘/DVD映像文件，无需刻录成光盘，也能使用</h2><ul>
+<li>mkdir 目录</li>
+<li>mount –o loop 文件所在目录（loop挂载回旋设备以及ISO镜像文件）</li>
+</ul>
+<h2 id="4-22-swap"><a href="#4-22-swap" class="headerlink" title="4.22    swap"></a>4.22    swap</h2><ul>
+<li>应付物理内存不足的情况下所造成的内存延伸记录的功能</li>
+<li>被利用到的时刻通常是物理内存不足的情况</li>
+</ul>
+<h2 id="4-23-partprobe"><a href="#4-23-partprobe" class="headerlink" title="4.23    partprobe"></a>4.23    partprobe</h2><pre><code>告知核心必须要读取新的分割表
+</code></pre><h2 id="4-24-开机管理程序"><a href="#4-24-开机管理程序" class="headerlink" title="4.24    开机管理程序"></a>4.24    开机管理程序</h2><pre><code>安装到boot sector，在superblock之前，如果block&gt;2024byte，那么他们俩在一个block（0），如果block&lt;2024byte，那么两者分别在不同的block
+</code></pre><h2 id="4-25-使用GUN的parted进行分割"><a href="#4-25-使用GUN的parted进行分割" class="headerlink" title="4.25    使用GUN的parted进行分割"></a>4.25    使用GUN的parted进行分割</h2><h3 id="4-25-1-parted-【装置】-【指令【参数】】"><a href="#4-25-1-parted-【装置】-【指令【参数】】" class="headerlink" title="4.25.1    parted 【装置】 【指令【参数】】"></a>4.25.1    parted 【装置】 【指令【参数】】</h3><h1 id="5-档案与文件系统的压缩与打包"><a href="#5-档案与文件系统的压缩与打包" class="headerlink" title="5    档案与文件系统的压缩与打包"></a>5    档案与文件系统的压缩与打包</h1><h2 id="5-1-常见的压缩指令"><a href="#5-1-常见的压缩指令" class="headerlink" title="5.1    常见的压缩指令"></a>5.1    常见的压缩指令</h2><ul>
+<li>*.Z    compress 程序压缩癿档案；</li>
+<li>*.gz    gzip 程序压缩癿档案； </li>
+<li>*.bz2    bzip2 程序压缩癿档案；</li>
+<li>*.tar     tar 程序打包癿数据，并没有压缩过；</li>
+<li>*.tar.gz    tar 程序打包癿档案，其中并且经过 gzip 癿压缩</li>
+<li>*.tar.bz2    tar 程序打包癿档案，其中并且经过 bzip2 癿压缩</li>
+</ul>
+<h3 id="5-1-1-compress：比较老旧的压缩指令"><a href="#5-1-1-compress：比较老旧的压缩指令" class="headerlink" title="5.1.1    compress：比较老旧的压缩指令"></a>5.1.1    compress：比较老旧的压缩指令</h3><h3 id="5-1-2-gzip-压缩之后，源文件不再存在"><a href="#5-1-2-gzip-压缩之后，源文件不再存在" class="headerlink" title="5.1.2    gzip:压缩之后，源文件不再存在"></a>5.1.2    gzip:压缩之后，源文件不再存在</h3><ul>
+<li>gzid –d == gunzip解压缩  gzip –c 保留原文档 </li>
+<li>zcat：读取纯文本档被压缩后的压缩文件</li>
+</ul>
+<h3 id="5-1-3-bzip2，bzcat"><a href="#5-1-3-bzip2，bzcat" class="headerlink" title="5.1.3    bzip2，bzcat"></a>5.1.3    bzip2，bzcat</h3><ul>
+<li>是为了取代gzip并提供更佳的压缩比而来的</li>
+<li>压缩：bzip2 –z</li>
+<li>读取压缩的文档：bzcat</li>
+<li>解压缩：bzip2 –d == bunzip2</li>
+</ul>
+<h3 id="5-1-4-tar"><a href="#5-1-4-tar" class="headerlink" title="5.1.4    tar"></a>5.1.4    tar</h3><ul>
+<li>压缩：tar –jcv –f filename.tar.bz2 要被压缩的档案或目录名称</li>
+<li>查询：tar –jtv –f filename.tar.bz2</li>
+<li>解压缩：tar –jxv –f filename.tar.bz2 –C 欲解压缩的目录</li>
+<li><p>仅解开单一档案的方法：</p>
+<ul>
+<li>先查询找到我们要的档名</li>
+<li>将档案解开<br><code>tar –jxv –f /root/etc.tar.bz2 etc/shadow</code></li>
+</ul>
+</li>
+<li><p>打包某目录，但不含该目录下的某些档案<br><code>例：tar –jcv –f /root/system.tar.bz2 –exclude=/root/etc* \
+exclude=/root/system.tar.bz2 /etc /root</code></p>
+</li>
+<li><p>基本名称:tarfile,tarball</p>
+<ul>
+<li>tarfile:仅是打包</li>
+<li>tarball：打包并压缩</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2-完整备份工具：dump"><a href="#5-2-完整备份工具：dump" class="headerlink" title="5.2    完整备份工具：dump"></a>5.2    完整备份工具：dump</h2><h3 id="5-2-1-可以备份整个filesystem，也可以针对目录来备份"><a href="#5-2-1-可以备份整个filesystem，也可以针对目录来备份" class="headerlink" title="5.2.1    可以备份整个filesystem，也可以针对目录来备份"></a>5.2.1    可以备份整个filesystem，也可以针对目录来备份</h3><h3 id="5-2-2-备份完整的文件系统"><a href="#5-2-2-备份完整的文件系统" class="headerlink" title="5.2.2    备份完整的文件系统"></a>5.2.2    备份完整的文件系统</h3><ul>
+<li>先找出需要备份的那个文件系统 df –h</li>
+<li>测试备份此文件系统需要多少容量:dump –S 文件系统</li>
+<li>完整备份文件系统：dump -0u –f /root/boot.dump /boot</li>
+<li>–u 是将备份时间更新至/etc/dumpdates 档案，只支持完整备份</li>
+</ul>
+<h3 id="5-2-3-dump-–W-查看是否有文件系统被dump过"><a href="#5-2-3-dump-–W-查看是否有文件系统被dump过" class="headerlink" title="5.2.3    dump –W 查看是否有文件系统被dump过"></a>5.2.3    dump –W 查看是否有文件系统被dump过</h3><h3 id="5-2-4-备份目录时，需要完整备份，且不使用level和-u"><a href="#5-2-4-备份目录时，需要完整备份，且不使用level和-u" class="headerlink" title="5.2.4    备份目录时，需要完整备份，且不使用level和-u"></a>5.2.4    备份目录时，需要完整备份，且不使用level和-u</h3><h2 id="5-3-restore复原"><a href="#5-3-restore复原" class="headerlink" title="5.3    restore复原"></a>5.3    restore复原</h2><h3 id="5-3-1-restore-–C-f-dumpfile-D-挂载点-：比较dump与实际档案"><a href="#5-3-1-restore-–C-f-dumpfile-D-挂载点-：比较dump与实际档案" class="headerlink" title="5.3.1    restore –C [-f dumpfile] [-D 挂载点]：比较dump与实际档案"></a>5.3.1    restore –C [-f dumpfile] [-D 挂载点]：比较dump与实际档案</h3><h3 id="5-3-2-restore-–t-f-dumpfile-h-查看dump档案"><a href="#5-3-2-restore-–t-f-dumpfile-h-查看dump档案" class="headerlink" title="5.3.2    restore –t [-f dumpfile] [-h] :查看dump档案"></a>5.3.2    restore –t [-f dumpfile] [-h] :查看dump档案</h3><h3 id="5-3-3-retore-–i-f-dumpfile-：进入互动模式，可以从备份数据中只取出一部分"><a href="#5-3-3-retore-–i-f-dumpfile-：进入互动模式，可以从备份数据中只取出一部分" class="headerlink" title="5.3.3    retore –i [-f dumpfile]：进入互动模式，可以从备份数据中只取出一部分"></a>5.3.3    retore –i [-f dumpfile]：进入互动模式，可以从备份数据中只取出一部分</h3><h2 id="5-4-光盘写入工具"><a href="#5-4-光盘写入工具" class="headerlink" title="5.4    光盘写入工具"></a>5.4    光盘写入工具</h2><h3 id="5-4-1-文本模式刻录作法"><a href="#5-4-1-文本模式刻录作法" class="headerlink" title="5.4.1    文本模式刻录作法"></a>5.4.1    文本模式刻录作法</h3><ul>
+<li>先将所需要备份的数据建置成为一个映像档，利用mkisofs指令来处理</li>
+<li>将该映像文件刻录至光盘或DVD中，利用cdrecord指令来处理</li>
+</ul>
+<h3 id="5-4-2-mkisofs：建立映像档"><a href="#5-4-2-mkisofs：建立映像档" class="headerlink" title="5.4.2    mkisofs：建立映像档"></a>5.4.2    mkisofs：建立映像档</h3><h3 id="5-4-3-cdrecord-光盘刻录工具"><a href="#5-4-3-cdrecord-光盘刻录工具" class="headerlink" title="5.4.3    cdrecord:光盘刻录工具"></a>5.4.3    cdrecord:光盘刻录工具</h3><pre><code>查询刻录机：cdrecord –scanbus dev=ATA
+</code></pre><h3 id="5-4-4-CD-RW会自动抹除，DVD-RW要自己手动抹除才行"><a href="#5-4-4-CD-RW会自动抹除，DVD-RW要自己手动抹除才行" class="headerlink" title="5.4.4    CD-RW会自动抹除，DVD-RW要自己手动抹除才行"></a>5.4.4    CD-RW会自动抹除，DVD-RW要自己手动抹除才行</h3><h2 id="5-5-其他常用的压缩和备份工具"><a href="#5-5-其他常用的压缩和备份工具" class="headerlink" title="5.5    其他常用的压缩和备份工具"></a>5.5    其他常用的压缩和备份工具</h2><h3 id="5-5-1-dd"><a href="#5-5-1-dd" class="headerlink" title="5.5.1    dd"></a>5.5.1    dd</h3><p>可以读取磁盘装置的内容，然后将整个装置备份成一个档案</p>
+<pre><code>dd if=”input_file” of=”output_file” bs=”block_size” count=”number”
+</code></pre><p>tar可用来备份关键数据，dd则可以用来备份整颗partition或整颗disk</p>
+<p>需要建置两颗一模一样的磁盘时，命令：</p>
+<pre><code>dd if=/dev/sda of=/dev/sdb
+</code></pre><h3 id="5-5-2-cpio"><a href="#5-5-2-cpio" class="headerlink" title="5.5.2    cpio"></a>5.5.2    cpio</h3><ul>
+<li>可备份任何东西，不会主动的去找档案来备份，需配合find</li>
+<li>备份：cpio –ovcV &gt; [file|device] </li>
+<li>还原：cpio –ivcdu &lt; [file|device]</li>
+<li>察看：cpio –ivct &lt; [file|device] </li>
+</ul>
+<h1 id="6-vim-程序编辑器"><a href="#6-vim-程序编辑器" class="headerlink" title="6    vim 程序编辑器"></a>6    vim 程序编辑器</h1><h2 id="6-1-多窗口功能"><a href="#6-1-多窗口功能" class="headerlink" title="6.1    多窗口功能"></a>6.1    多窗口功能</h2><pre><code>（：sp），ctrl+w进行切换
+</code></pre><h2 id="6-2-多档案编辑"><a href="#6-2-多档案编辑" class="headerlink" title="6.2    多档案编辑"></a>6.2    多档案编辑</h2><pre><code>vim file1 file2 ；（：n 下一个档案   ：N上一个档案 ：files列出目前开启的所有档案）
+</code></pre><h2 id="6-3-查找设定值"><a href="#6-3-查找设定值" class="headerlink" title="6.3    查找设定值"></a>6.3    查找设定值</h2><pre><code>一般模式下（:set all）
+</code></pre><h2 id="6-4-整体的vim设定值时放置在-etc-vimrc这个档案"><a href="#6-4-整体的vim设定值时放置在-etc-vimrc这个档案" class="headerlink" title="6.4    整体的vim设定值时放置在/etc/vimrc这个档案"></a>6.4    整体的vim设定值时放置在/etc/vimrc这个档案</h2><h2 id="6-5-记录动作的档案：（-viminfo）"><a href="#6-5-记录动作的档案：（-viminfo）" class="headerlink" title="6.5    记录动作的档案：（~/.viminfo）"></a>6.5    记录动作的档案：（~/.viminfo）</h2><h2 id="6-6-DOS与Linux的断行字符"><a href="#6-6-DOS与Linux的断行字符" class="headerlink" title="6.6    DOS与Linux的断行字符"></a>6.6    DOS与Linux的断行字符</h2><ul>
+<li>dos2unix [-kn] file [newfile]   DOS转换成linux</li>
+<li>unix2dos [-kn] file [newfile]   linux转换成DOS</li>
+</ul>
+<h2 id="6-7-语系编码转换"><a href="#6-7-语系编码转换" class="headerlink" title="6.7    语系编码转换"></a>6.7    语系编码转换</h2><h3 id="6-7-1-iconv"><a href="#6-7-1-iconv" class="headerlink" title="6.7.1    iconv"></a>6.7.1    iconv</h3><h1 id="7-认识与学习BASH"><a href="#7-认识与学习BASH" class="headerlink" title="7    认识与学习BASH"></a>7    认识与学习BASH</h1><h2 id="7-1-管理计算机硬件的是核心kernel，我们只能透过shell来跟核心沟通"><a href="#7-1-管理计算机硬件的是核心kernel，我们只能透过shell来跟核心沟通" class="headerlink" title="7.1    管理计算机硬件的是核心kernel，我们只能透过shell来跟核心沟通"></a>7.1    管理计算机硬件的是核心kernel，我们只能透过shell来跟核心沟通</h2><h2 id="7-2-Linux使用的shell版本称为：Bourne-Again-Shell-简称bash"><a href="#7-2-Linux使用的shell版本称为：Bourne-Again-Shell-简称bash" class="headerlink" title="7.2    Linux使用的shell版本称为：Bourne Again Shell(简称bash)"></a>7.2    Linux使用的shell版本称为：Bourne Again Shell(简称bash)</h2><h2 id="7-3-用户登录取得的shell记录在-etc-passwd这个档案内"><a href="#7-3-用户登录取得的shell记录在-etc-passwd这个档案内" class="headerlink" title="7.3    用户登录取得的shell记录在/etc/passwd这个档案内"></a>7.3    用户登录取得的shell记录在/etc/passwd这个档案内</h2><h2 id="7-4-bash优点："><a href="#7-4-bash优点：" class="headerlink" title="7.4    bash优点："></a>7.4    bash优点：</h2><h3 id="7-4-1-命令编修能力：能记忆使用过的1000个指令（上下键）-1000个指令放在个人目录下面的-bash-history-即-bash-history"><a href="#7-4-1-命令编修能力：能记忆使用过的1000个指令（上下键）-1000个指令放在个人目录下面的-bash-history-即-bash-history" class="headerlink" title="7.4.1    命令编修能力：能记忆使用过的1000个指令（上下键）,1000个指令放在个人目录下面的.bash_history(即~/.bash_history)"></a>7.4.1    命令编修能力：能记忆使用过的1000个指令（上下键）,1000个指令放在个人目录下面的.bash_history(即~/.bash_history)</h3><h3 id="7-4-2-命令与档案补全功能"><a href="#7-4-2-命令与档案补全功能" class="headerlink" title="7.4.2    命令与档案补全功能"></a>7.4.2    命令与档案补全功能</h3><h3 id="7-4-3-命令别名设定功能（alias）"><a href="#7-4-3-命令别名设定功能（alias）" class="headerlink" title="7.4.3    命令别名设定功能（alias）"></a>7.4.3    命令别名设定功能（alias）</h3><h4 id="7-4-3-1-直接输入alias，查看当前命令别名有哪些"><a href="#7-4-3-1-直接输入alias，查看当前命令别名有哪些" class="headerlink" title="7.4.3.1    直接输入alias，查看当前命令别名有哪些"></a>7.4.3.1    直接输入alias，查看当前命令别名有哪些</h4><h4 id="7-4-3-2-也可以直接下达命令设定别名：如：alias-lm-’ls-al’"><a href="#7-4-3-2-也可以直接下达命令设定别名：如：alias-lm-’ls-al’" class="headerlink" title="7.4.3.2    也可以直接下达命令设定别名：如：alias lm=’ls -al’"></a>7.4.3.2    也可以直接下达命令设定别名：如：alias lm=’ls -al’</h4><h3 id="7-4-4-工作控制、前景背景控制（Linux过程控制中讲解）"><a href="#7-4-4-工作控制、前景背景控制（Linux过程控制中讲解）" class="headerlink" title="7.4.4    工作控制、前景背景控制（Linux过程控制中讲解）"></a>7.4.4    工作控制、前景背景控制（Linux过程控制中讲解）</h3><h3 id="7-4-5-程序化脚本（shell-scripts）"><a href="#7-4-5-程序化脚本（shell-scripts）" class="headerlink" title="7.4.5    程序化脚本（shell scripts）"></a>7.4.5    程序化脚本（shell scripts）</h3><h3 id="7-4-6-通配符"><a href="#7-4-6-通配符" class="headerlink" title="7.4.6    通配符"></a>7.4.6    通配符</h3><h2 id="7-5-使用type指令可以观察某个指令是来自于外部还是内建的bash中"><a href="#7-5-使用type指令可以观察某个指令是来自于外部还是内建的bash中" class="headerlink" title="7.5    使用type指令可以观察某个指令是来自于外部还是内建的bash中"></a>7.5    使用type指令可以观察某个指令是来自于外部还是内建的bash中</h2><h3 id="7-5-1-例-typy-tpa-name"><a href="#7-5-1-例-typy-tpa-name" class="headerlink" title="7.5.1    例 typy [-tpa] name"></a>7.5.1    例 typy [-tpa] name</h3><h2 id="7-6-Shell的变量功能"><a href="#7-6-Shell的变量功能" class="headerlink" title="7.6    Shell的变量功能"></a>7.6    Shell的变量功能</h2><h3 id="7-6-1-环境变量是大写，自定义变量是小写"><a href="#7-6-1-环境变量是大写，自定义变量是小写" class="headerlink" title="7.6.1    环境变量是大写，自定义变量是小写"></a>7.6.1    环境变量是大写，自定义变量是小写</h3><h3 id="7-6-2-变量设定规则"><a href="#7-6-2-变量设定规则" class="headerlink" title="7.6.2    变量设定规则"></a>7.6.2    变量设定规则</h3><h4 id="7-6-2-1-等号-两边不能直接接空格符"><a href="#7-6-2-1-等号-两边不能直接接空格符" class="headerlink" title="7.6.2.1    等号=两边不能直接接空格符"></a>7.6.2.1    等号=两边不能直接接空格符</h4><h4 id="7-6-2-2-变量名称开头字符不能是数字"><a href="#7-6-2-2-变量名称开头字符不能是数字" class="headerlink" title="7.6.2.2    变量名称开头字符不能是数字"></a>7.6.2.2    变量名称开头字符不能是数字</h4><h4 id="7-6-2-3-var-”lang-is-LANG”-echo-var-可得lang-is-en-US"><a href="#7-6-2-3-var-”lang-is-LANG”-echo-var-可得lang-is-en-US" class="headerlink" title="7.6.2.3    var=”lang is $LANG” echo $var  可得lang is en_US"></a>7.6.2.3    var=”lang is $LANG” echo $var  可得lang is en_US</h4><h4 id="7-6-2-4-var-’lang-is-LANG’-echo-var可得-lang-is-LANG"><a href="#7-6-2-4-var-’lang-is-LANG’-echo-var可得-lang-is-LANG" class="headerlink" title="7.6.2.4    var=’lang is $LANG’  echo $var可得 lang is $LANG"></a>7.6.2.4    var=’lang is $LANG’  echo $var可得 lang is $LANG</h4><h4 id="7-6-2-5-可使用-将特殊符号变成一般字符"><a href="#7-6-2-5-可使用-将特殊符号变成一般字符" class="headerlink" title="7.6.2.5    可使用\将特殊符号变成一般字符"></a>7.6.2.5    可使用\将特殊符号变成一般字符</h4><h4 id="7-6-2-6-取消变量的方法为使用unset"><a href="#7-6-2-6-取消变量的方法为使用unset" class="headerlink" title="7.6.2.6    取消变量的方法为使用unset"></a>7.6.2.6    取消变量的方法为使用unset</h4><h4 id="7-6-2-7-若变量需要在其他子程序执行，则需以export来使变量变成环境变量"><a href="#7-6-2-7-若变量需要在其他子程序执行，则需以export来使变量变成环境变量" class="headerlink" title="7.6.2.7    若变量需要在其他子程序执行，则需以export来使变量变成环境变量"></a>7.6.2.7    若变量需要在其他子程序执行，则需以export来使变量变成环境变量</h4><h4 id="7-6-2-8-当需要其他指令执行的信息时，使用指令-或-指令"><a href="#7-6-2-8-当需要其他指令执行的信息时，使用指令-或-指令" class="headerlink" title="7.6.2.8    当需要其他指令执行的信息时，使用指令 或$(指令)"></a>7.6.2.8    当需要其他指令执行的信息时，使用<code>指令</code> 或$(指令)</h4><ul>
+<li>7.6.2.8.1    例 cd /lib/modules/<code>uname -r</code>/kernel</li>
+<li>7.6.2.8.2    cd /lib/modules/$(uname –r)/kernel</li>
+</ul>
+<h4 id="7-6-2-9-例：列出相关档名的权限-ls-–l-locate-crontab"><a href="#7-6-2-9-例：列出相关档名的权限-ls-–l-locate-crontab" class="headerlink" title="7.6.2.9    例：列出相关档名的权限 ls –l locate crontab"></a>7.6.2.9    例：列出相关档名的权限 ls –l <code>locate crontab</code></h4><h2 id="7-7-环境变量的功能"><a href="#7-7-环境变量的功能" class="headerlink" title="7.7    环境变量的功能"></a>7.7    环境变量的功能</h2><h3 id="7-7-1-查看默认的环境变量，可以利用env（environment）和export两个指令查阅"><a href="#7-7-1-查看默认的环境变量，可以利用env（environment）和export两个指令查阅" class="headerlink" title="7.7.1    查看默认的环境变量，可以利用env（environment）和export两个指令查阅"></a>7.7.1    查看默认的环境变量，可以利用env（environment）和export两个指令查阅</h3><h3 id="7-7-2-用set观察所有变量（含环境变量与自定义变量）"><a href="#7-7-2-用set观察所有变量（含环境变量与自定义变量）" class="headerlink" title="7.7.2    用set观察所有变量（含环境变量与自定义变量）"></a>7.7.2    用set观察所有变量（含环境变量与自定义变量）</h3><h3 id="7-7-3-查看自己个人账号的pid使用：echo"><a href="#7-7-3-查看自己个人账号的pid使用：echo" class="headerlink" title="7.7.3    查看自己个人账号的pid使用：echo $$"></a>7.7.3    查看自己个人账号的pid使用：echo $$</h3><h3 id="7-7-4-echo-关于上个执行指令的回传值"><a href="#7-7-4-echo-关于上个执行指令的回传值" class="headerlink" title="7.7.4    echo $?关于上个执行指令的回传值"></a>7.7.4    echo $?关于上个执行指令的回传值</h3><h3 id="7-7-5-export：让父程序的变量值继续在子程序中使用，如果没有接变量，会把所有的环境变量显示出来-被export后的变量，可称为“环境变量”"><a href="#7-7-5-export：让父程序的变量值继续在子程序中使用，如果没有接变量，会把所有的环境变量显示出来-被export后的变量，可称为“环境变量”" class="headerlink" title="7.7.5    export：让父程序的变量值继续在子程序中使用，如果没有接变量，会把所有的环境变量显示出来.被export后的变量，可称为“环境变量”"></a>7.7.5    export：让父程序的变量值继续在子程序中使用，如果没有接变量，会把所有的环境变量显示出来.被export后的变量，可称为“环境变量”</h3><h3 id="7-7-6-declare：将环境变量转成自定义变量"><a href="#7-7-6-declare：将环境变量转成自定义变量" class="headerlink" title="7.7.6    declare：将环境变量转成自定义变量"></a>7.7.6    declare：将环境变量转成自定义变量</h3><h3 id="7-7-7-在linux当中，通常仅设定LANG这个变量，因为它是最主要的设定变量"><a href="#7-7-7-在linux当中，通常仅设定LANG这个变量，因为它是最主要的设定变量" class="headerlink" title="7.7.7    在linux当中，通常仅设定LANG这个变量，因为它是最主要的设定变量"></a>7.7.7    在linux当中，通常仅设定LANG这个变量，因为它是最主要的设定变量</h3><h3 id="7-7-8-整体系统默认的语系定义在-etc-sysconfig-i18n"><a href="#7-7-8-整体系统默认的语系定义在-etc-sysconfig-i18n" class="headerlink" title="7.7.8    整体系统默认的语系定义在/etc/sysconfig/i18n"></a>7.7.8    整体系统默认的语系定义在/etc/sysconfig/i18n</h3><h2 id="7-8-变量键盘读取、数组与宣告：read，array，declare"><a href="#7-8-变量键盘读取、数组与宣告：read，array，declare" class="headerlink" title="7.8    变量键盘读取、数组与宣告：read，array，declare"></a>7.8    变量键盘读取、数组与宣告：read，array，declare</h2><h3 id="7-8-1-read：读取来自键盘输入的变量"><a href="#7-8-1-read：读取来自键盘输入的变量" class="headerlink" title="7.8.1    read：读取来自键盘输入的变量"></a>7.8.1    read：读取来自键盘输入的变量</h3><h4 id="7-8-1-1-read-pt-变量"><a href="#7-8-1-1-read-pt-变量" class="headerlink" title="7.8.1.1    read [-pt] 变量"></a>7.8.1.1    read [-pt] 变量</h4><h3 id="7-8-2-declare-typeset"><a href="#7-8-2-declare-typeset" class="headerlink" title="7.8.2    declare / typeset"></a>7.8.2    declare / typeset</h3><h4 id="7-8-2-1-宣告变量的类型"><a href="#7-8-2-1-宣告变量的类型" class="headerlink" title="7.8.2.1    宣告变量的类型"></a>7.8.2.1    宣告变量的类型</h4><h4 id="7-8-2-2-declare-aixr-变量"><a href="#7-8-2-2-declare-aixr-变量" class="headerlink" title="7.8.2.2    declare [-aixr] 变量"></a>7.8.2.2    declare [-aixr] 变量</h4><h4 id="7-8-2-3-declare-x-sum-将-变成-，可以进行“取消”动作"><a href="#7-8-2-3-declare-x-sum-将-变成-，可以进行“取消”动作" class="headerlink" title="7.8.2.3    declare +x sum 将-变成+，可以进行“取消”动作"></a>7.8.2.3    declare +x sum 将-变成+，可以进行“取消”动作</h4><h2 id="7-9-bash对变量有几个基本定义："><a href="#7-9-bash对变量有几个基本定义：" class="headerlink" title="7.9    bash对变量有几个基本定义："></a>7.9    bash对变量有几个基本定义：</h2><h3 id="7-9-1-变量类型默认为“字符串”"><a href="#7-9-1-变量类型默认为“字符串”" class="headerlink" title="7.9.1    变量类型默认为“字符串”"></a>7.9.1    变量类型默认为“字符串”</h3><h3 id="7-9-2-数值计算，仅能达到整数形态，如1-3结果是0"><a href="#7-9-2-数值计算，仅能达到整数形态，如1-3结果是0" class="headerlink" title="7.9.2    数值计算，仅能达到整数形态，如1/3结果是0"></a>7.9.2    数值计算，仅能达到整数形态，如1/3结果是0</h3><h2 id="7-10-数组（array）变量类型：通过-数组-读取"><a href="#7-10-数组（array）变量类型：通过-数组-读取" class="headerlink" title="7.10    数组（array）变量类型：通过${数组}读取"></a>7.10    数组（array）变量类型：通过${数组}读取</h2><h2 id="7-11-ulimit：限制用户的某些资源"><a href="#7-11-ulimit：限制用户的某些资源" class="headerlink" title="7.11    ulimit：限制用户的某些资源"></a>7.11    ulimit：限制用户的某些资源</h2><h3 id="7-11-1-ulimit-SHacdfltu-配额-显示信息中，0代表没有限制"><a href="#7-11-1-ulimit-SHacdfltu-配额-显示信息中，0代表没有限制" class="headerlink" title="7.11.1    ulimit [-SHacdfltu] [配额]  显示信息中，0代表没有限制"></a>7.11.1    ulimit [-SHacdfltu] [配额]  显示信息中，0代表没有限制</h3><h2 id="7-12-变量内容的删除与取代"><a href="#7-12-变量内容的删除与取代" class="headerlink" title="7.12    变量内容的删除与取代"></a>7.12    变量内容的删除与取代</h2><h3 id="7-12-1-variable-（开始符号）-符号（结束符号）"><a href="#7-12-1-variable-（开始符号）-符号（结束符号）" class="headerlink" title="7.12.1    ${variable#/（开始符号）*符号（结束符号）}"></a>7.12.1    ${variable#/（开始符号）*符号（结束符号）}</h3><table>
+<thead>
+<tr>
+<th>变量设定方式</th>
+<th>说明            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${变量#关键词} ${变量##关键词}</td>
+<td>若变量内容从头开始的数据符合『关键词』，则将符合的最短数据删除。若变量内容从头开始的数据符合『关键词』，则将符合的最长数据删除</td>
+</tr>
+<tr>
+<td>${变量%关键词} ${变量%%关键词}</td>
+<td>若变量内容从尾向前的数据符合【关键词】，则将符合的最短数据删除；若变量内容从尾向前的数据符合【关键词】，则将符合的最长数据删除</td>
+</tr>
+<tr>
+<td>${变量/旧字符串/新字符串} ${变量//旧字符串/新字符串}</td>
+<td>若变量内容符合【旧字符串】则【第一个旧字符串被新字符串取代】；若变量内容符合【旧字符串】则【全部的旧字符串会被新字符串取代】</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-12-2-new-var-old-var-content"><a href="#7-12-2-new-var-old-var-content" class="headerlink" title="7.12.2     new_var = ${old_var-content}"></a>7.12.2     new_var = ${old_var-content}</h3><ul>
+<li>如果old_var未设定内容，则content内容赋予new_var。</li>
+<li>如果old_var设定了内容，则new_var=old_var</li>
+</ul>
+<h3 id="7-12-3-new-var-old-var-content"><a href="#7-12-3-new-var-old-var-content" class="headerlink" title="7.12.3    new_var = ${old_var:-content}"></a>7.12.3    new_var = ${old_var:-content}</h3><blockquote>
+<p>加上:后若变量内容为空或是未设定，都能够以后面的内容替换 </p>
+</blockquote>
+<h2 id="7-13-history"><a href="#7-13-history" class="headerlink" title="7.13    history"></a>7.13    history</h2><h3 id="7-13-1-number-执行第几笔指令的意思"><a href="#7-13-1-number-执行第几笔指令的意思" class="headerlink" title="7.13.1    !number 执行第几笔指令的意思"></a>7.13.1    !number 执行第几笔指令的意思</h3><h3 id="7-13-2-command-由最近的指令向前搜索的那个指令，并执行"><a href="#7-13-2-command-由最近的指令向前搜索的那个指令，并执行" class="headerlink" title="7.13.2    !command 由最近的指令向前搜索的那个指令，并执行"></a>7.13.2    !command 由最近的指令向前搜索的那个指令，并执行</h3><h3 id="7-13-3-！！执行上一个指令"><a href="#7-13-3-！！执行上一个指令" class="headerlink" title="7.13.3    ！！执行上一个指令"></a>7.13.3    ！！执行上一个指令</h3><h2 id="7-14-bash进站与欢迎讯息：-etc-issue-etc-motd-所有的使用者登录时都会显示"><a href="#7-14-bash进站与欢迎讯息：-etc-issue-etc-motd-所有的使用者登录时都会显示" class="headerlink" title="7.14    bash进站与欢迎讯息：/etc/issue,/etc/motd(所有的使用者登录时都会显示)"></a>7.14    bash进站与欢迎讯息：/etc/issue,/etc/motd(所有的使用者登录时都会显示)</h2><h2 id="7-15-bash的环境配置文件"><a href="#7-15-bash的环境配置文件" class="headerlink" title="7.15    bash的环境配置文件"></a>7.15    bash的环境配置文件</h2><h3 id="7-15-1-login"><a href="#7-15-1-login" class="headerlink" title="7.15.1    login:"></a>7.15.1    login:</h3><ul>
+<li>7.15.1.1    取得bash时需要完整的登录流程</li>
+<li>7.15.1.2    只会读取这两个配置文件<ul>
+<li>7.15.1.2.1    /etc/profile：系统整体设定文件<ul>
+<li>7.15.1.2.1.1    PATH环境变量设置在此文件中设置，建议更改~/.bashrc</li>
+</ul>
+</li>
+<li>7.15.1.2.2    ~/.bash_profile或~/.bash_login或~/.profile 属于使用者个人设定，只会读取三个档案中的一个，按顺序。</li>
+</ul>
+</li>
+<li>7.15.1.3    source:读入环境配置文件的指令</li>
+</ul>
+<h3 id="7-15-2-non-login-shell"><a href="#7-15-2-non-login-shell" class="headerlink" title="7.15.2    non-login shell:"></a>7.15.2    non-login shell:</h3><ul>
+<li>7.15.2.1    取得bash接口的方法不需要重复登入的举动，一般以图形化登入时</li>
+<li>7.15.2.2    仅会读取~/.bashrc</li>
+<li>7.15.2.3    如果~/.bashrc不小心删除了，可以从/etc/skel/.bashrc复制过来</li>
+</ul>
+<h2 id="7-16-终端机的环境设定：stty-set"><a href="#7-16-终端机的环境设定：stty-set" class="headerlink" title="7.16    终端机的环境设定：stty,set"></a>7.16    终端机的环境设定：stty,set</h2><ul>
+<li>7.16.1    stty:设定终端机的输入按键代表的意义</li>
+<li>7.16.2    按键功能的设定在/etc/inputrc</li>
+</ul>
+<h2 id="7-17-数据流重导向"><a href="#7-17-数据流重导向" class="headerlink" title="7.17    数据流重导向"></a>7.17    数据流重导向</h2><ul>
+<li>7.17.1    标准输入stdin：代码0 使用&lt; 或&lt;&lt;</li>
+<li>7.17.2    标准输出stdout：代码1 使用&gt;或&gt;&gt;</li>
+<li>7.17.3    标准错误输出(stderr): 代码为2，使用2&gt; 或2&gt;&gt;</li>
+<li>7.17.4    /dev/null可以吃掉任何导向这个装置的信息 </li>
+</ul>
+<blockquote>
+<p>例：2/dev/null</p>
+</blockquote>
+<ul>
+<li>7.17.5    将指令的数据全部写入名为list的档案中</li>
+</ul>
+<blockquote>
+<p>例：find /home –name .bashrc list 2&amp;1<br>或  find /home –name .bashrc &amp;list</p>
+</blockquote>
+<ul>
+<li>7.17.6    &gt;&gt; 代表的是【结束的输入字符】的意思</li>
+</ul>
+<blockquote>
+<p>例cat catfile &lt;&lt; “eof”</p>
+</blockquote>
+<h2 id="7-18-关机的时候可以先执行两次sync同步化写入磁盘后才shutdown计算机"><a href="#7-18-关机的时候可以先执行两次sync同步化写入磁盘后才shutdown计算机" class="headerlink" title="7.18    关机的时候可以先执行两次sync同步化写入磁盘后才shutdown计算机"></a>7.18    关机的时候可以先执行两次sync同步化写入磁盘后才shutdown计算机</h2><pre><code>sync;sync;shutdown –h now
+</code></pre><h2 id="7-19-选取命令：cut，grep"><a href="#7-19-选取命令：cut，grep" class="headerlink" title="7.19    选取命令：cut，grep"></a>7.19    选取命令：cut，grep</h2><h3 id="7-19-1-cut-可以将某段讯息的某一段给切出来（同一行里面的数据进行分解）"><a href="#7-19-1-cut-可以将某段讯息的某一段给切出来（同一行里面的数据进行分解）" class="headerlink" title="7.19.1    cut 可以将某段讯息的某一段给切出来（同一行里面的数据进行分解）"></a>7.19.1    cut 可以将某段讯息的某一段给切出来（同一行里面的数据进行分解）</h3><blockquote>
+<p>语法：cut –d ‘分隔字符’ –f fields    用于有特定分隔字符的</p>
+</blockquote>
+<h2 id="7-20-last-显示登入者的信息"><a href="#7-20-last-显示登入者的信息" class="headerlink" title="7.20    last : 显示登入者的信息"></a>7.20    last : 显示登入者的信息</h2><h2 id="7-21-sort：排序"><a href="#7-21-sort：排序" class="headerlink" title="7.21    sort：排序"></a>7.21    sort：排序</h2><h2 id="7-22-uniq：将重复的资料仅列出一个显示"><a href="#7-22-uniq：将重复的资料仅列出一个显示" class="headerlink" title="7.22    uniq：将重复的资料仅列出一个显示"></a>7.22    uniq：将重复的资料仅列出一个显示</h2><h2 id="7-23-wc：统计档案里的字数和行数"><a href="#7-23-wc：统计档案里的字数和行数" class="headerlink" title="7.23    wc：统计档案里的字数和行数"></a>7.23    wc：统计档案里的字数和行数</h2><h2 id="7-24-tee：双向重导向-a以累加的方式，将数据加入到file中"><a href="#7-24-tee：双向重导向-a以累加的方式，将数据加入到file中" class="headerlink" title="7.24    tee：双向重导向  -a以累加的方式，将数据加入到file中"></a>7.24    tee：双向重导向  -a以累加的方式，将数据加入到file中</h2><h2 id="7-25-字符转换命令：tr-col-join-paste-expand"><a href="#7-25-字符转换命令：tr-col-join-paste-expand" class="headerlink" title="7.25    字符转换命令：tr,col,join,paste,expand"></a>7.25    字符转换命令：tr,col,join,paste,expand</h2><ul>
+<li>7.25.1    tr 用来删除一段讯息当中的文字</li>
+<li>7.25.2    join 处理两个档案之间的数据，两个档案中，有相同数据的哪一行，才将他加在一起的意思</li>
+<li>7.25.3    paste:直接将两行贴在一起，且中间以tab键隔开</li>
+<li>7.25.4    expand:将tab按键转换成空格键</li>
+</ul>
+<h2 id="7-26-分割命令：将一个大档案依据档案大小或行数来分割"><a href="#7-26-分割命令：将一个大档案依据档案大小或行数来分割" class="headerlink" title="7.26    分割命令：将一个大档案依据档案大小或行数来分割"></a>7.26    分割命令：将一个大档案依据档案大小或行数来分割</h2><ul>
+<li>语法：split [-bl] file PREFIX</li>
+<li>例：split –b 300k /etc/termcap test</li>
+<li>将上面分割的几个小档案合成一个档案，档名为termcapback</li>
+<li>cat test* &gt;&gt; termcapback</li>
+</ul>
+<h2 id="7-27-finger"><a href="#7-27-finger" class="headerlink" title="7.27 finger"></a>7.27 finger</h2><blockquote>
+<p>   finger: 为系统管理员提供知道某个时候到底有多少用户在使用这台Linux主机的方法, 通常会显示系统中某个用户的用户名、主目录、停滞时间、登录时间、登录shell等信息。</p>
+</blockquote>
+<h2 id="7-28-减号-的用途："><a href="#7-28-减号-的用途：" class="headerlink" title="7.28    减号-的用途："></a>7.28    减号-的用途：</h2><pre><code>tar –cvf - /home | tar –xvf –
+</code></pre><blockquote>
+<p>解释：将/home里面的档案打包，但打包的数据不是记录到档案，而是传送到stdout，经管线后，将tar –cvf - /home 传送给后面的tar –xvf -，后面的-则是取用前一个指令的stdout</p>
+</blockquote>
+<h1 id="8-正规表示法和文件格式化处理"><a href="#8-正规表示法和文件格式化处理" class="headerlink" title="8    正规表示法和文件格式化处理"></a>8    正规表示法和文件格式化处理</h1><h2 id="8-1-正规表示法和通配符"><a href="#8-1-正规表示法和通配符" class="headerlink" title="8.1    正规表示法和通配符"></a>8.1    正规表示法和通配符</h2><ul>
+<li>8.1.1    正规表示法是一种字符串处理的表示方式</li>
+<li>8.1.2    通配符是bash操作接口的一个功能</li>
+</ul>
+<h2 id="8-2-dmesg-–-可列出核心产生的讯息"><a href="#8-2-dmesg-–-可列出核心产生的讯息" class="headerlink" title="8.2    dmesg – 可列出核心产生的讯息"></a>8.2    dmesg – 可列出核心产生的讯息</h2><h2 id="8-3-grep"><a href="#8-3-grep" class="headerlink" title="8.3    grep"></a>8.3    grep</h2><pre><code>grep [-A] [-B] [--color=auto] &apos;搜寻字符串&apos; filename 
+</code></pre><blockquote>
+<p><strong>选项不参数： </strong><br>-A ：后面可加数字，为 after 的意思，除了列出该行外，后续癿 n 行也列出来；<br>-B ：后面可加数字，为 befer 的意思，除了列出该行外，前面癿 n 行也列出来；<br>–color=auto 可将正确癿那个撷叏数据列出颜色 </p>
+</blockquote>
+<p>当有共通的‘t?st’存在时，使用下面的命令</p>
+<pre><code>grep -n &apos;t[ae]st&apos; regular_express.txt
+</code></pre><p>反向选择：</p>
+<pre><code>例：grep -vn &apos;the&apos; regular_express.txt
+</code></pre><p>不区分大小写：</p>
+<pre><code>grep -in &apos;the&apos; regular_express.txt
+</code></pre><p>某字符前不要有小写字符</p>
+<pre><code>grep -n &apos;[^a-z]oo&apos; regular_express.txt    
+</code></pre><p>定位行首</p>
+<pre><code>例：grep -n &apos;^[^[:alpha:]]&apos; 文件名
+</code></pre><p>找出行尾结束为小数点（.）的那一行</p>
+<pre><code>例：grep -n &apos;\.$&apos; 文件名
+</code></pre><p>去掉空白行与开头为#的那一行是批注</p>
+<pre><code>例：grep -v &apos;^$&apos; /etc/syslog.conf | grep -v &apos;^#&apos;
+</code></pre><h2 id="8-4-特殊符号代表意义"><a href="#8-4-特殊符号代表意义" class="headerlink" title="8.4 特殊符号代表意义"></a>8.4 特殊符号代表意义</h2><table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>代表意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td>代表英文大小写字符及数字，即0-9，A-Z,a-z</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>代表任何英文大小写字符，即A-Z，a-z</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>代表空格键与【Tab】按键两者</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>代表键盘上面的控制按键，即包括CR，LF，Tab，Del。。。等等</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>代表数字而已，即0-9</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>除了空格符（空格键与【Tab】按键）外的其他所有按键</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>代表小写字符，即a-z</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>代表任何可以被打印出来的字符</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>代表大写字符，即A-Z</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>任何会产生空白的字符，包括空格键，[Tab],CR等等</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>代表16进位的数字类型</td>
+</tr>
+</tbody>
+</table>
+<p>小数点.与重复字符* 和 限定连续字符范围{}</p>
+<ol>
+<li>.(小数点)：代表【一定有一个任意字符】的意思；</li>
+<li>*(星号)：代表【重复前一个0到无穷多次】的意思，为组合形态。</li>
+<li>{}：限定字符个数，因为{}符号在shell中有特殊意义，因此需要使用字符\来让它失去意义</li>
+</ol>
+<pre><code>例：至少两个o以上的字符串时：
+grep -n &apos;ooo*&apos; regular_express.txt
+例：查找g....g：
+grepp -n &apos;g.*g&apos; regular_express.txt
+例：找出【任意数字】的行列
+grep -n &apos;[0-9][0-9]*&apos; regular_express.txt
+例：找到两个o的字符串
+grep -n &apos;o\{2\}&apos; regular_express.txt
+例：找出g后面接2~5个o
+grep -n &apos;go\{2,5\}g&apos; regular_express.txt
+例：找出g后面接2个以上o
+grep -n &apos;go\{2,\}g&apos; regular_express.txt
+</code></pre><ul>
+<li>du -s /home:查看home目录下的大小，单位k</li>
+<li>du -sh /home:单位M</li>
+<li>dmesg 列出核心信息</li>
+</ul>
+<p><strong>‘^’符号</strong></p>
+<ul>
+<li>在【】内代表‘反向选择’</li>
+<li>在【】之外则代表定位在行首的意义</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义与范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^word</td>
+<td>待搜寻的字符串在行首</td>
+</tr>
+<tr>
+<td>word$</td>
+<td>待搜寻的字符串在行尾</td>
+</tr>
+<tr>
+<td>.</td>
+<td>代表【一定有一个任意字符】的字符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>跳脱字符，将特殊字符的特殊意义去掉</td>
+</tr>
+<tr>
+<td>    *</td>
+<td>重复0个到无穷多个的前一个字符</td>
+</tr>
+<tr>
+<td>[list]</td>
+<td>列出想要搜寻的字符，[]当中代表一个搜寻字符</td>
+</tr>
+<tr>
+<td>[n1-n2]</td>
+<td>列出想要搜寻的字符范围</td>
+</tr>
+<tr>
+<td>[^list]</td>
+<td>列出不要的字符串或范围</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>连续n到m个的【前一个字符】</td>
+</tr>
+</tbody>
+</table>
+<pre><code>例：以 ls -l配合grep找出/etc/底下文件类型为链接文件属性的文件名
+ls -l /etc | grep &apos;^l&apos;
+</code></pre><p><strong>特别声明</strong><br>正规表示法的特殊字符与一般在指令列输入指令的通配符并不相同</p>
+<h2 id="sed工具"><a href="#sed工具" class="headerlink" title="sed工具"></a>sed工具</h2><blockquote>
+<p><strong>用途</strong></p>
+<p>sed [-nefr] [动作]</p>
+<p>动作说明：[n1[,n2]]function</p>
+<p>function：a(新增)；c(取代)；d（删除）;i(插入)；p（打印）；s（取代）</p>
+</blockquote>
+<ul>
+<li>如果增加两行，需要在每一行之间添加反斜杠\</li>
+<li>整行取代，例：nl 文件名 | sed ‘2,5c No2-5number’</li>
+<li>列出第11~20行<ul>
+<li>head -n 20 文件名| tail -n 10</li>
+<li>nl 文件名 | sed -n ‘11,20p’</li>
+</ul>
+</li>
+<li>参数n代表安静模式，如果不使用安静模式，那么输出的结果将会重复显示</li>
+<li>sed如果后面要接超过两个以上的动作时，每个动作前加</li>
+<li>才可以。</li>
+</ul>
+<blockquote>
+<p><strong>部分数据的搜索并取代的功能</strong></p>
+<p>sed ‘s/要被取代的字符串/新的字符串/g’</p>
+</blockquote>
+<p>示例1如下图所示：</p>
+<p><img src="http://i.imgur.com/QGBp07o.jpg" alt></p>
+<p>直接修改档案，例(在文件最后一行加入‘#This is a test’)：</p>
+<pre><code>sed -i &apos;$a #This is a test&apos; 文件名
+$代表的是最后一行，a的动作是新增
+</code></pre><blockquote>
+<p><strong>什么情况下会使用sed直接修改档案内容的这个功能</strong><br>比如在一个档案包含100万行，而需要在100行添加某些文字，那么vim不是很好的选择，这是可以使用sed的修改/取代的功能</p>
+</blockquote>
+<h3 id="延伸型的正规表示法"><a href="#延伸型的正规表示法" class="headerlink" title="延伸型的正规表示法"></a>延伸型的正规表示法</h3><pre><code>egrep -v &apos;^$|^#&apos; regular_express.txt  ==== grep -v &apos;^$&apos; regular_express.txt | grep -v &apos;^#&apos;
+</code></pre><p>RE字符    | 意义与范例</p>
+<pre><code>+    |重复一个或一个以上的前一个RE字符，例：egrep -n &apos;go+d&apos; 文件名
+</code></pre><p>？        |零个或一个的前一个RE字符，例：egrep -n ‘go?d’ 文件名<br>|        |用或（or）的方式找出数个字符串，例：egrep -n ‘gd|good’ 文件名<br>（）        |找出【群组】字符串,例：egrep -n ‘g(la|oo)d’ 文件名<br>（）+    |多个重复群组的判别</p>
+<h2 id="文件格式化与相关处理"><a href="#文件格式化与相关处理" class="headerlink" title="文件格式化与相关处理"></a>文件格式化与相关处理</h2><h3 id="printf格式化打印"><a href="#printf格式化打印" class="headerlink" title="printf格式化打印"></a>printf格式化打印</h3><blockquote>
+<p><strong>printf ‘打印格式’ 实际内容</strong></p>
+</blockquote>
+<h3 id="awk好用的数据处理工具"><a href="#awk好用的数据处理工具" class="headerlink" title="awk好用的数据处理工具"></a>awk好用的数据处理工具</h3><blockquote>
+<p><strong>awk运作模式</strong><br>awk ‘条件类型1{动作1} 条件类型2{动作2}…’ filename</p>
+</blockquote>
+<p>例（取出账号与登入者的IP，且账号与IP之间以【tab】隔开）：</p>
+<pre><code>last -n 5 |awk &apos;{print $1 &quot;\t&quot; $3}&apos;
+其中$1~$5 代表第一栏至第五栏，而$0代表所有列的资料
+</code></pre><ul>
+<li>awk是以行为一次处理的单位，以字段为最小的处理单位</li>
+<li>awk如果想知道数据有几行或者几栏，需要awk的内建变量帮忙</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量名称</th>
+<th>代表意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NF</td>
+<td>每一行（$0）拥有的字段总数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>目前awk所处理的是【第几行】数据</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>目前的分割字符，默认是空格键</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>备注</strong> awk后续所有动作是以单引号‘’括住的，单引号中如果需要用引号，则必须使用双引号来定义。</p>
+</blockquote>
+<p>实例如下图所示</p>
+<p><img src="http://i.imgur.com/K50Yv9n.jpg" alt></p>
+<p>例（以passwd文件为基础，查阅第三栏小于10以下的数据，并且仅列出账号与第三栏）</p>
+<pre><code>cat /etc/passwd | awk &apos;{FS=&quot;:&quot;} $3 &lt; 10 {print $1 &quot;\t&quot; $3}&apos;
+</code></pre><blockquote>
+<p><strong>备注</strong> 当读入第一行时，变数$1,$2…默认还是以空格键为分割，即使定义了FS=“：”，但却仅能在第二行后才生效</p>
+</blockquote>
+<p>解决办法：预先设定awk的变量，使用BEGIN关键词</p>
+<pre><code>awk &apos;BEGIN {FS=&quot;:&quot;} $3 &lt; 10 {print $1 &quot;\t&quot; $3}&apos; 
+</code></pre><p><strong>几点重要说明</strong></p>
+<ol>
+<li>awk指令间隔：当需要多个指令辅助时，可利用‘；’间隔，或者直接用Enter按键来隔开每个指令</li>
+<li>逻辑运算中，如果是等于，一定要使用两个等号‘==’</li>
+<li>格式化输出时，在printf的格式设定中，务必加上\n，才能进行分行</li>
+<li>在awk中，变量可以直接使用，不需要加上$符号。</li>
+<li>awk动作内{}也是支持if条件的。</li>
+</ol>
+<h3 id="档案比对工具"><a href="#档案比对工具" class="headerlink" title="档案比对工具"></a>档案比对工具</h3><blockquote>
+<p><strong>使用场景</strong></p>
+<p>通常是同一个软件包的不同版本之间，比较配置文件与原始档的差异；</p>
+<p>通常是用在ASCII纯文本档的比对上</p>
+</blockquote>
+<h4 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h4><blockquote>
+<p>语法：diff [-bBi] fromfile tofile</p>
+<p>比对两个档案之间的差异，以行为单位来比对，通常用在同一档案的新旧版本差异上。</p>
+<p>还可以比对整个目录下的差异，比对不同目录下的相同文件名的内容。</p>
+</blockquote>
+<h4 id="cmp"><a href="#cmp" class="headerlink" title="cmp"></a>cmp</h4><blockquote>
+<p>用途没有diff广泛<br>主要利用“字节”单位去比对</p>
+<p>语法：cmp [-s] file1 file2<br> 参数-s：将所有的不同点的字节处都列出来，因为cmp预设仅会输出第一个发现的不同点</p>
+</blockquote>
+<h4 id="patch"><a href="#patch" class="headerlink" title="patch"></a>patch</h4><blockquote>
+<p>用来升级，将旧的档案升级成为新的档案</p>
+</blockquote>
+<p>操作方法如下：</p>
+<pre><code>- 制作补丁档案：diff -Naur passwd.old passwd.new &gt; passwd.patch
+- 更新旧档案，使其变成和新档案一样的内容：patch -pN &lt; patch_file;N为0代表当前目录下
+- 如果更新错误，还可以还原成旧档案：patch -R -pN &lt; patch_file
+</code></pre><h3 id="pr档案打印准备"><a href="#pr档案打印准备" class="headerlink" title="pr档案打印准备"></a>pr档案打印准备</h3><blockquote>
+<p>使用pr可以设定时间、页码、标题等等属性。</p>
+</blockquote>
+<h1 id="9-学习-Shell-Scripts"><a href="#9-学习-Shell-Scripts" class="headerlink" title="9 学习 Shell Scripts"></a>9 学习 Shell Scripts</h1><h2 id="9-1-什么是Shell-Script"><a href="#9-1-什么是Shell-Script" class="headerlink" title="9.1 什么是Shell Script"></a>9.1 什么是Shell Script</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>shell 是一个文字接口底下与系统沟通的一个工具接口</p>
+<p>shell script是利用shell功能缩写的一个程序，这个程序是使用纯文本文件，将一些shell的语法与指令写在里面，搭配正规表示法、管线命令与数据流重导向等功能，以达到我们想要的处理目的。</p>
+<p>无需编译即可执行，且拥有不错的debug工具。</p>
+</blockquote>
+<p><strong>学习shell scripts的理由：</strong></p>
+<ul>
+<li>自动化管理的重要依据</li>
+<li>追踪与管理系统的重要工作</li>
+<li>简单入侵检测功能</li>
+<li>连续指令单一化</li>
+<li>简易的数据处理</li>
+<li>简易的数据处理</li>
+<li>跨平台支持与学习历程较短</li>
+</ul>
+<p><strong>shell script处理数据速度慢的原因</strong></p>
+<blockquote>
+<p>用的是外部的指令与bash shell的一些默认工具，常去呼叫外部的函式库，在处理大量数据运算上，不够好。</p>
+</blockquote>
+<p><strong>shell script撰写需要注意的事项</strong></p>
+<pre><code>1. 指令的执行从上而下，从左到右分析与执行；
+2. 指令、选项与参数间的多个空白都会被忽略掉；
+3. 空白行也将被忽略掉，并且tab同样视为空格键；
+4. 如果读取到一个Enter符号（CR），就尝试开始执行该行（或该串）命令；
+5. 如果一行内容太多，则可使用\Enter来延伸至下一行；
+6. #可作为批注
+</code></pre><p><strong>执行档案的几个方法</strong></p>
+<pre><code>1.直接指令下达（需具备可读与可执行的权限（rx））：
+    - 绝对路径：例如 使用/home/dmtsai/shell.sh
+    - 相对路径:使用./shell.sh来执行
+    - 变量【PATH】功能：将shell.sh放在PATH指定目录内，例如：~/bin/
+
+2. 以bash程序来执行：透过【bash shell.sh】或[sh shell.sh]来执行
+3. 还可以利用sh的参数,如-n及-x来检查与追踪shell.sh的语法是否正确
+</code></pre><p><strong>程序大致内容</strong></p>
+<pre><code>1. 第一行#!/bin/bash表明这个script使用的shell名称
+2. 程序内容的说明：
+    - 除第一行之外，其他的#都是批注，描述整个程序的基本功能
+    - 说明该script一般包含以下内容：
+        - 内容与功能
+        - 版本信息
+        - 作者与联络方式
+        - 建档日期
+        - 历史记录
+
+
+3. 主要环境变量的宣告：PATH与LANG最重要，方便直接下达外部指令，不必写绝对路径
+4. 主要程序部分
+5. 执行结果告知：使用exit指令
+</code></pre><blockquote>
+<p><strong>备注</strong>使用撰写script的工具最好使用vim而不是vi,因为vim有额外的语法检验机制，能够在第一阶段撰写时就发现语法方面的问题</p>
+</blockquote>
+<h2 id="9-2-简单的shell-script练习"><a href="#9-2-简单的shell-script练习" class="headerlink" title="9.2 简单的shell script练习"></a>9.2 简单的shell script练习</h2><h2 id="9-3-善用判断式"><a href="#9-3-善用判断式" class="headerlink" title="9.3 善用判断式"></a>9.3 善用判断式</h2><h2 id="9-4-条件判断式"><a href="#9-4-条件判断式" class="headerlink" title="9.4 条件判断式"></a>9.4 条件判断式</h2><h2 id="9-5-循环loop"><a href="#9-5-循环loop" class="headerlink" title="9.5 循环loop"></a>9.5 循环loop</h2><h2 id="9-6-shell-script的追踪与debug"><a href="#9-6-shell-script的追踪与debug" class="headerlink" title="9.6 shell script的追踪与debug"></a>9.6 shell script的追踪与debug</h2><h2 id="重点回顾"><a href="#重点回顾" class="headerlink" title="重点回顾"></a>重点回顾</h2>
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/07/28/Linux-Reading-notes/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/07/28/Linux-Reading-notes/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

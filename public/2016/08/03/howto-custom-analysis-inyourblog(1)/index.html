@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>手把手教你在博客中添加统计分析功能（1） | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。">
+<meta name="keywords" content="blog,原创,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你在博客中添加统计分析功能（1）">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/08/03/howto-custom-analysis-inyourblog(1)/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_1.JPG?raw=true">
+<meta property="og:image" content="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_2.JPG?raw=true">
+<meta property="og:updated_time" content="2017-06-08T03:44:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手把手教你在博客中添加统计分析功能（1）">
+<meta name="twitter:description" content="目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。">
+<meta name="twitter:image" content="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_1.JPG?raw=true">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>手把手教你在博客中添加统计分析功能（1）</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-08-03</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/blog/">blog</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/原创/">原创</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/javascript/">javascript</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。</p>
+<a id="more"></a>
+<h3 id="注册网站"><a href="#注册网站" class="headerlink" title="注册网站"></a>注册网站</h3><ol>
+<li>打开<a href="http://tongji.baidu.com/web/welcome/login" title="百度统计分析网站" target="_blank" rel="noopener">http://tongji.baidu.com/web/welcome/login</a></li>
+<li>注册百度统计站长版<br>其中，在‘网站’这一项，填写自己的网站域名，比如：<blockquote>
+<p>perixiaowan.github.io</p>
+</blockquote>
+</li>
+</ol>
+<p>注册完毕之后，显示界面如图1所示</p>
+<p><img src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_1.JPG?raw=true" alt="百度统计分析代码"><br>图1 百度统计分析代码获取</p>
+<h3 id="添加分析代码"><a href="#添加分析代码" class="headerlink" title="添加分析代码"></a>添加分析代码</h3><p>将上图1所示代码段copy至自己的代码中，如下所示</p>
+<pre><code>&lt;script&gt;
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.baidu.com/hm.js?b760b7848c7e06e1931a383d0a2c116f&quot;;
+  var s = document.getElementsByTagName(&quot;script&quot;)[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+&lt;/script&gt;
+</code></pre><p>最好将其放至生成html的模板中，这样可在每次撰写新的md文件时，hexo g后会自动将此段代码加入html中。避免每次写新文章手动添加分析代码的麻烦。本人项目中，将此段代码放置了theme主题下的layout》post.ejs文件中，如图2所示</p>
+<p><img src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_2.JPG?raw=true" alt="统计功能代码位置2"><br>图2 统计功能代码位置</p>
+<h3 id="更新github"><a href="#更新github" class="headerlink" title="更新github"></a>更新github</h3><pre><code>hexo clean &amp; hexo g &amp; hexo d
+</code></pre><h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>至此，一个简单的百度统计功能就被加进自己的博客中，当每次撰写新的博客，并发布至github上后，就可实时监测文字被访问的统计信息。可以依据这些数据，对自己的网站进行SEO等改进措施。</p>
+<p><strong><br>在下一章中，我将为大家介绍如何在自己的博客中添加google analytics分析工具，欢迎大家经常来拜访Mac小兔噢^_^</strong></p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/08/03/howto-custom-analysis-inyourblog(1)/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/08/03/howto-custom-analysis-inyourblog(1)/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

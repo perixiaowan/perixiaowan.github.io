@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Wireshark（总结） | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="4号和10号用两天时间把这个半拇指厚的《Wireshark网络分析就这么简单》书，认真学了一遍，对wireshark有了基本的认识，并且能够对基本问题进行基本的分析。 要说通过一次学习掌握的程度能达到百分之六七十以上已经相当不错了。好在自己在本科阶段积累的网络基础知识，现在派上了用场，学习过程的速度明显加快了许多，晦涩难懂的地方也较少。 同时，也再次驳倒了一批人认为学校接触的知识在社会无用武之地的">
+<meta name="keywords" content="Wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireshark（总结）">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/10/10/Wireshark-Notes-Summary/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="4号和10号用两天时间把这个半拇指厚的《Wireshark网络分析就这么简单》书，认真学了一遍，对wireshark有了基本的认识，并且能够对基本问题进行基本的分析。 要说通过一次学习掌握的程度能达到百分之六七十以上已经相当不错了。好在自己在本科阶段积累的网络基础知识，现在派上了用场，学习过程的速度明显加快了许多，晦涩难懂的地方也较少。 同时，也再次驳倒了一批人认为学校接触的知识在社会无用武之地的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-06-08T03:50:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wireshark（总结）">
+<meta name="twitter:description" content="4号和10号用两天时间把这个半拇指厚的《Wireshark网络分析就这么简单》书，认真学了一遍，对wireshark有了基本的认识，并且能够对基本问题进行基本的分析。 要说通过一次学习掌握的程度能达到百分之六七十以上已经相当不错了。好在自己在本科阶段积累的网络基础知识，现在派上了用场，学习过程的速度明显加快了许多，晦涩难懂的地方也较少。 同时，也再次驳倒了一批人认为学校接触的知识在社会无用武之地的">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Wireshark（总结）</strong>
+            </h1>
+            
+                <h2>偏执造就悲剧</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-10-10</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/wireshark/">Wireshark</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>4号和10号用两天时间把这个半拇指厚的《Wireshark网络分析就这么简单》书，认真学了一遍，对wireshark有了基本的认识，并且能够对基本问题进行基本的分析。</p>
+<p>要说通过一次学习掌握的程度能达到百分之六七十以上已经相当不错了。好在自己在本科阶段积累的网络基础知识，现在派上了用场，学习过程的速度明显加快了许多，晦涩难懂的地方也较少。</p>
+<p>同时，也再次驳倒了一批人认为学校接触的知识在社会无用武之地的说法。</p>
+<p>因为自己非过目不忘型，因此，需要将书中一些知识要点总结并记录下来，以便日后再次复习使用，加强记忆。</p>
+<a id="more"></a>
+<ol>
+<li><p>跨子网通信需要默认网关的转发，而和默认网关通信，就需要获得其MAC地址；</p>
+</li>
+<li><p>在执行ARP（地址解析协议）的时候，如果A和B不在同一个子网，那么A发出的ARP广播请求，B收到请求之后，会直接回复，而不考虑子网问题；</p>
+</li>
+<li><p>常用网络配置信息的命令</p>
+<ul>
+<li><code>ifconfig | egrep “HWaddr|inet addr”</code>  #查看网络配置信息</li>
+<li><code>route | egrep &quot;Dest|**.**&quot;</code>  #路由查询</li>
+</ul>
+</li>
+<li><p>常用的过滤方式（Filter栏）</p>
+<ul>
+<li>协议名称；</li>
+<li>ip地址加port号，最常用的过滤方式。过滤表达式：ip addr eq &lt;ip地址&gt; &amp;&amp; tcp.port eq &lt;端口号&gt;</li>
+<li>还可以右键单击感兴趣的包，选择<em>Follow TCP/UDP Stream</em>,即可自动过滤</li>
+</ul>
+</li>
+<li><p>NFS（网络上的文件系统）—NFS协议是SUN公司设计</p>
+</li>
+<li><p><strong>portmap</strong></p>
+<ul>
+<li>维护一张进程与端口号的对应关系表；</li>
+<li>端口号111，一般众所周知</li>
+<li>在linux centos6.0以上版本程序已经更名为rpcbind</li>
+</ul>
+</li>
+<li><p><code>rpcinfo</code>获得服务器上的端口列表</p>
+</li>
+<li><p>NFS对客户端的访问控制是通过IP地址实现的</p>
+</li>
+<li><p>用户与UID的对应关系由客户端的<code>/etc/passwd</code>，NFS只认UID不认用户名</p>
+</li>
+<li><p>判断一个写操作的包是<code>async</code>还是<code>sync</code>的方法</p>
+<p><code>WRITE Call</code>上的<code>UNSTABLE</code>和<code>FILE_SYNC</code>标志分别代表<code>async</code>和<code>sync</code>    </p>
+</li>
+<li><p>在mount时，可以使用<code>wsize</code>参数来指定每次应该写多少，但在某些客户端上启用sync参数之后，无论<code>wsize</code>定义成多少都会被强制为4KB</p>
+</li>
+<li><p>如果mount时，使用了<code>noac</code> 参数，那么读写性能会受影响</p>
+<ul>
+<li><code>noac</code> 参数：让客户端不缓存文件属性</li>
+<li>如果也没有指定sync参数，那么noac会把写操作强制变成sync方式</li>
+</ul>
+</li>
+<li><p>发包的大小是有<code>MTU</code>较小的一方决定的</p>
+</li>
+<li><p>发送方的发送窗口是受接收方的接收窗口和网络影响的，接收方只要在包里使用<code>Win=</code>即可告知发送方其窗口大小</p>
+</li>
+<li><p>拥塞点：导致网络拥塞的数据量</p>
+</li>
+<li><p>拥塞点的一个较靠谱的确定策略：在发送放维护一个虚拟的拥塞窗口，并利用算法使它尽可能接近真实的拥塞点。</p>
+</li>
+<li><p>RTO：从发出原始包到重传该包的时间。某些操作系统提供了调节RTO大小的参数</p>
+</li>
+<li><p>重传之后拥塞窗口是否需要调整？RFC建议把拥塞窗口降到1个MSS，然后再次进入慢启动过程</p>
+</li>
+<li><p><strong>RFC</strong> 一系列以编号排定的文件，文件收集了有关互联网相关的信息</p>
+</li>
+<li><p>即便万分之一的重传对性能的影响都很大</p>
+</li>
+<li><p><strong>超时重传</strong>对性能影响最大，因为它有一段时间（RTO）没有传输任何数据，而且拥塞窗口会被设成1个MSS，所以要尽量避免超市重传。</p>
+</li>
+<li><p>丢包对极小文件的影响比大文件严重，因为读写一个小文件需要的包数很少，所以丢包时往往凑不满3个Dup Ack，只能等待超时重传了。</p>
+</li>
+<li><p><strong>Nagle算法原理</strong></p>
+<p>在发出去的数据还没有被确认之前，假如又有小数据生成，那就把小数据收集起来，凑满一个MSS或等收到确认后再发送。</p>
+</li>
+<li><p><strong>Westwood算法原理</strong></p>
+<p>先推算出有多少包已经被送达接收方，从而更精确的估算发生拥塞时的带宽，最后再依据带宽来确定新的拥塞窗口。</p>
+</li>
+<li><p><strong>Vegas算法原理</strong></p>
+<p>通过监控网络状态来调整发包速度，从而实现真正的<em>拥塞避免</em>。</p>
+<p>当网络状况良好时，数据包的RTT（往返时间）比较稳定，这时可以增大拥塞窗口；</p>
+<p>当网络开始繁忙时，数据包开始排队，RTT就会变大，这时需要减小拥塞窗口。</p>
+<p>优势：在拥塞真正发生之前，发送发已经能通过RTT预测到，并通过减缓发送速度来避免丢包。</p>
+</li>
+<li><p>Windows操作系统中<code>Compound算法</code>同时维持两个拥塞窗口。Windows7上该算法是默认关闭的。</p>
+<p>启用方法：<code>netsh interface tcp set global congestionprovider=ctcp</code></p>
+<p>关闭方法:<code>netsh interface tcp set global congestionprovider=none</code></p>
+</li>
+<li><p>每个包里都有<code>More fragments</code>的flag。1表示后续还有分片，0表示这是最后一个分片可以组装了。</p>
+</li>
+<li><p>NFS：理论上试用于任何操作系统，但只在Linux/Unix上流行</p>
+</li>
+<li><p>Windows共享协议：SMB协议（由微软维护）,也叫<code>Common Internet File System(CIFS)</code>。其中有三个版本—SMB、SMB2和SMB3</p>
+</li>
+<li><p>Windows的Backup Operators组中的用户备份和读操作时，通过包区分的方法：备份的时候在Create请求中<code>Backup Intent</code>为1，读的时候为0</p>
+</li>
+<li><p>多个用户访问同一个文件的情况</p>
+<ul>
+<li>CIFS采用了<code>Oplock（机会锁）</code></li>
+<li><code>Oplock</code>有<em>Exclusive(允许读写缓存) Batch（允许所有操作缓存） Level2（只允许读缓存）</em></li>
+</ul>
+</li>
+<li><p>利用Windows Explorer从CIFS共享上复制文件会比较慢，因为Windows Explorer是逐个复制的（单线程），使用某些工具可能同时复制多个文件（多线程）</p>
+</li>
+<li><p>SMB3提出了一个叫<code>BranchCache</code>的机制来解决多用户访问同一个文件，但相同内容需要在有限带宽中传输多次的问题。</p>
+</li>
+<li><p>DNS</p>
+<ul>
+<li>用域账号登录操作系统，是依靠DNS找到Domain Controller来验证身份。</li>
+<li>Domain Controller（域控制器，控制网络上的计算机能否加入的计算机组合）</li>
+<li>A记录：从域名解析到IP地址</li>
+<li>PTR记录：与A记录相反，从IP地址解析到域名</li>
+<li>SRV记录：指向域里资源</li>
+<li>CNAME记录：称为Alias记录，即别名的意思</li>
+<li>递归查询和迭代查询</li>
+<li>工作方式<ul>
+<li>假如有两个同名的A记录，分别对应着两个不同的ip，那么进行多次解析域名时，返回的IP地址是一样的，但每次顺序都是相反的，这是DNS循环工作模式，此特性可以广泛应用于负载均衡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>FTP</p>
+<p>客户端连接FTP服务器端口21是为了传输控制信息，称之为<em>控制链接</em>；<br>当需要传输数据时，重新建立一个TCP连接，称之为<em>数据连接</em></p>
+</li>
+<li><p>三次握手是由服务器端主动发起，称之为主动模式，可以更改主动模式为被动模式，在相应工具中进行设置即可</p>
+</li>
+<li><p>云存储一般使用对象存储的方式</p>
+</li>
+<li><p><strong>NLM</strong>：<code>Network Lock Manager</code>的简称，客户端用它来锁定服务器上的文件，从而避免和其他客户端发生访问冲突，一般都是由客户端查询服务器的NLM端口 </p>
+</li>
+</ol>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/10/10/Wireshark-Notes-Summary/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/10/10/Wireshark-Notes-Summary/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

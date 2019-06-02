@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python笔记（十五）-作用域 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="法则 以交互命令提示模式输入的代码实际输入到一个叫做_main_的内置模块中 LEGB法则： L：本地作用域 E：上一层结构中def或lambda的本地作用域 G：全局作用域 B：内置作用域    内置作用域 是一个名为_builtin_的内置模块，但必须要import_builtin_之后才能使用内置作用域 是通过一个名为_builtin_的标准库模块来实现的，这个变量自身并没有放入内置作用域内">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python笔记（十五）-作用域">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/08/31/python-scope/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="法则 以交互命令提示模式输入的代码实际输入到一个叫做_main_的内置模块中 LEGB法则： L：本地作用域 E：上一层结构中def或lambda的本地作用域 G：全局作用域 B：内置作用域    内置作用域 是一个名为_builtin_的内置模块，但必须要import_builtin_之后才能使用内置作用域 是通过一个名为_builtin_的标准库模块来实现的，这个变量自身并没有放入内置作用域内">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-17T03:32:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python笔记（十五）-作用域">
+<meta name="twitter:description" content="法则 以交互命令提示模式输入的代码实际输入到一个叫做_main_的内置模块中 LEGB法则： L：本地作用域 E：上一层结构中def或lambda的本地作用域 G：全局作用域 B：内置作用域    内置作用域 是一个名为_builtin_的内置模块，但必须要import_builtin_之后才能使用内置作用域 是通过一个名为_builtin_的标准库模块来实现的，这个变量自身并没有放入内置作用域内">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python笔记（十五）-作用域</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-08-31</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="法则"><a href="#法则" class="headerlink" title="法则"></a>法则</h2><ul>
+<li>以交互命令提示模式输入的代码实际输入到一个叫做<code>_main_</code>的内置模块中</li>
+<li><code>LEGB</code>法则：<ul>
+<li>L：本地作用域</li>
+<li>E：上一层结构中def或lambda的本地作用域</li>
+<li>G：全局作用域</li>
+<li>B：内置作用域</li>
+</ul>
+</li>
+</ul>
+<h2 id="内置作用域"><a href="#内置作用域" class="headerlink" title="内置作用域"></a>内置作用域</h2><ul>
+<li>是一个名为<code>_builtin_</code>的内置模块，但必须要<code>import_builtin_</code>之后才能使用内置作用域</li>
+<li><p>是通过一个名为<code>_builtin_</code>的标准库模块来实现的，这个变量自身并没有放入内置作用域内</p>
+<pre><code>&gt;&gt;&gt; import builtins
+&gt;&gt;&gt; dir(builtins)
+[&apos;ArithmeticError&apos;, &apos;AssertionError&apos;, &apos;AttributeError&apos;, &apos;BaseException&apos;, &apos;BlockingIOError&apos;, &apos;BrokenPipeError&apos;, &apos;BufferError&apos;, &apos;BytesWarning&apos;, &apos;ChildProcessError&apos;, ..... &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;vars&apos;, &apos;zip&apos;]
+&gt;&gt;&gt; 
+</code></pre></li>
+</ul>
+<h2 id="global语句"><a href="#global语句" class="headerlink" title="global语句"></a>global语句</h2><pre><code>&gt;&gt;&gt; X = 88
+&gt;&gt;&gt; def func():
+...     global X
+...     X = 99
+... 
+&gt;&gt;&gt; func()
+&gt;&gt;&gt; print(X)
+99
+</code></pre><p>方法：</p>
+<pre><code>一些程序委任一个单个模块文件去定义所有的全局变量
+</code></pre><h2 id="文件间通信的方法"><a href="#文件间通信的方法" class="headerlink" title="文件间通信的方法"></a>文件间通信的方法</h2><pre><code>调用函数，传递函数，得到其返回值。
+</code></pre><h2 id="工厂函数"><a href="#工厂函数" class="headerlink" title="工厂函数"></a>工厂函数</h2><ul>
+<li><p>一个能够记住嵌套作用域的变量值的函数，尽管那个作用域或许已经不存在了。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def maker(N):<br>  …     def action(X):<br>  …             return X ** N<br>  …     return action<br>  … </p>
+<p>f = maker(2)<br>f<br>  &lt;function maker.<locals>.action at 0x102276a60&gt;<br>f(3)<br>  9<br>f(4)<br>  16</locals></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><p><code>lambda</code>表达式引入了新的本地作用域，lambda能够看到所有在所编写的函数中的可用的变量</p>
+<pre><code>&gt;&gt;&gt; def func():
+...     x = 4
+...     action = (lambda n : x ** n)
+...     return action
+... 
+&gt;&gt;&gt; x = func()
+&gt;&gt;&gt; print(x(2))
+16
+&gt;&gt;&gt; 
+</code></pre><h2 id="nonlocal语句"><a href="#nonlocal语句" class="headerlink" title="nonlocal语句"></a>nonlocal语句</h2><p>python3.0:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def func():</span><br><span class="line">	nonlocal name1,name2,...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当执行到nonlocal语句的时候，nonlocal中列出的名称必须在一个嵌套的def中提前定义过，否则，将会产生一个错误。</li>
+<li>global和nonlocal语句都在某种程度上限制了查找规则：<ul>
+<li>global使得作用域查找从嵌套的模块的作用域开始，允许对那里的名称赋值，如果名称不存在于该模块中，作用域查找继续到内置作用域</li>
+<li>nonlocal限制作用域查找只是嵌套的def，要求名称已经存在于那里，并且允许对他们赋值，作用域查找不会继续到全局或内置作用域。</li>
+</ul>
+</li>
+</ul>
+<h3 id="nonlocal应用"><a href="#nonlocal应用" class="headerlink" title="nonlocal应用"></a>nonlocal应用</h3><ul>
+<li><p>默认情况下，不允许修改嵌套的def作用域中的名称</p>
+<pre><code>&gt;&gt;&gt; def tester(start):
+...     state = start
+...     def nested(label):
+...             print(label,state)
+...             state += 1
+...     return nested
+... 
+&gt;&gt;&gt; F = tester(0)
+&gt;&gt;&gt; F(&apos;spam&apos;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 4, in nested
+UnboundLocalError: local variable &apos;state&apos; referenced before assignment
+&gt;&gt;&gt; 
+</code></pre></li>
+<li><p>python 3.0下</p>
+<pre><code>&gt;&gt;&gt; def tester(start):
+...     state = start
+...     def nested(label):
+...             nonlocal state
+...             print(label,state)
+...             state += 1
+...     return nested
+... 
+&gt;&gt;&gt; F = tester(0)
+&gt;&gt;&gt; F(&apos;spam&apos;)
+spam 0
+&gt;&gt;&gt; F(&apos;xiaowan&apos;)
+xiaowan 1
+&gt;&gt;&gt; G = tester(42)
+&gt;&gt;&gt; G(&apos;spam&apos;)
+spam 42
+&gt;&gt;&gt; G(&apos;egg&apos;)
+egg 43
+&gt;&gt;&gt; F(&apos;xiaowan&apos;)
+xiaowan 2
+&gt;&gt;&gt; 
+</code></pre></li>
+</ul>
+<h2 id="边界情况"><a href="#边界情况" class="headerlink" title="边界情况"></a>边界情况</h2><ul>
+<li><p>nonlocal名称必须已经在一个嵌套的def作用域中赋值过，否则将会得到一个错误，不能通过在嵌套的作用域中赋值它们一个新值来创建它们：</p>
+<pre><code>&gt;&gt;&gt; def tester(start):
+...     def nested(label):
+...             nonlocal state
+...             state = 0
+...             print(label,state)
+...     return nested
+... 
+  File &quot;&lt;stdin&gt;&quot;, line 3
+SyntaxError: no binding for nonlocal &apos;state&apos; found
+&gt;&gt;&gt; 
+</code></pre></li>
+<li><p>global名称即使不存在，也可以声明并赋值</p>
+<pre><code>&gt;&gt;&gt; def tester(start):
+...     def nested(label):
+...             global state
+...             state = 0
+...             print(label,state)
+...     return nested
+... 
+&gt;&gt;&gt; F = tester(0)
+&gt;&gt;&gt; F(&apos;abc&apos;)
+abc 0
+&gt;&gt;&gt; state
+0
+&gt;&gt;&gt; 
+</code></pre></li>
+<li><p>nonlocal限制作用域查找仅为嵌套的def，nonlocal不会在嵌套的模块的全局作用域或所有def之外的内置作用域中查找。</p>
+<pre><code>&gt;&gt;&gt; spam = 99
+&gt;&gt;&gt; def tester():
+...     def nested():
+...             nonlocal spam
+...             print(&apos;Current=&apos;,spam)
+...             spam += 1
+...     return nested
+... 
+  File &quot;&lt;stdin&gt;&quot;, line 3
+SyntaxError: no binding for nonlocal &apos;spam&apos; found
+&gt;&gt;&gt; 
+</code></pre></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>全局，非本地，类和函数属性都提供了状态保持得选项，全局只支持共享的数据，类需要OOP的基本知识，类和函数属性都允许在嵌套函数自身之外访问状态。</p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/08/31/python-scope/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/08/31/python-scope/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

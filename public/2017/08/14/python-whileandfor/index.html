@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python笔记（十一）-while和for语句 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="While语句格式while &amp;lt;test1&amp;gt;:     &amp;lt;statements1&amp;gt;.     if &amp;lt;test2&amp;gt;:break     if &amp;lt;test3&amp;gt;:continue else:     &amp;lt;statements2&amp;gt; break&amp;amp;continue&amp;amp;pass&amp;amp;循环elsebreak跳出最近所在循环 &amp;gt;&amp;g">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python笔记（十一）-while和for语句">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/08/14/python-whileandfor/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="While语句格式while &amp;lt;test1&amp;gt;:     &amp;lt;statements1&amp;gt;.     if &amp;lt;test2&amp;gt;:break     if &amp;lt;test3&amp;gt;:continue else:     &amp;lt;statements2&amp;gt; break&amp;amp;continue&amp;amp;pass&amp;amp;循环elsebreak跳出最近所在循环 &amp;gt;&amp;g">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-14T16:11:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python笔记（十一）-while和for语句">
+<meta name="twitter:description" content="While语句格式while &amp;lt;test1&amp;gt;:     &amp;lt;statements1&amp;gt;.     if &amp;lt;test2&amp;gt;:break     if &amp;lt;test3&amp;gt;:continue else:     &amp;lt;statements2&amp;gt; break&amp;amp;continue&amp;amp;pass&amp;amp;循环elsebreak跳出最近所在循环 &amp;gt;&amp;g">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python笔记（十一）-while和for语句</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-08-14</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="While语句"><a href="#While语句" class="headerlink" title="While语句"></a>While语句</h1><h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><pre><code>while &lt;test1&gt;:
+    &lt;statements1&gt;.
+    if &lt;test2&gt;:break
+    if &lt;test3&gt;:continue
+else:
+    &lt;statements2&gt;
+</code></pre><h2 id="break-amp-continue-amp-pass-amp-循环else"><a href="#break-amp-continue-amp-pass-amp-循环else" class="headerlink" title="break&amp;continue&amp;pass&amp;循环else"></a>break&amp;continue&amp;pass&amp;循环else</h2><h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>跳出最近所在循环</p>
+<pre><code>&gt;&gt;&gt; while True:
+...     name = input(&quot;Enter name:&quot;)
+...     if name == &apos;stop&apos;:break
+...     age = input(&apos;Enter age:&apos;)
+...     print(&apos;Hello&apos;,name,&apos;=&gt;&apos;,int(age)**2)
+... 
+Enter name:liuxiaowna
+Enter age:30
+Hello liuxiaowna =&gt; 900
+Enter name:stop
+</code></pre><h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>跳到最近所在循环的开头处</p>
+<blockquote>
+<p><strong>尽可能少用</strong></p>
+</blockquote>
+<h3 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h3><ul>
+<li>什么事也不做，只是空占位语句. </li>
+<li><p>常用于为复合语句编写一个空的主体</p>
+<p>  while True: pass</p>
+</li>
+<li><p>用途</p>
+<ul>
+<li>忽略try语句所捕获的异常</li>
+<li>定义带属性的空类对象</li>
+<li>代表暂时用于填充函数主体而已</li>
+</ul>
+</li>
+</ul>
+<pre><code>        def func():
+            pass  
+
+- `...`：可代替pass，也可以用来初始化变量名
+</code></pre><h3 id="循环else块"><a href="#循环else块" class="headerlink" title="循环else块"></a>循环else块</h3><p>只有当循环正常离开时才会执行，即没有碰到break语句</p>
+<h1 id="For语句"><a href="#For语句" class="headerlink" title="For语句"></a>For语句</h1><h2 id="items"><a href="#items" class="headerlink" title="items"></a>items</h2><pre><code>&gt;&gt;&gt; D = {&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3}
+&gt;&gt;&gt; for (key,value) in D.items():
+...     print(key,&apos;=&gt;&apos;,value)
+... 
+c =&gt; 3
+a =&gt; 1
+b =&gt; 2
+</code></pre><h2 id="自动解包"><a href="#自动解包" class="headerlink" title="自动解包"></a>自动解包</h2><pre><code>&gt;&gt;&gt; T
+[(1, 2), (3, 4), (5, 6)]
+&gt;&gt;&gt; for both in T:
+...     a,b = both
+...     print(a,b)
+... 
+1 2
+3 4
+5 6
+</code></pre><h2 id="in运算符测试"><a href="#in运算符测试" class="headerlink" title="in运算符测试"></a>in运算符测试</h2><pre><code>&gt;&gt;&gt; items = [&apos;aaa&apos;,111,(4,5),2.01]
+&gt;&gt;&gt; tests = [(4,5),3.14]
+&gt;&gt;&gt; for key in tests:
+...     if key in items:
+...             print(key,&quot;was found&quot;)
+...     else:
+...             print(key,&quot;not found&quot;)
+... 
+(4, 5) was found
+3.14 not found
+</code></pre><h2 id="逐行读取文件"><a href="#逐行读取文件" class="headerlink" title="逐行读取文件"></a>逐行读取文件</h2><ul>
+<li><p>一次把文件载入到行字符串的列表中：</p>
+<pre><code>for line in open(&apos;text.txt&apos;).readlines():
+    print(line,end=&apos;&apos;)
+</code></pre></li>
+<li><p><strong>最佳选择：</strong>按照文件迭代器来自动在每次循环迭代的时候读入一行：</p>
+<pre><code>for line in open(&apos;text.txt&apos;):
+    print(line,end=&apos;&apos;)
+</code></pre></li>
+</ul>
+<h2 id="内置函数range和zip"><a href="#内置函数range和zip" class="headerlink" title="内置函数range和zip"></a>内置函数<code>range</code>和<code>zip</code></h2><h3 id="range函数"><a href="#range函数" class="headerlink" title="range函数"></a>range函数</h3><ul>
+<li>根据需要产生元素</li>
+<li>常用于for循环中的索引</li>
+<li><p>需要将其包含到一个<code>list</code>调用中一次性显示其结果</p>
+<pre><code>&gt;&gt;&gt; list(range(-5,5))
+[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]
+&gt;&gt;&gt; list(range(5,-5,-1))
+[5, 4, 3, 2, 1, 0, -1, -2, -3, -4]
+</code></pre></li>
+<li><p>注意事项：</p>
+<ul>
+<li>能用for就不用while</li>
+<li>不要在for中使用range，只将其视为最后的手段</li>
+</ul>
+</li>
+<li><p>优点：不会复制字符串，会节省内存 </p>
+</li>
+</ul>
+<h3 id="zip函数"><a href="#zip函数" class="headerlink" title="zip函数"></a>zip函数</h3><ul>
+<li>支持并行迭代</li>
+<li><p>取得一个或多个序列为参数，然后返回元组的列表，将这些序列中的并排的元素配成对</p>
+<pre><code>&gt;&gt;&gt; L1 = [1,2,3,4]
+&gt;&gt;&gt; L2 = [5,6,7,8]
+&gt;&gt;&gt; list(zip(L1,L2))
+[(1, 5), (2, 6), (3, 7), (4, 8)]
+&gt;&gt;&gt; for (x,y) in zip(L1,L2):
+...     print(x,y,&apos;--&apos;,x+y)
+... 
+1 5 -- 6
+2 6 -- 8
+3 7 -- 10
+4 8 -- 12
+</code></pre></li>
+<li><p>当参数长度不同时，zip会以最短序列的长度为准来截断所得到的元组</p>
+<pre><code>&gt;&gt;&gt; S1 = &apos;abc&apos;
+&gt;&gt;&gt; S2 = &apos;xyz123&apos;
+&gt;&gt;&gt; list(zip(S1,S2))
+[(&apos;a&apos;, &apos;x&apos;), (&apos;b&apos;, &apos;y&apos;), (&apos;c&apos;, &apos;z&apos;)]
+</code></pre></li>
+<li><p>使用zip构造字典：</p>
+<pre><code>&gt;&gt;&gt; keys = [&apos;spam&apos;,&apos;eggs&apos;,&apos;toast&apos;]
+&gt;&gt;&gt; vals = [1,3,5]
+&gt;&gt;&gt; D = dict(zip(keys,vals))
+&gt;&gt;&gt; D
+{&apos;eggs&apos;: 3, &apos;spam&apos;: 1, &apos;toast&apos;: 5}
+</code></pre></li>
+</ul>
+<h2 id="enumerate内置函数"><a href="#enumerate内置函数" class="headerlink" title="enumerate内置函数"></a>enumerate内置函数</h2><pre><code>&gt;&gt;&gt; S= &apos;spam&apos;
+&gt;&gt;&gt; for (offset,item) in enumerate(S):
+...     print(item,&apos;appears at offset&apos;,offset)
+... 
+s appears at offset 0
+p appears at offset 1
+a appears at offset 2
+m appears at offset 3
+</code></pre><ul>
+<li>返回一个生成器对象</li>
+<li>支持迭代协议（拥有一个<code>_next_</code>方法）</li>
+<li>每次循环会反悔一个（index,value）的元组</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/08/14/python-whileandfor/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/08/14/python-whileandfor/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

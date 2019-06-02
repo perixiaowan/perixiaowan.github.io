@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>在Linux服务器上搭建java开发环境 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如果要在Linux上做J2EE的开发，则首先需要搭建好J2EE的开发环境。今天LZ将为大家介绍，如何在你的服务器上搭建基本的开发环境，其中包括jdk、tomcat和mysql的安装与配置。文章最后，介绍遇到的常见问题处理方法。 因LZ没有自己的物理机，于是在阿里云上申请了一个基本的云服务器，本文介绍的所有操作过程都是基于阿里云服务器进行的。关于如果申请阿里云服务器，在稍后章节里，我将再为大家专门介">
+<meta name="keywords" content="原创,服务器,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Linux服务器上搭建java开发环境">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/08/27/BuildEnvironmentInServer/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="如果要在Linux上做J2EE的开发，则首先需要搭建好J2EE的开发环境。今天LZ将为大家介绍，如何在你的服务器上搭建基本的开发环境，其中包括jdk、tomcat和mysql的安装与配置。文章最后，介绍遇到的常见问题处理方法。 因LZ没有自己的物理机，于是在阿里云上申请了一个基本的云服务器，本文介绍的所有操作过程都是基于阿里云服务器进行的。关于如果申请阿里云服务器，在稍后章节里，我将再为大家专门介">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/P3Ov6Nn.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/1.png">
+<meta property="og:image" content="http://i.imgur.com/faoDpG9.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/2.png">
+<meta property="og:image" content="http://i.imgur.com/umj30wt.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/3.png">
+<meta property="og:image" content="http://i.imgur.com/JUmAUZo.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/4.png">
+<meta property="og:image" content="http://i.imgur.com/oGCVRyf.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/5.png">
+<meta property="og:image" content="http://i.imgur.com/HjFZs1N.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/6.png">
+<meta property="og:image" content="http://i.imgur.com/JShrK4N.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/7.png">
+<meta property="og:image" content="http://i.imgur.com/KehncRo.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/8.png">
+<meta property="og:image" content="http://i.imgur.com/r8aJ4nv.png">
+<meta property="og:image" content="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/9.png">
+<meta property="og:updated_time" content="2017-08-01T12:12:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Linux服务器上搭建java开发环境">
+<meta name="twitter:description" content="如果要在Linux上做J2EE的开发，则首先需要搭建好J2EE的开发环境。今天LZ将为大家介绍，如何在你的服务器上搭建基本的开发环境，其中包括jdk、tomcat和mysql的安装与配置。文章最后，介绍遇到的常见问题处理方法。 因LZ没有自己的物理机，于是在阿里云上申请了一个基本的云服务器，本文介绍的所有操作过程都是基于阿里云服务器进行的。关于如果申请阿里云服务器，在稍后章节里，我将再为大家专门介">
+<meta name="twitter:image" content="http://i.imgur.com/P3Ov6Nn.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>在Linux服务器上搭建java开发环境</strong>
+            </h1>
+            
+                <h2>别让压力左右你的未来，坚持自己喜欢的事，保持热情</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-08-27</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/原创/">原创</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/服务器/">服务器</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/java/">Java</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>如果要在Linux上做J2EE的开发，则首先需要搭建好J2EE的开发环境。今天LZ将为大家介绍，如何在你的服务器上搭建基本的开发环境，其中包括jdk、tomcat和mysql的安装与配置。文章最后，介绍遇到的常见问题处理方法。</p>
+<p>因LZ没有自己的物理机，于是在阿里云上申请了一个基本的云服务器，本文介绍的所有操作过程都是基于阿里云服务器进行的。关于如果申请阿里云服务器，在稍后章节里，我将再为大家专门介绍申请阿里云服务器ECS以及申请域名和域名备案的一系列过程。</p>
+<a id="more"></a>
+<h2 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h2><p>LZ使用的是Xshell和mac中自带的终端shell链接两种方式链接到远程服务器。如果有人不知道如何链接，还请Google和百度之~如果实在不知怎么链接，也可以在留言处回复，LZ也会尽微薄之力。</p>
+<h2 id="JDK安装与配置"><a href="#JDK安装与配置" class="headerlink" title="JDK安装与配置"></a>JDK安装与配置</h2><p>首先，检查你的机器上是否已经安装了java环境，检查命令：</p>
+<pre><code>java -version
+</code></pre><p>提示如下图所示，则表示已安装jdk，如果没有此提示，则需要安装下。</p>
+<p><img src="http://i.imgur.com/P3Ov6Nn.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/1.png" alt></p>
+<p>本文基于jdk7的安装包，下载路径：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" title="jdk7" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a></p>
+<p>我在这里下载的是64位的jdk-7u79-linux-x64.rpm包，tar.gz包也可以，大同小异，下面分别讲解两种安装包的安装方法</p>
+<h3 id="rpm包"><a href="#rpm包" class="headerlink" title="rpm包"></a>rpm包</h3><p>根据跟人的安装需求，选择下面三个命令中任意一个命令安装jdk</p>
+<pre><code>rpm -i jdk-7u79-linux-x64.rpm 安装 jdk-7u79-linux-x64.rpm 包；
+rpm -iv jdk-7u79-linux-x64.rpm 安装 jdk-7u79-linux-x64.rpm 包并在安装过程中显示正在安装的文件信息；
+rpm -ivh jdk-7u79-linux-x64.rpm 安装 jdk-7u79-linux-x64.rpm 包并在安装过程中显示正在安装的文件信息及安装进度；
+</code></pre><p>此时，安装完毕之后，会在/usr 目录下创建java目录，我们安装的jdk7就放在/usr/java/路径下<br>如需查看是否安装成功，可以执行以下操作：</p>
+<pre><code>[root@localhost bin]# java
+[root@localhost bin]# javac
+[root@localhost bin]# java -version
+</code></pre><p>在使用rpm安装之后，无需进行jdk环境变量的配置，也可以进行上面三个操作，但为了日后操作方便，配置下java环境变量会比较好。操作如下：</p>
+<pre><code>-修改系统环境变量文件
+`vi /etc/profile` 
+-向文件追加一下内容
+JAVA_HOME=/usr/java/jdk1.7.0_79
+JRE_HOME=/usr/java/jdk1.7.0_79/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export JAVA_HOME JRE_HOME PATH CLASSPATH
+-使修改生效
+source /etc/profile
+-查看PATH值
+echo $PATH
+</code></pre><h3 id="tar-gz包"><a href="#tar-gz包" class="headerlink" title="tar.gz包"></a>tar.gz包</h3><p>首先，在/usr目录下创建一个文件夹，命名为java7</p>
+<pre><code>mkdir java7
+</code></pre><p>其次，运行如下命令，将tar.gz包（以64位为例）解压缩至java7目录中</p>
+<pre><code>tar -xvzf jdk-7u79-linux-x64.tar.gz -C /usr/java7
+</code></pre><p>然后，配置java环境变量，配置过程请参考rpm包安装过程。</p>
+<p>到此为止，我们的jdk已安装并配置完毕，接下来，安装tomcat服务器</p>
+<h2 id="Tomcat安装与配置"><a href="#Tomcat安装与配置" class="headerlink" title="Tomcat安装与配置"></a>Tomcat安装与配置</h2><ul>
+<li>首先，根据自己的操作系统，和安装的jdk版本，选择并确定合适的版本下载tomcat安装包，下载地址<a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="noopener">http://tomcat.apache.org/download-70.cgi</a></li>
+<li>其次，下载完毕之后，运行如下命令，将安装包解压至‘/usr/local/’ 路径下：<br>  <code>tar -xvzf apache-tomcat-7.0.70.tar.gz -C /usr/local/</code></li>
+<li>然后,进入’/usr/local/apache-tomcat-7.0.70/bin’,运行命令，启动服务<br>  <code>./catalina.sh start</code>或者<code>./start.sh</code></li>
+<li>最后，验证结果，访问链接：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></li>
+<li>访问不了怎么办？<ul>
+<li>查看端口是否被占用，运行<code>netstat -ntlp</code><ul>
+<li>如果被占用，运行将占用该端口的程序kill掉即可</li>
+<li>如果没被占用，则可进行下一步检查</li>
+</ul>
+</li>
+<li>检查防火墙是否拦截了8080端口，可以在iptables中，将此端口打开，操作方法如下：<ul>
+<li>方法1：<ul>
+<li>/sbin iptables -I INPUT -p tcp –dport 8080 -j ACCEPT</li>
+<li>/etc/init.d/iptables save</li>
+<li>service iptables restart    </li>
+</ul>
+</li>
+<li>方法2：<ul>
+<li>vi /etc/sysconfig/iptables</li>
+<li>-A INPUT -p tcp -m tcp –dport 8080 -j ACCEPT</li>
+<li>service iptables restart</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>到此为止，tomcat安装完毕</strong></p>
+<h2 id="Mysql安装与配置"><a href="#Mysql安装与配置" class="headerlink" title="Mysql安装与配置"></a>Mysql安装与配置</h2><h3 id="卸载原有mysql"><a href="#卸载原有mysql" class="headerlink" title="卸载原有mysql"></a>卸载原有mysql</h3><p>目前，主流Linux系统版本基本都集成了mysql数据库，我们可以通过如下命令查询是否已经安装了mysql数据库</p>
+<pre><code>rpm -qa | grep mysql
+</code></pre><p>如果安装了，则可以通过rpm -e命令或者rpm -e –nodeps 命令来进行卸载</p>
+<pre><code>rpm -e mysql
+rpm -e --nodeps mysql
+</code></pre><p>卸载完毕，通过<code>rpm -qa | grep mysql</code>命令来查看mysql是否已卸载成功。</p>
+<h3 id="安装方法1"><a href="#安装方法1" class="headerlink" title="安装方法1"></a>安装方法1</h3><h4 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h4><p>大家可以根据自己的操作系统选择相应版本进行下载，我这里选择的是‘Linux Generic’，下载地址：<a href="http://dev.mysql.com/downloads/mysql/" title="mysql下载地址" target="_blank" rel="noopener">http://dev.mysql.com/downloads/mysql/</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>解压缩tar包并改名</li>
+</ol>
+<p>下载完毕后，得到安装包 mysql-5.7.14-linux-glibc2.5-x86_64.tar.gz，运行如下命令进行解压缩：</p>
+<pre><code>tar -xvzf mysql-5.7.14-linux-glibc2.5-x86_64.tar.gz
+mv mysql-5.7.14-linux-glibc2.5-x86_64 mysql-5.7.14
+</code></pre><ol start="2">
+<li><p>添加用户与组</p>
+<p> groupadd mysql<br> useradd -r -g mysql mysql<br> chown -R mysql:mysql mysql-5.7.14</p>
+</li>
+<li><p>安装数据库</p>
+<p> su mysql<br> cd mysql-5.7.14/scripts<br> ./mysql_install_db –user=mysql –basedir=/software/mysql-5.7.14 –datadir=/software/mysql-5.7.14/data<br> exit</p>
+</li>
+</ol>
+<blockquote>
+<p>关于上面的路径可以自定义</p>
+</blockquote>
+<ol start="4">
+<li><p>配置文件</p>
+<p> cd mysql-5.7.14/support-files<br> cp my-default.cnf /etc/my.cnf<br> cp mysql.server /etc/init.d/mysql<br> vi /etc/init.d/mysql    #若mysql的安装目录时/usr/local/mysql则可省略此步<br> basedir=/software/mysql-5.7.14<br> datadir=/software/mysql-5.7.14/data</p>
+</li>
+<li><p>配置环境变量</p>
+<p> vim /etc/profile<br> export MYSQL_HOME=”/software/mysql-5.7.14”<br> export PATH=”$PATH:$MYSQL_HOME/bin”<br> 保存退出<br> ./etc/profile</p>
+</li>
+<li><p>添加自启动服务</p>
+<p> chkconfig –add mysql<br> chkconfig mysql on</p>
+</li>
+<li><p>启动mysql</p>
+<p> service mysql start</p>
+</li>
+<li><p>登录mysql及改密码及配置远程访问</p>
+<p> mysqladmin -u root password ‘your_password’     #修改root用户密码<br> mysql -u root -p     #登录mysql,需要输入密码<br> mysql&gt;GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;     #允许root用户远程访问<br> mysql&gt;FLUSH PRIVILEGES;     #刷新权限<br> mysql&gt;exit</p>
+</li>
+<li><p>无法访问？</p>
+<ul>
+<li>确定防火墙的端口（数据库端口一般是3306）是否开启，如果未开启，则需要手动添加，方法如下：<ul>
+<li>方法1：<ul>
+<li>/sbin iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</li>
+<li>/etc/init.d/iptables save</li>
+<li>service iptables restart    </li>
+</ul>
+</li>
+<li>方法2：<ul>
+<li>vi /etc/sysconfig/iptables</li>
+<li>-A INPUT -p tcp -m tcp –dport 3306 -j ACCEPT</li>
+<li>service iptables restart</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果开启之后仍然无法访问，可查看端口是否被占用，或者3306端口是否已更改为其他端口</li>
+</ul>
+</li>
+<li><p>忘记root密码，如果找回密码？<br>cd $MYSQL_HOME<br>./bin/mysqld_safe –basedir=/data/mysql-5.7.14 –datadir=/data/mysql-5.7.14/data –skip-grant-tables &amp;<br>mysql -u root mysql<br>UPDATE user SET password=PASSWORD(“new_password”) WHERE user=’root’;<br>FLUSH PRIVILEGES;</p>
+</li>
+</ol>
+<h3 id="安装方法2-yum安装"><a href="#安装方法2-yum安装" class="headerlink" title="安装方法2-yum安装"></a>安装方法2-yum安装</h3><h4 id="查看yum上提供的mysql数据库可下载版本"><a href="#查看yum上提供的mysql数据库可下载版本" class="headerlink" title="查看yum上提供的mysql数据库可下载版本"></a>查看yum上提供的mysql数据库可下载版本</h4><p><img src="http://i.imgur.com/faoDpG9.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/2.png" alt></p>
+<h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><pre><code>yum install -y mysql-server.x86_64 mysql.x86_64 mysql-devel.x86_64
+</code></pre><p>当最后出现<code>Complete！</code>的时候，表示安装成功了。</p>
+<h4 id="查看已安装好的mysql-server版本"><a href="#查看已安装好的mysql-server版本" class="headerlink" title="查看已安装好的mysql-server版本"></a>查看已安装好的mysql-server版本</h4><pre><code>rpm -qi mysql-server
+</code></pre><p>至此我们的mysql数据库已经安装完毕</p>
+<h4 id="数据库初始化及相关配置"><a href="#数据库初始化及相关配置" class="headerlink" title="数据库初始化及相关配置"></a>数据库初始化及相关配置</h4><p>在安装完毕mysql之后，会多出一个mysqld的服务，这个就是我们的数据库服务，输入<code>service mysqld start</code>命令就可以启动我们的mysql服务了。</p>
+<blockquote>
+<p>在我们第一次启动mysql服务时，首先会进行初始化的配置，会提示非常多的信息。<br>当再次重新启动mysql服务时，就不会提示这么多的信息了，如下图所示：</p>
+</blockquote>
+<p><img src="http://i.imgur.com/umj30wt.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/3.png" alt></p>
+<ul>
+<li><p>查看mysql服务是否开机自动启动</p>
+<p>  chkconfig –list | grep mysqld</p>
+</li>
+<li><p>如果并没有开机自动启动，运行<code>chkconfig mysqld on</code>设置成开机自启动</p>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/JUmAUZo.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/4.png" alt></p>
+<ul>
+<li><p>在第一次启动mysql服务时，会进行一系列的初始化工作，输出的信息中，有如下一行</p>
+<p>  /usr/bin/mysqladmin -u root password ‘new-password’</p>
+</li>
+<li><p>给root账号设置密码</p>
+<p>  mysqladmin -u root password ‘<strong>**</strong>‘</p>
+</li>
+<li><p>登录mysql</p>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/oGCVRyf.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/5.png" alt></p>
+<h3 id="mysql主要配置文件"><a href="#mysql主要配置文件" class="headerlink" title="mysql主要配置文件"></a>mysql主要配置文件</h3><h4 id="my-cnf"><a href="#my-cnf" class="headerlink" title="my.cnf"></a>my.cnf</h4><blockquote>
+<p>路径：/etc/my.cnf</p>
+<p>它是mysql的主配置文件</p>
+</blockquote>
+<p><img src="http://i.imgur.com/HjFZs1N.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/6.png" alt></p>
+<h4 id="mysql目录"><a href="#mysql目录" class="headerlink" title="mysql目录"></a>mysql目录</h4><blockquote>
+<p>路径:/var/lib/mysql</p>
+<p>mysql的数据库文件存放位置</p>
+</blockquote>
+<p><img src="http://i.imgur.com/JShrK4N.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/7.png" alt></p>
+<p>验证方法，创建一个新的数据库，查看此目录中是否有该数据文件，比如创建liuxiaowan数据库，如下图所示：</p>
+<p><img src="http://i.imgur.com/KehncRo.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/8.png" alt></p>
+<h4 id="log文件"><a href="#log文件" class="headerlink" title="log文件"></a>log文件</h4><blockquote>
+<p>路径：/var/log</p>
+<p>mysql数据库的日志输出存放位置，如下图所示</p>
+</blockquote>
+<p><img src="http://i.imgur.com/r8aJ4nv.png" alt></p>
+<p><img src="http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/9.png" alt></p>
+<p>其中，mysqld.log文件是我们存放跟mysql数据库操作产生的日志信息，通过查看该文件，可以获得操作纪律</p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/08/27/BuildEnvironmentInServer/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/08/27/BuildEnvironmentInServer/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

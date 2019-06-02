@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>利用Python进行数据分析---读书笔记（一） | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 一组新闻文章可以被处理为一张词频表，而这张词频表就可以用于情感分析  Cython  Cython是属于PYTHON的超集，他首先会将PYTHON代码转化成C语言代码，然后通过c编译器生成可执行文件。 优势：资源丰富，适合快速开发。翻译成C后速度比较快     对于高并发、多线程的应用程序（尤其是拥有许多计算密集型线程的应用程序），Python并不是一种理想的编程语言。因为Python有一个">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Python进行数据分析---读书笔记（一）">
+<meta property="og:url" content="https://perixiaowan.github.io/2018/02/24/data-analysis-python-1/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="摘要 一组新闻文章可以被处理为一张词频表，而这张词频表就可以用于情感分析  Cython  Cython是属于PYTHON的超集，他首先会将PYTHON代码转化成C语言代码，然后通过c编译器生成可执行文件。 优势：资源丰富，适合快速开发。翻译成C后速度比较快     对于高并发、多线程的应用程序（尤其是拥有许多计算密集型线程的应用程序），Python并不是一种理想的编程语言。因为Python有一个">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-26T11:49:22.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Python进行数据分析---读书笔记（一）">
+<meta name="twitter:description" content="摘要 一组新闻文章可以被处理为一张词频表，而这张词频表就可以用于情感分析  Cython  Cython是属于PYTHON的超集，他首先会将PYTHON代码转化成C语言代码，然后通过c编译器生成可执行文件。 优势：资源丰富，适合快速开发。翻译成C后速度比较快     对于高并发、多线程的应用程序（尤其是拥有许多计算密集型线程的应用程序），Python并不是一种理想的编程语言。因为Python有一个">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>利用Python进行数据分析---读书笔记（一）</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2018-02-24</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li><p>一组新闻文章可以被处理为一张词频表，而这张词频表就可以用于情感分析</p>
+</li>
+<li><p><code>Cython</code></p>
+<ul>
+<li>Cython是属于PYTHON的超集，他首先会将PYTHON代码转化成C语言代码，然后通过c编译器生成可执行文件。</li>
+<li>优势：资源丰富，适合快速开发。翻译成C后速度比较快</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>对于高并发、多线程的应用程序（尤其是拥有许多计算密集型线程的应用程序），Python并不是一种理想的编程语言。因为Python有一个叫做全局解释器锁（Global Interpreter Lock，GIL）的东西，这是一种防止解释器同时执行多条Python字节码指令的机制</p>
+</li>
+<li><p>Python实现多线程的一种方法：</p>
+<ul>
+<li>Cython项目中集成OpenMP（一个用于并行计算的C框架），以实现并行处理循环进而大幅度提高数值算法的速度</li>
+</ul>
+</li>
+</ul>
+<h2 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a><code>NumPy</code></h2><p>Python科学计算的基础包，<br>提供以下功能：</p>
+<ul>
+<li><code>ndarray</code>：快速高效的多维数组对象；</li>
+<li>用于对数组执行元素级计算以及直接对数组执行数学运算的函数；</li>
+<li>读写硬盘上基于数组的数据集的工具；</li>
+<li>线性代数运算、傅里叶变换，以及随机数生成；</li>
+<li>将C、C++、Fortran代码集成到Python的工具</li>
+<li><p>作为在算法之间传递数据的容器</p>
+</li>
+<li><p><code>NumPy</code>数组在存储和处理数据时要比内置的Python数据结构高效的多</p>
+</li>
+</ul>
+<h2 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a><code>pandas</code></h2><ul>
+<li>提供了快速便捷处理结构化数据的大量数据结构和函数</li>
+<li><code>DataFrame</code>:一个面向列的二维表结构</li>
+<li>具有高性能的数组计算功能</li>
+<li>电子表格和关系型数据库灵活的数据处理功能</li>
+<li>复杂精细的索引功能</li>
+</ul>
+<h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a><code>matplotlib</code></h2><ul>
+<li>最流行的用于绘制数据图表的Python库</li>
+<li>适合创建出版物上用的图表</li>
+<li>非常好用的交互式数据绘图环境</li>
+</ul>
+<h2 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a><code>IPython</code></h2><ul>
+<li>Python科学计算标准工具集的组成部分</li>
+<li>一个增强的<code>Python shell</code>：可提高编写、测试、调试Python代码的速度</li>
+<li>主要用于交互式数据处理，利用<code>matplotlib</code>对数据进行可视化处理</li>
+</ul>
+<h2 id="SciPy"><a href="#SciPy" class="headerlink" title="SciPy"></a><code>SciPy</code></h2><p>一组专门解决科学计算中各种标准问题域的包的集合</p>
+<ul>
+<li><code>scipy.integrate</code>:数值积分例程和微分方程求解器</li>
+<li><code>scipy.linalg</code>: 提供线性代数例程和矩阵分解功能</li>
+<li><code>scipy.optimize</code>:函数优化器以及根查找算法</li>
+<li><code>scipy.signal</code>:信号处理工具</li>
+<li><code>scipy.sparse</code>:稀疏矩阵和稀疏线性系统求解器</li>
+<li><code>scipy.stats</code>:标准连续和离散概率分布、各种统计检验方法，以及更好的描述统计法</li>
+<li><code>scipy.weave</code>:利用内联c++代码加速数组计算的工具</li>
+</ul>
+<h2 id="社区和研讨会"><a href="#社区和研讨会" class="headerlink" title="社区和研讨会"></a>社区和研讨会</h2><ul>
+<li><code>pydata</code>：一个Google Group邮件列表，其中的问题都是Python数据分析和pandas方面的；</li>
+<li><code>pystatsmodels</code>：针对与statsmodels和pandas相关的问题</li>
+<li><code>numpy-discussion</code>：针对与NumPy相关的问题</li>
+<li><code>scipy-user</code>：针对SciPy和Python科学计算相关的问题</li>
+<li><code>PyCon</code>和<code>EuroPython</code>：美国和欧洲最主要的Python研讨会。</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2018/02/24/data-analysis-python-1/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2018/02/24/data-analysis-python-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
