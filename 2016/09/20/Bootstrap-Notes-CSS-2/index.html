@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Bootstrap-Notes(CSS样式篇续) | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0.表单补充 checkbox和radio是input元素里两个非常特殊的type，通常会出现左右边距对不齐的问题。   解决办法：每个input外用label包住，且在最外层用容器元素包住（例如：div）,并应用相应的样式，类似.checkbox或radio。  checkbox和radio如需横向显示，可以使用相应的内联样式.checkbox-inline和.radio-inline；  f">
+<meta name="keywords" content="Bootstrap,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap-Notes(CSS样式篇续)">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/09/20/Bootstrap-Notes-CSS-2/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="0.表单补充 checkbox和radio是input元素里两个非常特殊的type，通常会出现左右边距对不齐的问题。   解决办法：每个input外用label包住，且在最外层用容器元素包住（例如：div）,并应用相应的样式，类似.checkbox或radio。  checkbox和radio如需横向显示，可以使用相应的内联样式.checkbox-inline和.radio-inline；  f">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/perixiaowan/MarkdownPhotos/blob/master/others/F2E-1.jpg?raw=true">
+<meta property="og:updated_time" content="2017-06-08T03:49:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bootstrap-Notes(CSS样式篇续)">
+<meta name="twitter:description" content="0.表单补充 checkbox和radio是input元素里两个非常特殊的type，通常会出现左右边距对不齐的问题。   解决办法：每个input外用label包住，且在最外层用容器元素包住（例如：div）,并应用相应的样式，类似.checkbox或radio。  checkbox和radio如需横向显示，可以使用相应的内联样式.checkbox-inline和.radio-inline；  f">
+<meta name="twitter:image" content="https://github.com/perixiaowan/MarkdownPhotos/blob/master/others/F2E-1.jpg?raw=true">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Bootstrap-Notes(CSS样式篇续)</strong>
+            </h1>
+            
+                <h2>风息雾散，仍是阳光灿烂。</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-09-20</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/bootstrap/">Bootstrap</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/前端/">前端</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p><img src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/others/F2E-1.jpg?raw=true" alt></p>
+<h1 id="0-表单补充"><a href="#0-表单补充" class="headerlink" title="0.表单补充"></a>0.表单补充</h1><ol>
+<li><p><code>checkbox</code>和<code>radio</code>是<code>input</code>元素里两个非常特殊的type，通常会出现左右边距对不齐的问题。 </p>
+<p> <strong>解决办法</strong>：每个<code>input</code>外用<code>label</code>包住，且在最外层用容器元素包住（例如：div）,并应用相应的样式，类似<code>.checkbox</code>或<code>radio</code>。</p>
+</li>
+<li><p><code>checkbox</code>和<code>radio</code>如需横向显示，可以使用相应的内联样式<code>.checkbox-inline</code>和<code>.radio-inline</code>；</p>
+</li>
+<li><p><strong>focus/disabled</strong></p>
+</li>
+</ol>
+<ul>
+<li><p>如果想在input上聚焦时出现柔和的阴影边框，需使用<code>.form-control</code>;但是，像<code>fieldset</code>标签中第一个<code>legend</code>标签不受<code>disabled</code>限制。不过，目前IE10暂时不支持，开发过程中，需要使用js进行专门处理。</p>
+</li>
+<li><p>禁用按钮的两种方式及区别</p>
+<ul>
+<li>使用原始的<code>disabled</code>属性，可以禁用按钮上的所有事件</li>
+<li>利用<code>.disabled</code>样式，但不禁止按钮的默认行为 </li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><p><strong>fieldset</strong>：使用disabled时，内部的<code>a</code>标签不受<code>disabled</code>限制。</p>
+</li>
+<li><p>输入框右边显示小图标，需要考虑两个问题：</p>
+<ul>
+<li>首先，设置输入框父元素定位方式为相对定位；</li>
+<li>其次，设置小图标的定位方式为绝对定位。</li>
+</ul>
+</li>
+</ol>
+<a id="more"></a>
+<h1 id="1-按钮"><a href="#1-按钮" class="headerlink" title="1.按钮"></a>1.按钮</h1><blockquote>
+<p><strong>源码文件</strong>：buttons.less</p>
+<p>按钮首先定义基础<code>btn</code>样式，包括相关的<code>hover`</code>focus<code></code>active<code>等行为特效，在使用</code>btn-*`(default,primary,success,danger,info,warning,link)为按钮设置特殊的风格。</p>
+</blockquote>
+<h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><ul>
+<li>使用 <code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 可以获得不同尺寸的按钮；</li>
+<li>通过给按钮添加 <code>.btn-block</code> 类可以将其拉伸至父元素100%的宽度，而且按钮也变为了块级（block）元素。</li>
+</ul>
+<h2 id="按钮禁用"><a href="#按钮禁用" class="headerlink" title="按钮禁用"></a>按钮禁用</h2><ul>
+<li>通过为按钮的背景设置 <code>opacity</code> 属性就可以呈现出无法点击的效果。</li>
+</ul>
+<blockquote>
+<p><strong>跨浏览器兼容性（⚠️）</strong></p>
+<p>如果为<code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性，Internet Explorer 9 及更低版本的浏览器将会把按钮中的文本绘制为灰色，并带有恶心的阴影，目前还没有解决办法。</p>
+</blockquote>
+<h2 id="a标签链接应用按钮样式"><a href="#a标签链接应用按钮样式" class="headerlink" title="a标签链接应用按钮样式"></a>a标签链接应用按钮样式</h2><p>可以将按钮的样式应用到<code>&lt;a&gt;</code>标签上,需要设置<code>pointer-events:none</code>来禁用所有<code>&lt;a&gt;</code>上的原始功能。但是此方法并没有标准化，建议通过js来禁用<code>&lt;a&gt;</code>链接的所有原始功能。</p>
+<h2 id="导航条"><a href="#导航条" class="headerlink" title="导航条"></a>导航条</h2><p>只支持<code>button</code>，而不支持<code>&lt;a&gt;</code>.</p>
+<h1 id="2-图片"><a href="#2-图片" class="headerlink" title="2.图片"></a>2.图片</h1><h2 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h2><p>为图片添加 <code>.img-responsive</code> 类可以让图片支持响应式布局。其实质是为图片设置了 <code>max-width: 100%;</code> 和 <code>height: auto;</code> 属性，从而让图片在其父元素中更好的缩放。</p>
+<blockquote>
+<p><strong>SVG图像和IE 8-10</strong></p>
+<p>设置为 .img-responsive 的 SVG 图像显示出的尺寸不匀称。为了解决这个问题，在出问题的地方添加 width: 100% \9; 即可。</p>
+</blockquote>
+<h2 id="图片形状"><a href="#图片形状" class="headerlink" title="图片形状"></a>图片形状</h2><pre><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-rounded&quot;&gt;
+&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt;
+&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;
+</code></pre><blockquote>
+<p>Internet Explorer 8 及以下不支持 CSS3 中的<strong>圆角</strong>属性。</p>
+</blockquote>
+<h1 id="3-辅助类"><a href="#3-辅助类" class="headerlink" title="3.辅助类"></a>3.辅助类</h1><h2 id="文本字体颜色"><a href="#文本字体颜色" class="headerlink" title="文本字体颜色"></a>文本字体颜色</h2><p>为文本添加如下所示的样式，可以为不同文本字体设置不同颜色，相当于上文提到的不同颜色的按钮一样。</p>
+<pre><code>&lt;p class=&quot;text-muted&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-primary&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-success&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-info&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-warning&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-danger&quot;&gt;...&lt;/p&gt;
+</code></pre><h2 id="文本背景色"><a href="#文本背景色" class="headerlink" title="文本背景色"></a>文本背景色</h2><p>与文本字体颜色设置类似，通过添加不同的样式来为不同的文本设置不同的背景颜色，如下所示：</p>
+<pre><code>&lt;p class=&quot;bg-primary&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;bg-success&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;bg-info&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;bg-warning&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;bg-danger&quot;&gt;...&lt;/p&gt;
+</code></pre><blockquote>
+<p> <strong>备注</strong>：<br>某些情况下，设置文字背景色可能不起作用，这时可以将该文字用类似<code>&lt;div&gt;</code>父标签包围即可。</p>
+</blockquote>
+<h2 id="三角符号"><a href="#三角符号" class="headerlink" title="三角符号"></a>三角符号</h2><p>通过使用三角符号可以指示某个元素具有下拉菜单的功能。</p>
+<pre><code>&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+</code></pre><h2 id="文本快速浮动"><a href="#文本快速浮动" class="headerlink" title="文本快速浮动"></a>文本快速浮动</h2><p>可以在响应标签上（例如：div）设置<code>.pull-left</code>和<code>.pull-right</code>分别实现文本向左或向右的浮动。 </p>
+<p>导航条（navbars）应使用<code>.navbar-left</code>或<code>.navbar-right</code>来设置快速浮动功能。</p>
+<h2 id="中心内容块"><a href="#中心内容块" class="headerlink" title="中心内容块"></a>中心内容块</h2><p>通过添加<code>.center-block</code>,可以将内容块放在其他模块的中间部分。</p>
+<pre><code>&lt;div class=&quot;center-block&quot;&gt;...&lt;/div&gt;
+</code></pre><h2 id="清除浮动（Clearfix）"><a href="#清除浮动（Clearfix）" class="headerlink" title="清除浮动（Clearfix）"></a>清除浮动（Clearfix）</h2><p>通过添加<code>.clearfix</code>样式，可以清除继承父元素的浮动样式。</p>
+<pre><code>&lt;div class=&quot;clearfix&quot;&gt;...&lt;/div&gt;
+</code></pre><h2 id="显示或隐藏内容"><a href="#显示或隐藏内容" class="headerlink" title="显示或隐藏内容"></a>显示或隐藏内容</h2><p>使用<code>.show</code>或<code>.hidden</code>样式分别显示或隐藏相关内容</p>
+<p><strong>hidden和invisible区别</strong></p>
+<p>hidden：表示元素即不显示，也不占用文档流；<br>invisible：表示元素虽然不显示，但其占用文档流<br>test-hide样式：文本内容不显示，只显示背景效果。</p>
+<blockquote>
+<p>如果一个元素对所有设备都要隐藏，而只对盲人可用的话，可以使用特殊的<code>sr-only</code>样式</p>
+</blockquote>
+<h1 id="4-响应式工具"><a href="#4-响应式工具" class="headerlink" title="4.响应式工具"></a>4.响应式工具</h1><p>形如 <code>.visible-*-*</code> 的类针对每种屏幕大小都有了三种变体，每个针对 CSS 中不同的 display 属性，列表如下：</p>
+<table>
+<thead>
+<tr>
+<th>类组</th>
+<th>CSS display</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.visible-*-block</td>
+<td>display: block;</td>
+</tr>
+<tr>
+<td>.visible-*-inline</td>
+<td>display: inline;</td>
+</tr>
+<tr>
+<td>.visible-*-inline-block</td>
+<td>display: inline-block;</td>
+</tr>
+</tbody>
+</table>
+<p><em>其中，（＊）代表xs,sm,md,lg</em></p>
+<p><strong>打印机类</strong></p>
+<ul>
+<li><p>对打印机可见</p>
+<ul>
+<li>.visible-print-block</li>
+<li>.visible-print-inline</li>
+<li>.visible-print-inline-block</li>
+</ul>
+</li>
+<li><p>对打印机隐藏</p>
+<ul>
+<li>.hidden-print</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/09/20/Bootstrap-Notes-CSS-2/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/09/20/Bootstrap-Notes-CSS-2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

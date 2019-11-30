@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python笔记（七）-文件 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="文件 内置open函数会创建一个Python文件  常见文件运算   操作 解释     output = open(r’C:\spam’,’w’) 创建输出文件   output = open(r’C:\spam’,’a’) 在文件尾部追加内容打开文件   input = open(‘data’,’r’) 创建输入文件   input = open(‘data’) 与上一行相同，默认‘r’">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python笔记（七）-文件">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/08/05/python-file/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="文件 内置open函数会创建一个Python文件  常见文件运算   操作 解释     output = open(r’C:\spam’,’w’) 创建输出文件   output = open(r’C:\spam’,’a’) 在文件尾部追加内容打开文件   input = open(‘data’,’r’) 创建输入文件   input = open(‘data’) 与上一行相同，默认‘r’">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-14T15:41:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python笔记（七）-文件">
+<meta name="twitter:description" content="文件 内置open函数会创建一个Python文件  常见文件运算   操作 解释     output = open(r’C:\spam’,’w’) 创建输出文件   output = open(r’C:\spam’,’a’) 在文件尾部追加内容打开文件   input = open(‘data’,’r’) 创建输入文件   input = open(‘data’) 与上一行相同，默认‘r’">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python笔记（七）-文件</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-08-05</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><ul>
+<li>内置<code>open</code>函数会创建一个Python文件</li>
+</ul>
+<h3 id="常见文件运算"><a href="#常见文件运算" class="headerlink" title="常见文件运算"></a>常见文件运算</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output = open(r’C:\spam’,’w’)</td>
+<td>创建输出文件</td>
+</tr>
+<tr>
+<td>output = open(r’C:\spam’,’a’)</td>
+<td>在文件尾部追加内容打开文件</td>
+</tr>
+<tr>
+<td>input = open(‘data’,’r’)</td>
+<td>创建输入文件</td>
+</tr>
+<tr>
+<td>input = open(‘data’)</td>
+<td>与上一行相同，默认‘r’</td>
+</tr>
+<tr>
+<td>aString = input.read()</td>
+<td>把整个文件读进单一字符串</td>
+</tr>
+<tr>
+<td>aString = input.read(N)</td>
+<td>读取之后N个字节到一个字符串</td>
+</tr>
+<tr>
+<td>aString = input.readline()</td>
+<td>读取下一行到一个字符串</td>
+</tr>
+<tr>
+<td>output.write(aString)</td>
+<td>写入字节字符串到文件</td>
+</tr>
+<tr>
+<td>output.writelines(aList)</td>
+<td>把列表内所有字符写入文件</td>
+</tr>
+<tr>
+<td>output.close()</td>
+<td>手动关闭</td>
+</tr>
+<tr>
+<td>output.flush()</td>
+<td>把输出缓冲区刷到硬盘中，但不关闭文件</td>
+</tr>
+<tr>
+<td>for line in open(‘data’):use line</td>
+<td>文件迭代器一行行读取</td>
+</tr>
+<tr>
+<td>open(‘f.txt’,encoding=’latin-1’)</td>
+<td>Unicode文本文件</td>
+</tr>
+<tr>
+<td>open(‘f.bin’,’rb’)</td>
+<td>二进制byte文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>其中<code>r</code>字母出现在字符串的第一引号的前面，它将会关闭转义机制；</li>
+</ul>
+<h3 id="使用文件"><a href="#使用文件" class="headerlink" title="使用文件"></a>使用文件</h3><ul>
+<li><p>文件迭代器诗最好的读取行工具</p>
+<pre><code>从文本文件读取文字行的最佳方式是根本不要读取该文件
+</code></pre></li>
+<li><p>内容是字符串，不是对象</p>
+<ul>
+<li>文件读取出的数据是字符串</li>
+<li>数据写入时，Python不会自动把对象转换为字符串</li>
+<li>可以使用转换字符串和数字的工具（<code>int</code> <code>float</code> <code>str</code> <code>pickle模块</code> <code>struct模块</code>）</li>
+</ul>
+</li>
+<li><p>close是通常选项</p>
+<pre><code>建议手动关闭文件，将会是好习惯。
+</code></pre></li>
+<li><p>文件是缓冲的且是可查找的</p>
+</li>
+</ul>
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><pre><code>&gt;&gt;&gt; myfile = open(&apos;myfile.txt&apos;,&apos;w&apos;)
+&gt;&gt;&gt; myfile.write(&apos;hello text file\n&apos;)
+16
+&gt;&gt;&gt; myfile.write(&apos;goodbye text file\n&apos;)
+18
+&gt;&gt;&gt; myfile.close()
+&gt;&gt;&gt; myfile = open(&apos;myfile.txt&apos;)
+&gt;&gt;&gt; myfile.readline()
+&apos;hello text file\n&apos;
+&gt;&gt;&gt; myfile.readline()
+&apos;goodbye text file\n&apos;
+&gt;&gt;&gt; myfile.readline()
+&apos;&apos; 
+</code></pre><ul>
+<li>上述代码中最后一个<code>readline</code>调用返回一个空字符串，表明已经到达文件底部</li>
+<li>文件的空行是含有新行符的字符串，不是空字符串</li>
+<li><p>写入方法不会为我们添加行终止符<code>\n</code></p>
+<pre><code>&gt;&gt;&gt; open(&apos;myfile.txt&apos;).read()
+&apos;hello text file\ngoodbye text file\n&apos;
+&gt;&gt;&gt; print(open(&apos;myfile.txt&apos;).read())
+hello text file
+goodbye text file
+</code></pre></li>
+<li><p>文件迭代器</p>
+<pre><code>&gt;&gt;&gt; for line in open(&apos;myfile.txt&apos;):
+...     print(line,end = &apos;,&apos;)
+... 
+hello text file
+,goodbye text file
+</code></pre></li>
+<li><p>所有的字符串从技术上讲都是Unicode</p>
+</li>
+</ul>
+<h3 id="在文件中存储并解析python对象"><a href="#在文件中存储并解析python对象" class="headerlink" title="在文件中存储并解析python对象"></a>在文件中存储并解析python对象</h3><ul>
+<li><p>存储</p>
+<pre><code>&gt;&gt;&gt; F = open(&apos;datafile.txt&apos;,&apos;w&apos;)
+&gt;&gt;&gt; F.write(S+&apos;\n&apos;)
+5
+&gt;&gt;&gt; F.write(&apos;%s,%s,%s\n&apos; %(X,Y,Z))
+9
+&gt;&gt;&gt; F.write(str(L) + &apos;$&apos;+str(D)+&apos;\n&apos;)
+27
+&gt;&gt;&gt; F.close()
+
+&gt;&gt;&gt; chars = open(&apos;datafile.txt&apos;).read()
+&gt;&gt;&gt; chars
+&quot;Spam\n43,44,45\n[1, 2, 3]${&apos;b&apos;: 2, &apos;a&apos;: 1}\n&quot;
+&gt;&gt;&gt; print(chars)
+Spam
+43,44,45
+[1, 2, 3]${&apos;b&apos;: 2, &apos;a&apos;: 1}
+</code></pre></li>
+<li><p>解析</p>
+<pre><code>&gt;&gt;&gt; F = open(&apos;datafile.txt&apos;)
+&gt;&gt;&gt; line = F.readline()
+&gt;&gt;&gt; line
+&apos;Spam\n&apos;
+&gt;&gt;&gt; line.strip()
+&apos;Spam&apos;
+&gt;&gt;&gt; line = F.readline()
+&gt;&gt;&gt; line
+&apos;43,44,45\n&apos;
+&gt;&gt;&gt; parts = line.split(&apos;,&apos;)
+&gt;&gt;&gt; parts
+[&apos;43&apos;, &apos;44&apos;, &apos;45\n&apos;]
+&gt;&gt;&gt; int(parts[1])
+44
+&gt;&gt;&gt; numbers = [int(P) for P in parts]
+&gt;&gt;&gt; numbers
+[43, 44, 45]
+&gt;&gt;&gt; line = F.readline()
+&gt;&gt;&gt; line
+&quot;[1, 2, 3]${&apos;b&apos;: 2, &apos;a&apos;: 1}\n&quot;
+&gt;&gt;&gt; parts = line.split(&apos;$&apos;)
+&gt;&gt;&gt; parts
+[&apos;[1, 2, 3]&apos;, &quot;{&apos;b&apos;: 2, &apos;a&apos;: 1}\n&quot;]
+&gt;&gt;&gt; eval(parts[0])
+[1, 2, 3]
+&gt;&gt;&gt; objects = [eval(P) for P in parts]
+&gt;&gt;&gt; objects
+[[1, 2, 3], {&apos;b&apos;: 2, &apos;a&apos;: 1}]
+</code></pre></li>
+</ul>
+<h3 id="pickle模块"><a href="#pickle模块" class="headerlink" title="pickle模块"></a><code>pickle</code>模块</h3><p>能够直接在文件中存储几乎任何python对象的高级工具，并不要求把字符串转换来转换去。像是超级通用的数据格式化和解析工具</p>
+<pre><code>&gt;&gt;&gt; D = {&apos;a&apos;:1,&apos;b&apos;:2}
+&gt;&gt;&gt; F=open(&apos;datafile.pkl&apos;,&apos;wb&apos;)
+&gt;&gt;&gt; import pickle
+&gt;&gt;&gt; pickle.dump(D,F)
+&gt;&gt;&gt; F.close()
+&gt;&gt;&gt; 
+&gt;&gt;&gt; F = open(&apos;datafile.pkl&apos;,&apos;rb&apos;)
+&gt;&gt;&gt; E = pickle.load(F)
+&gt;&gt;&gt; E
+{&apos;b&apos;: 2, &apos;a&apos;: 1}
+</code></pre><h3 id="struct模块"><a href="#struct模块" class="headerlink" title="struct模块"></a><code>struct</code>模块</h3><ul>
+<li><p>能够构造并解析打包的二进制数据</p>
+</li>
+<li><p><code>&gt;i4sh</code>解析</p>
+<pre><code>i ----&gt; int ---&gt; integer ---&gt; 7
+4s ----&gt; char ---&gt; string ---&gt; &apos;spam&apos;
+h ---&gt; unsigned short ---&gt; integer ---&gt; 8
+</code></pre></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; F = open(&apos;data.bin&apos;,&apos;wb&apos;)</span><br><span class="line">&gt;&gt;&gt; import struct</span><br><span class="line">	</span><br><span class="line">&gt;&gt;&gt; data = struct.pack(&apos;&gt;i4sh&apos;,7,&apos;spam&apos;.encode(&apos;utf-8&apos;),8)</span><br><span class="line">&gt;&gt;&gt; data</span><br><span class="line">b&apos;\x00\x00\x00\x07spam\x00\x08&apos;</span><br><span class="line">&gt;&gt;&gt; F.write(data)</span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt; F.close()</span><br></pre></td></tr></table></figure>
+<p>生成了一个二进制数据字符串（主要由不可打印的字符组成，这些字符以十六进制转义的格式进行打印）</p>
+<pre><code>&gt;&gt;&gt; F = open(&apos;data.bin&apos;,&apos;rb&apos;)
+&gt;&gt;&gt; data = F.read()
+&gt;&gt;&gt; data
+b&apos;\x00\x00\x00\x07spam\x00\x08&apos;
+&gt;&gt;&gt; values= struct.unpack(&apos;&gt;i4sh&apos;,data)
+&gt;&gt;&gt; values
+(7, b&apos;spam&apos;, 8)
+</code></pre><h3 id="文件上下文管理"><a href="#文件上下文管理" class="headerlink" title="文件上下文管理"></a>文件上下文管理</h3><p>把文件处理代码包装到一个逻辑层中，以确保在退出后可以自动关闭文件，而不是依赖垃圾收集上的自动关闭</p>
+<pre><code>&gt;&gt;&gt; myfile =  open(&apos;datafile.txt&apos;) 
+&gt;&gt;&gt; try:
+...     for line in myfile:
+...             print(line,&quot; &quot;)
+... finally:
+...     myfile.close()
+... 
+Spam
+
+43,44,45
+
+[1, 2, 3]${&apos;b&apos;: 2, &apos;a&apos;: 1}
+</code></pre><h3 id="其他文件工具"><a href="#其他文件工具" class="headerlink" title="其他文件工具"></a>其他文件工具</h3><ul>
+<li><p>标准流</p>
+<pre><code>例如`sys.stdout`
+</code></pre></li>
+<li><p>os模块中的描述文件</p>
+<pre><code>处理整数文件，支持诸如文件锁定之类的较低级工具
+</code></pre></li>
+<li><p><code>sockets</code> <code>pipes</code>和<code>FIFO</code>文件</p>
+<pre><code>文件类对象，用于同步进程或者通过网络进行通信
+</code></pre></li>
+<li><p>通过键来存取的文件</p>
+<p>  通过键直接存储的不变的Python对象</p>
+</li>
+<li><p><code>Shell</code>命令流</p>
+<p>  像<code>os.popen</code>和<code>subprocess.Popen</code>这样的工具，支持产生shell命令，并读取和写入到标准流。</p>
+</li>
+</ul>
+<h3 id="第三方开源文件类工具"><a href="#第三方开源文件类工具" class="headerlink" title="第三方开源文件类工具"></a>第三方开源文件类工具</h3><ul>
+<li><code>PySerial</code>：支持窗口交流</li>
+<li><code>pexpect</code> ：交互程序</li>
+</ul>
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><p><code>file = open(&#39;test.txt&#39;,&#39;r&#39;)</code></p>
+<ul>
+<li><code>file.read()</code>:一次把文件加载至内存；</li>
+<li><code>file.read(1)</code>:一次读一个字符</li>
+<li><p><code>file.readline()</code>:一次读取文件一行</p>
+</li>
+<li></li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/08/05/python-file/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/08/05/python-file/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

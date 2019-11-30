@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Bootstrap-Notes(概述篇) | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、概述 Bootstrap的强大之处在于对常见的CSS布局小组件和JavaScript插件都进行了完整且完善的封装  Bootstrap提供了如下重要特性：  一套完整的基础CSS插件 丰富的预定义样式表 一组基于jQuery的JS插件集 一个非常灵活的响应式">
+<meta name="keywords" content="Bootstrap,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap-Notes(概述篇)">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/09/06/Bootstrap-Notes-Summary/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="1、概述 Bootstrap的强大之处在于对常见的CSS布局小组件和JavaScript插件都进行了完整且完善的封装  Bootstrap提供了如下重要特性：  一套完整的基础CSS插件 丰富的预定义样式表 一组基于jQuery的JS插件集 一个非常灵活的响应式">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/mcUORpK.jpg">
+<meta property="og:image" content="http://i.imgur.com/WX4Tw2M.jpg">
+<meta property="og:image" content="http://i.imgur.com/tiM7sfq.jpg">
+<meta property="og:image" content="http://i.imgur.com/ztEHZPl.jpg">
+<meta property="og:updated_time" content="2017-06-08T03:46:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bootstrap-Notes(概述篇)">
+<meta name="twitter:description" content="1、概述 Bootstrap的强大之处在于对常见的CSS布局小组件和JavaScript插件都进行了完整且完善的封装  Bootstrap提供了如下重要特性：  一套完整的基础CSS插件 丰富的预定义样式表 一组基于jQuery的JS插件集 一个非常灵活的响应式">
+<meta name="twitter:image" content="http://i.imgur.com/mcUORpK.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Bootstrap-Notes(概述篇)</strong>
+            </h1>
+            
+                <h2>统计数据往往是你想让它说明什么它就能说明什么</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-09-06</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/bootstrap/">Bootstrap</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/前端/">前端</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><blockquote>
+<p>Bootstrap的强大之处在于对常见的CSS布局小组件和JavaScript插件都进行了完整且完善的封装</p>
+</blockquote>
+<p>Bootstrap提供了如下重要特性：</p>
+<ul>
+<li>一套完整的基础CSS插件</li>
+<li>丰富的预定义样式表</li>
+<li>一组基于jQuery的JS插件集</li>
+<li>一个非常灵活的响应式</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>MIT许可证</p>
+<p>源自麻省理工学院（Massachusetts Institute of Technology, MIT），又称“X条款”（X License）或“X11条款”（X11 License）<br>MIT内容与三条款BSD许可证（3-clause BSD license）内容颇为近似，但是赋予软件被授权人更大的权利与更少的限制。[1] </p>
+</blockquote>
+<p><strong>工具介绍</strong></p>
+<ul>
+<li>Font Awesome插件—一套icon字体，</li>
+<li>Sass：一种CSS的开发工具</li>
+<li>Less：一种CSS预处理技术，是一种动态样式语言，属于CSS预处理语言中的一种，使用类似CSS的语法，为CSS赋予了动态语言特性，如变量、继承、运算、函数等，它可以在多语言环境中使用，帮助手册<a href="http://www.lesscss.net" target="_blank" rel="noopener">www.lesscss.net</a></li>
+</ul>
+<h2 id="Bootstrap预编译版目录结构"><a href="#Bootstrap预编译版目录结构" class="headerlink" title="Bootstrap预编译版目录结构"></a>Bootstrap预编译版目录结构</h2><p><img src="http://i.imgur.com/mcUORpK.jpg" alt></p>
+<h2 id="Bootstrap源码目录"><a href="#Bootstrap源码目录" class="headerlink" title="Bootstrap源码目录"></a>Bootstrap源码目录</h2><p><img src="http://i.imgur.com/WX4Tw2M.jpg" alt></p>
+<h2 id="3-x版和2-x版本区别："><a href="#3-x版和2-x版本区别：" class="headerlink" title="3.x版和2.x版本区别："></a>3.x版和2.x版本区别：</h2><blockquote>
+<p>2.x版本用于展示icon小图标的.png图片不见了，取代的是fonts目录的4种类型的字体文件，称这种方式为@font-face版本的icon实现，该字体来自<a href="http://glyphicons.com/网站，并得到免费授权" target="_blank" rel="noopener">http://glyphicons.com/网站，并得到免费授权</a></p>
+</blockquote>
+<p>所谓@font-face，是通过CSS里的@font-face语法，将安全的Web字体（Web Font）即时下载到客户端，从而进行引用显示。</p>
+<p><strong>好处：图标可以被任意缩放、改变颜色，你需要做的只是像修改文字样式那样修改图标样式即可</strong></p>
+<p><strong>备注</strong></p>
+<blockquote>
+<p>Bootstrap所有的javascript插件都依赖于jQuery库，字体文件（fonts文件夹下）是使用Mac下的应用软件ImageOptim对.png图片进行压缩得到的。</p>
+</blockquote>
+<h2 id="Bootstrap测试工具"><a href="#Bootstrap测试工具" class="headerlink" title="Bootstrap测试工具"></a>Bootstrap测试工具</h2><blockquote>
+<p><strong>Bootlint</strong></p>
+<p>是 Bootstrap 官方所支持的 HTML 检测工具。在使用了 Bootstrap 的页面上（没有对 Bootstrap 做修改和扩展的情况下），它能自动检查某些常见的 HTML 错误。</p>
+</blockquote>
+<h2 id="被支持的浏览器"><a href="#被支持的浏览器" class="headerlink" title="被支持的浏览器"></a>被支持的浏览器</h2><p><img src="http://i.imgur.com/tiM7sfq.jpg" alt></p>
+<h2 id="IE8或9"><a href="#IE8或9" class="headerlink" title="IE8或9"></a>IE8或9</h2><p>Internet Explorer 8 需要 Respond.js 配合才能实现对媒体查询（media query）的支持。</p>
+<p><img src="http://i.imgur.com/ztEHZPl.jpg" alt></p>
+<h2 id="国产浏览器高速模式"><a href="#国产浏览器高速模式" class="headerlink" title="国产浏览器高速模式"></a>国产浏览器高速模式</h2><p>将下面的 <meta> 标签加入到页面中，可以让部分国产浏览器默认采用高速模式渲染页面：</p>
+<pre><code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+</code></pre><p><em>目前只有360支持此标签</em></p>
+<h2 id="可访问性"><a href="#可访问性" class="headerlink" title="可访问性"></a>可访问性</h2><pre><code>Bootstrap 遵循统一的 web 标准，另外，通过做一些少量的修改，还可以让使用 辅助设备（AT - ASSISTIVE TECHNOLOGY）上网的人群访问你的站点。
+</code></pre><h2 id="CSS基本语法"><a href="#CSS基本语法" class="headerlink" title="CSS基本语法"></a>CSS基本语法</h2><p>通用CSS选择器（*）是0 优先级</p>
+<p>常见属性选择器用法</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[att=value]</td>
+<td>该属性有指定的确切值</td>
+</tr>
+<tr>
+<td>[att~=value]</td>
+<td>该属性值必须是多个用空格隔开的值，而且这些值中的一个必须是指定的值“value”</td>
+</tr>
+<tr>
+<td>[att</td>
+<td>=value]</td>
+<td>属性的值就是“value”或者以“value”开始并立即跟上一个“-”字符，也就是“value-”，比如lang=”zh-cn”</td>
+</tr>
+<tr>
+<td>[att^=value]</td>
+<td>该属性的值必须以指定的值开始</td>
+</tr>
+<tr>
+<td>[att$=value]</td>
+<td>该属性的值必须包含特定的值（无论其位置怎么样）</td>
+</tr>
+<tr>
+<td>[att*=value]</td>
+<td>该属性的值必须以特定值结束</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CSS里的子元素用符号“&gt;”表示</li>
+<li>兄弟选择器<ul>
+<li>临近兄弟：使用+表示</li>
+<li>普通兄弟（查找某一个指定元素后面的兄弟节点）：使用~表示</li>
+</ul>
+</li>
+</ul>
+<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>CSS3种常见伪类</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:hover</td>
+<td>鼠标滑过时的状态</td>
+</tr>
+<tr>
+<td>:focus</td>
+<td>元素拥有焦点时的状态</td>
+</tr>
+<tr>
+<td>:first-child</td>
+<td>指定某一个元素的第一个子元素</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>指定某一个元素的最后一个子元素</td>
+</tr>
+<tr>
+<td>:nth-child()</td>
+<td>指定某个元素的一个或多个待定的子元素，可以传入数字，也可以传入even（奇数）或odd（偶数）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h2><blockquote>
+<p>定义建立布局时元素生成的框的类型.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>此元素不会被显示</td>
+</tr>
+<tr>
+<td>block</td>
+<td>此元素将显示为块级元素，此元素前后会带有换行符</td>
+</tr>
+<tr>
+<td>inline</td>
+<td>默认：此元素会被显示为内联元素，元素前后没有换行符</td>
+</tr>
+<tr>
+<td>inline-block</td>
+<td>行内块元素</td>
+</tr>
+<tr>
+<td>list-item</td>
+<td>此元素会作为列表显示</td>
+</tr>
+<tr>
+<td>run-in</td>
+<td>此元素会根据上下文作为块级元素或内联元素显示</td>
+</tr>
+<tr>
+<td>table</td>
+<td>此元素会作为块级表格来显示，表格前后带有换行符</td>
+</tr>
+<tr>
+<td>inline-table</td>
+<td>此元素会作为内联表格来显示，表格前后带有换行符</td>
+</tr>
+<tr>
+<td>table-row-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似tbody）</td>
+</tr>
+<tr>
+<td>table-header-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似thead）</td>
+</tr>
+<tr>
+<td>table-footer-group</td>
+<td>此元素会作为一个或多个行的分组来显示（类似tfoot）</td>
+</tr>
+<tr>
+<td>table-row</td>
+<td>此元素会作为一个表格行显示（类似tr）</td>
+</tr>
+<tr>
+<td>table-column-group</td>
+<td>此元素会作为一个或多个列的分组来显示（类似colgroup）</td>
+</tr>
+<tr>
+<td>table-column</td>
+<td>此元素会作为一个单元格来显示（类似col）</td>
+</tr>
+<tr>
+<td>table-cell</td>
+<td>此元素会作为一个表格单元格来显示(td或th)</td>
+</tr>
+<tr>
+<td>table-caption</td>
+<td>此元素会作为一个表格标题显示（类似caption）</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继续display属性的值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><blockquote>
+<p>响应式设计的核心要素</p>
+</blockquote>
+<pre><code>Bootstrap主要用到min-width、max-width和and语法
+</code></pre><h2 id="立即调用的函数表达式"><a href="#立即调用的函数表达式" class="headerlink" title="立即调用的函数表达式"></a>立即调用的函数表达式</h2><blockquote>
+<p>js里，function的定义，可以通过后面加小括号形式进行立即调用。</p>
+<p>比如：（function（）{}（））；</p>
+</blockquote>
+<h2 id="事件命名空间"><a href="#事件命名空间" class="headerlink" title="事件命名空间"></a>事件命名空间</h2><blockquote>
+<p>事件后面都跟了一些字符串，简称为带有命名空间的事件</p>
+<p>当只出发自己的定义的事件时，为防止对别人绑定的事件回调产生影响，可以使用这种方法。</p>
+</blockquote>
+<h2 id="data"><a href="#data" class="headerlink" title="$.data()"></a>$.data()</h2><blockquote>
+<p>收集指定元素上的所有以data-开头的自定义属性，并合并成为一个对象字面量。</p>
+</blockquote>
+<h2 id="辅助设计"><a href="#辅助设计" class="headerlink" title="辅助设计"></a>辅助设计</h2><blockquote>
+<p>不以data-开头的自定义属性，称之为辅助属性</p>
+</blockquote>
+<p>目的：用于支持残障人士，老年人，文化水平不高或暂时患病的人使用屏幕阅读器进行页面访问。</p>
+<p>例：<em>aria-hidden=’true’</em> 对屏幕阅读器隐藏该div元素</p>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/09/06/Bootstrap-Notes-Summary/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/09/06/Bootstrap-Notes-Summary/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

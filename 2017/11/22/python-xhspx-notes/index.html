@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>python笔记 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基础 pyc：字节码 pyo: 优化后的字节码 pyd：供他人调用的动态链接库  命令# 编译成字节码文件pyc python -m py_compile 文件名 # 编译成优化后的字节码文件pyo python -O -m py_compile 文件名 函数编程模式入口函数if __name__ == &amp;apos;__main__&amp;apos;:     ...     pass 类函数类中定义的">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python笔记">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/11/22/python-xhspx-notes/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="基础 pyc：字节码 pyo: 优化后的字节码 pyd：供他人调用的动态链接库  命令# 编译成字节码文件pyc python -m py_compile 文件名 # 编译成优化后的字节码文件pyo python -O -m py_compile 文件名 函数编程模式入口函数if __name__ == &amp;apos;__main__&amp;apos;:     ...     pass 类函数类中定义的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-11-22T15:06:46.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python笔记">
+<meta name="twitter:description" content="基础 pyc：字节码 pyo: 优化后的字节码 pyd：供他人调用的动态链接库  命令# 编译成字节码文件pyc python -m py_compile 文件名 # 编译成优化后的字节码文件pyo python -O -m py_compile 文件名 函数编程模式入口函数if __name__ == &amp;apos;__main__&amp;apos;:     ...     pass 类函数类中定义的">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>python笔记</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-11-22</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li><code>pyc</code>：字节码</li>
+<li><code>pyo</code>: 优化后的字节码</li>
+<li><code>pyd</code>：供他人调用的动态链接库</li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code># 编译成字节码文件pyc
+python -m py_compile 文件名
+# 编译成优化后的字节码文件pyo
+python -O -m py_compile 文件名
+</code></pre><h2 id="函数编程模式"><a href="#函数编程模式" class="headerlink" title="函数编程模式"></a>函数编程模式</h2><h3 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h3><pre><code>if __name__ == &apos;__main__&apos;:
+    ...
+    pass
+</code></pre><h3 id="类函数"><a href="#类函数" class="headerlink" title="类函数"></a>类函数</h3><p>类中定义的函数，必须带有self参数，如下所示：</p>
+<pre><code>class demo01:
+    def funcname(self,parameter_list):
+       pass
+</code></pre><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
+<li>python2 默认的编码方式<code>ASCII</code>；python3 文本默认编码方式<code>Unicode</code></li>
+<li>双下划线开头的类成员是私有成员：<code>__foo</code></li>
+<li>双下划线开头和结尾的类成员是python特殊方法专用的标识：<code>__init__()</code>代表类的构造函数</li>
+<li>python关键字只包含小写字母</li>
+</ul>
+<h2 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当类B和类C都继承A时，那么当D类同时多继承B和C时，那么查找会遵循以下方式</p>
+<ul>
+<li>当类是经典类时，多继承情况下，会按照深度优先方式查找</li>
+<li>当类是新式类时，多继承情况下，会按照广度优先方式查找</li>
+</ul>
+<h3 id="新式类-amp-经典类"><a href="#新式类-amp-经典类" class="headerlink" title="新式类&amp;经典类"></a>新式类&amp;经典类</h3><p>当前类或父类继承object类时是新式类，其他的都是经典类</p>
+<h3 id="无重载"><a href="#无重载" class="headerlink" title="无重载"></a>无重载</h3><p>重名的函数，哪个在后哪个会生效</p>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h3 id="原生模块"><a href="#原生模块" class="headerlink" title="原生模块"></a>原生模块</h3><p>urllib urllib2 re</p>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><p>Scrapy／BS4</p>
+<h3 id="安装模式"><a href="#安装模式" class="headerlink" title="安装模式"></a>安装模式</h3><ul>
+<li><p>安装1:pip模式</p>
+<pre><code>pip install scrapy
+</code></pre></li>
+<li><p>安装2:离线安装</p>
+<ul>
+<li>解压缩安装包<code>scrapy-master.zip</code>,解压缩到与Python安装同级目录下</li>
+<li>加载控制台，进入到解压缩的目录后<br>  python setup.py install</li>
+</ul>
+</li>
+<li><p>测试</p>
+<pre><code>scrapy shell https://www.baidu.com
+</code></pre></li>
+</ul>
+<h3 id="框架标准开发流程："><a href="#框架标准开发流程：" class="headerlink" title="框架标准开发流程："></a>框架标准开发流程：</h3><ul>
+<li><p>在终端指定文件夹下，使用Scrapy指令构建项目</p>
+<pre><code>scrapy startproject 项目名称
+</code></pre></li>
+<li><p>创建蜘蛛</p>
+<pre><code>scrapy genspider doubanspider douban.com
+# 爬虫名称和doubanspider.py程序文件中的name类成员定义的值一致
+scrapy crawl 爬虫名称  
+</code></pre></li>
+</ul>
+<h2 id="web网站开发Django"><a href="#web网站开发Django" class="headerlink" title="web网站开发Django"></a>web网站开发Django</h2><ul>
+<li>底层使用socket实现</li>
+<li>Django完全基于Python的web框架，实现了MVC的设计思想</li>
+<li>MVT：<ul>
+<li>M：模型层 model.py 自定义脚本，数据库</li>
+<li>T：templates html</li>
+<li>V: 视图渲染控制器 views.py urls.py</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装配置Django"><a href="#安装配置Django" class="headerlink" title="安装配置Django"></a>安装配置Django</h3><pre><code>pip install Django -i 国内镜像源
+</code></pre><ul>
+<li><p>配置系统变量<br>  添加两个变量</p>
+</li>
+<li><p>验证</p>
+<p>  在终端启动命令行</p>
+<pre><code>import django
+django.get_version()
+</code></pre></li>
+</ul>
+<h3 id="创建Django"><a href="#创建Django" class="headerlink" title="创建Django"></a>创建Django</h3><pre><code>django-admin startproject DjangoProject
+</code></pre><h3 id="重新编译并构建工程项目"><a href="#重新编译并构建工程项目" class="headerlink" title="重新编译并构建工程项目"></a>重新编译并构建工程项目</h3><ul>
+<li><p>进入到Django的工程文件夹</p>
+<pre><code>manage.py makemigrations
+</code></pre></li>
+</ul>
+<h3 id="自动生成Django工程中的支撑数据表"><a href="#自动生成Django工程中的支撑数据表" class="headerlink" title="自动生成Django工程中的支撑数据表"></a>自动生成Django工程中的支撑数据表</h3><ul>
+<li><p>进入到Django的工程文件夹</p>
+<pre><code>manage.py migrate
+</code></pre></li>
+</ul>
+<h3 id="在工程中创建app应用（1个工程可以对应多个app）"><a href="#在工程中创建app应用（1个工程可以对应多个app）" class="headerlink" title="在工程中创建app应用（1个工程可以对应多个app）"></a>在工程中创建app应用（1个工程可以对应多个app）</h3><ul>
+<li>进入到Django的工程文件夹中</li>
+<li><p>指令：</p>
+<pre><code>.manage.py startapp 应用名称
+//python3 manage.py startapp app01
+</code></pre></li>
+</ul>
+<h3 id="启动Django工程"><a href="#启动Django工程" class="headerlink" title="启动Django工程"></a>启动Django工程</h3><ul>
+<li><p>原理：自动启动内置的web服务器（HttpServer）</p>
+<p>  将工程配置信息及所有应用的数据信息部署到服务器</p>
+</li>
+<li><p>指令</p>
+<pre><code># localhost:8000
+manage.py runserver 
+manage.py runserver IP地址 Port端口
+</code></pre></li>
+<li><p>热部署：修改脚本文件后无需重启服务器</p>
+</li>
+</ul>
+<h3 id="Django前端表达式"><a href="#Django前端表达式" class="headerlink" title="Django前端表达式"></a>Django前端表达式</h3><ul>
+<li><p>引用外部css静态资源资源</p>
+<pre><code>{% load staticfiles %}
+</code></pre></li>
+</ul>
+<h3 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h3><p>cross-site request forgery</p>
+<p>跨站请求伪装，比XSS更危险</p>
+<pre><code># 在html表单中添加此句，可以防止csrf的攻击
+{% csrf_token %} 
+</code></pre><h3 id="装饰器-login-required"><a href="#装饰器-login-required" class="headerlink" title="装饰器@login_required"></a>装饰器@login_required</h3><h3 id="Django实现数据库的操作（MySQL）"><a href="#Django实现数据库的操作（MySQL）" class="headerlink" title="Django实现数据库的操作（MySQL）"></a>Django实现数据库的操作（MySQL）</h3><ul>
+<li>配置数据库连接参数<ul>
+<li>找到<code>settings.py</code>文件，找到<code>DATABASES</code>,修改相关项</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/11/22/python-xhspx-notes/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/11/22/python-xhspx-notes/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

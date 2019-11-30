@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python笔记（五）-字符串 | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述 没有单个字符的这种类型，而是可以使用一个字符的字符串。 字符串被归为不可变序列这一类别 单双银行字符串是一样的 常见字符串常量和表达式     操作 解释     s=b’spam’ 字节字符串   len(s) 字符串s的长度   “a %s parrot” %kind 字符串格式化表达式   s.find(‘pa’) 字符串搜索   s.rstrip 移除空格   s.replace(‘">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python笔记（五）-字符串">
+<meta property="og:url" content="https://perixiaowan.github.io/2017/07/29/python-5-string/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="概述 没有单个字符的这种类型，而是可以使用一个字符的字符串。 字符串被归为不可变序列这一类别 单双银行字符串是一样的 常见字符串常量和表达式     操作 解释     s=b’spam’ 字节字符串   len(s) 字符串s的长度   “a %s parrot” %kind 字符串格式化表达式   s.find(‘pa’) 字符串搜索   s.rstrip 移除空格   s.replace(‘">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-07-31T22:38:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python笔记（五）-字符串">
+<meta name="twitter:description" content="概述 没有单个字符的这种类型，而是可以使用一个字符的字符串。 字符串被归为不可变序列这一类别 单双银行字符串是一样的 常见字符串常量和表达式     操作 解释     s=b’spam’ 字节字符串   len(s) 字符串s的长度   “a %s parrot” %kind 字符串格式化表达式   s.find(‘pa’) 字符串搜索   s.rstrip 移除空格   s.replace(‘">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python笔记（五）-字符串</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2017-07-29</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/python/">Python</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>没有单个字符的这种类型，而是可以使用一个字符的字符串。</li>
+<li>字符串被归为不可变序列这一类别</li>
+<li>单双银行字符串是一样的</li>
+<li>常见字符串常量和表达式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s=b’spam’</td>
+<td>字节字符串</td>
+</tr>
+<tr>
+<td>len(s)</td>
+<td>字符串s的长度</td>
+</tr>
+<tr>
+<td>“a %s parrot” %kind</td>
+<td>字符串格式化表达式</td>
+</tr>
+<tr>
+<td>s.find(‘pa’)</td>
+<td>字符串搜索</td>
+</tr>
+<tr>
+<td>s.rstrip</td>
+<td>移除空格</td>
+</tr>
+<tr>
+<td>s.replace(‘pa’,’xx’)</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>s.split(‘,’)</td>
+<td>用展位符分割</td>
+</tr>
+<tr>
+<td>s.isdigit()</td>
+<td></td>
+</tr>
+<tr>
+<td>s.lower</td>
+<td></td>
+</tr>
+<tr>
+<td>s.endswith(‘spam’)</td>
+<td>结束测试</td>
+</tr>
+<tr>
+<td>‘spam’.join(strlist)</td>
+<td>插入分隔符</td>
+</tr>
+<tr>
+<td>s.encode(‘latin-1’)</td>
+<td>Unicode编码</td>
+</tr>
+<tr>
+<td>for x in s:print(x)</td>
+<td>迭代</td>
+</tr>
+<tr>
+<td>‘spam’ in s</td>
+<td></td>
+</tr>
+<tr>
+<td>[c*2 for c in s]</td>
+<td></td>
+</tr>
+<tr>
+<td>map(ord,s)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串反斜杠字符（转义序列）"><a href="#字符串反斜杠字符（转义序列）" class="headerlink" title="字符串反斜杠字符（转义序列）"></a>字符串反斜杠字符（转义序列）</h2><table>
+<thead>
+<tr>
+<th>转义</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\newline</td>
+<td>忽略</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>\’</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\”</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>倒退</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>新行（换行）</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>返回</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\N{id}</td>
+<td>Unicode数据库ID</td>
+</tr>
+<tr>
+<td>\uhhhh</td>
+<td>Unicode16位的十六进制值</td>
+</tr>
+<tr>
+<td>\Uhhhhhhhh</td>
+<td>Unicode32位的十六进制值</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>十六进制值</td>
+</tr>
+<tr>
+<td>\ooo</td>
+<td>八进制值</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>Null</td>
+</tr>
+<tr>
+<td>\other</td>
+<td>不转义</td>
+</tr>
+</tbody>
+</table>
+<h2 id="raw字符串抑制转义"><a href="#raw字符串抑制转义" class="headerlink" title="raw字符串抑制转义"></a><code>raw</code>字符串抑制转义</h2><ul>
+<li><p>如果<code>r</code>字母出现在字符串的第一引号的前面，它将会关闭转义机制</p>
+<pre><code>//windows下
+myfile = open(r&apos;C:\new\text.dat&apos;,&apos;w&apos;)
+myfile = open(&apos;C:\\new\\text.dat&apos;,&apos;w&apos;)
+
+&gt;&gt;&gt; path = r&apos;C:\new\text.dat&apos;
+&gt;&gt;&gt; path
+&apos;C:\\new\\text.dat&apos;
+&gt;&gt;&gt; print(path)
+C:\new\text.dat    
+</code></pre></li>
+</ul>
+<h2 id="块字符串（三重引号）"><a href="#块字符串（三重引号）" class="headerlink" title="块字符串（三重引号）"></a>块字符串（三重引号）</h2><pre><code>&gt;&gt;&gt; mantra = &quot;&quot;&quot;Always look 
+... on the bright
+... side of life
+... ....
+... &quot;&quot;&quot;
+&gt;&gt;&gt; mantra
+&apos;Always look \non the bright\nside of life\n....\n&apos;
+</code></pre><ul>
+<li>也可以在一些行的代码上使用三重引号，方便注释多行代码</li>
+</ul>
+<h2 id="字符串实际应用"><a href="#字符串实际应用" class="headerlink" title="字符串实际应用"></a>字符串实际应用</h2><h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><pre><code>&gt;&gt;&gt; int(&apos;42&apos;),str(42)
+(42, &apos;42&apos;)
+//将对象转换为字符串
+&gt;&gt;&gt; repr(42)
+&apos;42&apos;    
+&gt;&gt;&gt; float(&quot;1.5&quot;)
+1.5
+</code></pre><h3 id="eval函数"><a href="#eval函数" class="headerlink" title="eval函数"></a>eval函数</h3><p>运行一个包含了Python表达式代码的字符串，能够将一个字符串转换为任意类型的对象</p>
+<h3 id="ord和chr函数"><a href="#ord和chr函数" class="headerlink" title="ord和chr函数"></a><code>ord</code>和<code>chr</code>函数</h3><ul>
+<li>ord函数：将单个字符转换为对应的ASCII码，返回的是在内存中对应的字符的二进制值；</li>
+<li><p>chr函数：会执行相反的操作。</p>
+<pre><code>&gt;&gt;&gt; ord(&apos;s&apos;)
+115
+&gt;&gt;&gt; chr(115)
+&apos;s&apos;
+</code></pre></li>
+<li><p>二进制数转换为整数</p>
+<pre><code>&gt;&gt;&gt; B = &apos;1101&apos;
+&gt;&gt;&gt; I = 0
+&gt;&gt;&gt; while B != &apos;&apos;:
+...     I = I*2 +(ord(B[0])-ord(&apos;0&apos;))
+...     B = B[1:]
+... 
+&gt;&gt;&gt; I
+13
+
+&gt;&gt;&gt; int(&apos;1101&apos;,2)
+13
+&gt;&gt;&gt; bin(13)
+&apos;0b1101&apos;
+</code></pre></li>
+</ul>
+<h3 id="修改字符串"><a href="#修改字符串" class="headerlink" title="修改字符串"></a>修改字符串</h3><ul>
+<li><p>利用合并，分片，索引等工具来建立并赋值一个新的字符串</p>
+<pre><code>&gt;&gt;&gt; &apos;That is %d %s bird!&apos; %(1,&apos;dead&apos;)
+&apos;That is 1 dead bird!&apos;
+&gt;&gt;&gt; &apos;That is {0} {1} bird!&apos;.format(1,&apos;dead&apos;)
+&apos;That is 1 dead bird!&apos;
+</code></pre></li>
+<li><p>格式化等结果是一个新的字符串对象，而不是修改后的对象</p>
+</li>
+</ul>
+<h2 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h2><p><strong>字符串可调用的方法</strong>：</p>
+<p>‘capitalize’, ‘casefold’, ‘center’, ‘count’, ‘encode’, ‘endswith’, ‘expandtabs’, ‘find’, ‘format’, ‘format_map’, ‘index’, ‘isalnum’, ‘isalpha’, ‘isdecimal’, ‘isdigit’, ‘isidentifier’, ‘islower’, ‘isnumeric’, ‘isprintable’, ‘isspace’, ‘istitle’, ‘isupper’, ‘join’, ‘ljust’, ‘lower’, ‘lstrip’, ‘maketrans’, ‘partition’, ‘replace’, ‘rfind’, ‘rindex’, ‘rjust’, ‘rpartition’, ‘rsplit’, ‘rstrip’, ‘split’, ‘splitlines’, ‘startswith’, ‘strip’, ‘swapcase’, ‘title’, ‘translate’, ‘upper’, ‘zfill’</p>
+<ul>
+<li><strong>如果需要对一个超长字符串进行许多的修改，为了优化脚本的性能，需要将字符串转换为一个支持远处修改的对象，比如列表list</strong></li>
+</ul>
+<ul>
+<li><p>方法<code>join</code>将列表list合成一个字符串</p>
+<pre><code>&gt;&gt;&gt; S = &apos;spammy&apos;
+&gt;&gt;&gt; L = list(S)
+&gt;&gt;&gt; L
+[&apos;s&apos;, &apos;p&apos;, &apos;a&apos;, &apos;m&apos;, &apos;m&apos;, &apos;y&apos;]
+&gt;&gt;&gt; L[3] = &apos;x&apos;
+&gt;&gt;&gt; L
+[&apos;s&apos;, &apos;p&apos;, &apos;a&apos;, &apos;x&apos;, &apos;m&apos;, &apos;y&apos;]
+&gt;&gt;&gt; S = &apos;&apos;.join(L)  // 使用空的分隔符进行连接
+&gt;&gt;&gt; S
+&apos;spaxmy&apos;
+</code></pre></li>
+</ul>
+<h2 id="文本解析"><a href="#文本解析" class="headerlink" title="文本解析"></a>文本解析</h2><pre><code>&gt;&gt;&gt; line=&apos;bob,hacker,40&apos;
+&gt;&gt;&gt; line.split(&apos;,&apos;)
+[&apos;bob&apos;, &apos;hacker&apos;, &apos;40&apos;]
+
+&gt;&gt;&gt; line = &quot;i&apos;mSPAMaSPAMlumberjack&quot;
+&gt;&gt;&gt; line.split(&apos;SPAM&apos;)
+[&quot;i&apos;m&quot;, &apos;a&apos;, &apos;lumberjack&apos;]
+</code></pre><h2 id="字符串格式化表达式"><a href="#字符串格式化表达式" class="headerlink" title="字符串格式化表达式"></a>字符串格式化表达式</h2><ul>
+<li>总是返回新的字符串作为结果而不是对字符串进行修改；</li>
+</ul>
+<h3 id="格式化表达式"><a href="#格式化表达式" class="headerlink" title="格式化表达式"></a>格式化表达式</h3><p>字符串格式化代码</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>字符串（或任何对象）</td>
+</tr>
+<tr>
+<td>r</td>
+<td>s，但使用repr，而是不是str</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符</td>
+</tr>
+<tr>
+<td>d</td>
+<td>十进制（整数）</td>
+</tr>
+<tr>
+<td>i</td>
+<td>整数</td>
+</tr>
+<tr>
+<td>u</td>
+<td>无号（整数）</td>
+</tr>
+<tr>
+<td>o</td>
+<td>八进位整数</td>
+</tr>
+<tr>
+<td>x</td>
+<td>十六进制整数</td>
+</tr>
+<tr>
+<td>X</td>
+<td>x，但打印大写</td>
+</tr>
+<tr>
+<td>e</td>
+<td>浮点指数</td>
+</tr>
+<tr>
+<td>E</td>
+<td>e，但打印大写</td>
+</tr>
+<tr>
+<td>f</td>
+<td>浮点十进制</td>
+</tr>
+<tr>
+<td>F</td>
+<td>浮点十进制</td>
+</tr>
+<tr>
+<td>g</td>
+<td>浮点e或f</td>
+</tr>
+<tr>
+<td>G</td>
+<td>浮点E或F</td>
+</tr>
+<tr>
+<td>%</td>
+<td>常量%</td>
+</tr>
+</tbody>
+</table>
+<p>转换目标的通用结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%[(name)][flags][width][.precision]typecode</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>在格式化字符串中用一个<code>*</code>来指定通过计算得出<code>width</code>和<code>precision</code>,从而迫使它们的值从%运算符右边的输出中的下一项获取</p>
+<pre><code>&gt;&gt;&gt; &apos;%f,%.2f,%.*f&apos; %(1/3.0,1/3.0,4,1/3.0)
+&apos;0.333333,0.33,0.3333&apos;
+</code></pre></li>
+</ul>
+<h3 id="基于字典的字符串格式化"><a href="#基于字典的字符串格式化" class="headerlink" title="基于字典的字符串格式化"></a>基于字典的字符串格式化</h3><p>字符串格式化允许左边的转换目标来引用右边字典中的键来提取对应的值</p>
+<pre><code>&gt;&gt;&gt; &quot;%(n)d %(x)s&quot; % {&quot;n&quot;:1,&quot;x&quot;:&quot;spam&quot;}
+&apos;1 spam&apos;
+</code></pre><p>常用于生成类似<code>HTML</code>和<code>XML</code>的程序</p>
+<pre><code>&gt;&gt;&gt; reply = &quot;&quot;&quot;
+... Greetings...
+... Hello %(name)s!
+... Your age squared is %(age)s
+... &quot;&quot;&quot;
+&gt;&gt;&gt; values = {&apos;name&apos;:&apos;xiaowan&apos;,&apos;age&apos;:30}
+&gt;&gt;&gt; print(reply % values)
+
+Greetings...
+Hello xiaowan!
+Your age squared is 30
+</code></pre><h3 id="格式化调用方法"><a href="#格式化调用方法" class="headerlink" title="格式化调用方法"></a>格式化调用方法</h3><p><code>format方法</code>使用主体字符串作为模版，且接受任意多个表示将要根据模版替换的值的参数</p>
+<pre><code>&gt;&gt;&gt; template = &apos;{0},{1} and {2}&apos;
+&gt;&gt;&gt; template.format(&apos;spam&apos;,&apos;ham&apos;,&apos;eggs&apos;)
+&apos;spam,ham and eggs&apos;
+&gt;&gt;&gt; template = &apos;{motto},{0} and {food}&apos;
+&gt;&gt;&gt; template.format(&apos;ham&apos;,motto=&apos;spam&apos;,food=&apos;eggs&apos;)
+&apos;spam,ham and eggs&apos;
+</code></pre><ul>
+<li><p>添加键，属性和偏移量</p>
+<pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; &apos;My {1[spam]} runs {0.platform}&apos;.format(sys,{&apos;spam&apos;:&apos;laptop&apos;})
+&apos;My laptop runs darwin&apos;
+&gt;&gt;&gt; &apos;My {config[spam]} runs {sys.platform}&apos;.format(sys=sys,config={&apos;spam&apos;:&apos;laptop&apos;})
+&apos;My laptop runs darwin&apos;
+</code></pre></li>
+<li><p>详细的格式化形式</p>
+<pre><code>&gt;&gt;&gt; &apos;{0:10} = {1:10}&apos;.format(&apos;spam&apos;,123.4567)
+&apos;spam       =   123.4567&apos;
+&gt;&gt;&gt; &apos;{0:&gt;10} = {1:&lt;10}&apos;.format(&apos;spam&apos;,123.4567)
+&apos;      spam = 123.4567  &apos;
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; &apos;{0.platform:&gt;10} = {1[item]:&lt;10}&apos;.format(sys,dict(item=&apos;laptop&apos;))
+&apos;    darwin = laptop    &apos;
+</code></pre></li>
+</ul>
+<p>其中<code>&gt;10</code>表示在一个10字符宽度字段中右对齐</p>
+<pre><code>&gt;&gt;&gt; &apos;{0:e},{1:3e},{2:g}&apos;.format(3.14159,3.14159,3.14159)
+&apos;3.141590e+00,3.141590e+00,3.14159&apos;
+&gt;&gt;&gt; &apos;{0:f},{1:.2f},{2:06.2f}&apos;.format(3.14159,3.14159,3.14159)
+&apos;3.141590,3.14,003.14&apos;
+</code></pre><p>分别格式化为十六进制，八进制，二进制格式</p>
+<pre><code>&gt;&gt;&gt; &apos;{0:X},{1:o},{2:b}&apos;.format(255,255,255)
+&apos;FF,377,11111111&apos;
+&gt;&gt;&gt; bin(255),int(&apos;11111111&apos;,2),0b11111111
+(&apos;0b11111111&apos;, 255, 255)
+&gt;&gt;&gt; hex(255),int(&apos;FF&apos;,16),0xFF
+(&apos;0xff&apos;, 255, 255)
+&gt;&gt;&gt; oct(255),int(&apos;377&apos;,8),0o377
+(&apos;0o377&apos;, 255, 255)    
+</code></pre><ul>
+<li><p>硬编码</p>
+<pre><code>&gt;&gt;&gt; &apos;{0:.{1}f}&apos;.format(1/3.0,4)
+&apos;0.3333&apos;
+&gt;&gt;&gt; &apos;%.*f&apos;%(4,1/3.0)
+&apos;0.3333&apos;    
+</code></pre></li>
+<li><p>内置的<code>format</code>函数</p>
+<pre><code>&gt;&gt;&gt; &apos;{0:.2f}&apos;.format(1.2345)
+&apos;1.23&apos;
+&gt;&gt;&gt; format(1.2345,&apos;.2f&apos;)
+&apos;1.23&apos;
+&gt;&gt;&gt; &apos;%.2f&apos; % 1.2345
+&apos;1.23&apos;
+</code></pre></li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2017/07/29/python-5-string/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2017/07/29/python-5-string/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

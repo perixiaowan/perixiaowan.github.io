@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Bootstrap-Notes(CSS样式篇) | Mac小兔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动设备先行  Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。">
+<meta name="keywords" content="Bootstrap,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap-Notes(CSS样式篇)">
+<meta property="og:url" content="https://perixiaowan.github.io/2016/09/09/Bootstrap-Notes-CSS/index.html">
+<meta property="og:site_name" content="Mac小兔">
+<meta property="og:description" content="移动设备先行  Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/SabOoMw.jpg">
+<meta property="og:image" content="http://i.imgur.com/6d5nS71.jpg">
+<meta property="og:image" content="http://i.imgur.com/oEgONSt.jpg">
+<meta property="og:image" content="http://i.imgur.com/3EvALGI.jpg">
+<meta property="og:image" content="http://i.imgur.com/2VXEHOQ.jpg">
+<meta property="og:image" content="http://i.imgur.com/jsA17aN.jpg">
+<meta property="og:image" content="http://i.imgur.com/EC3upWd.jpg">
+<meta property="og:image" content="http://i.imgur.com/KqVeNtP.jpg">
+<meta property="og:image" content="http://i.imgur.com/3wxpO74.jpg">
+<meta property="og:updated_time" content="2017-06-08T04:05:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bootstrap-Notes(CSS样式篇)">
+<meta name="twitter:description" content="移动设备先行  Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。">
+<meta name="twitter:image" content="http://i.imgur.com/SabOoMw.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Mac小兔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82398554-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f181a8ff2e97007a52c65181d5b352aa";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9527957683325992",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Mac小兔</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="https://github.com/perixiaowan/">
+                Github
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Bootstrap-Notes(CSS样式篇)</strong>
+            </h1>
+            
+                <h2>谁的青春不迷茫，我们都一样</h2>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/zhudi.png?raw=true">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Mac小兔</span>
+                <span class="post-date sub-title">at: 2016-09-09</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/bootstrap/">Bootstrap</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/前端/">前端</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p><strong>移动设备先行</strong></p>
+<blockquote>
+<p>Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="1-概览"><a href="#1-概览" class="headerlink" title="1 概览"></a>1 概览</h1><p>需要在<code>head</code>标签中添加如下代码：</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+</code></pre><p>设置 meta 属性为 <code>user-scalable=no</code>可以禁用其缩放（zooming）功能。如下所示：</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&gt;</code></p>
+<h2 id="排版和链接"><a href="#排版和链接" class="headerlink" title="排版和链接"></a>排版和链接</h2><blockquote>
+<p>Bootstrap 排版、链接样式设置了基本的全局样式，这些样式都能在 <code>scaffolding.less</code>和<code>normalize.less</code> 文件中找到对应的源码。</p>
+</blockquote>
+<h2 id="响应式图片"><a href="#响应式图片" class="headerlink" title="响应式图片"></a>响应式图片</h2><p><strong>增加<code>.img-responsive</code>样式</strong></p>
+<pre><code>实质是为图片设置`max-width:100%`和`height-auto`属性
+可以让图片按比例缩放
+且不超过父元素的尺寸
+</code></pre><h2 id="Normalize-css"><a href="#Normalize-css" class="headerlink" title="Normalize.css"></a>Normalize.css</h2><blockquote>
+<p>一个专门用于将不同浏览器的默认CSS特性设置为统一效果的CSS库</p>
+</blockquote>
+<h2 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h2><p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。提供两个类：</p>
+<ul>
+<li><code>.container</code> 类用于固定宽度并支持响应式布局的容器。</li>
+<li><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器。</li>
+</ul>
+<h1 id="2-栅格系统"><a href="#2-栅格系统" class="headerlink" title="2 栅格系统"></a>2 栅格系统</h1><blockquote>
+<p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。</p>
+</blockquote>
+<p>有关栅格系统的详细介绍请参阅：<a href="http://www.liuxiaowan.com/2016/09/07/Bootstrap-Notes-Structure/" title="栅格系统" target="_blank" rel="noopener">http://www.liuxiaowan.com/2016/09/07/Bootstrap-Notes-Structure/</a></p>
+<h1 id="3-排版"><a href="#3-排版" class="headerlink" title="3 排版"></a>3 排版</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
+<li>HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式。</li>
+<li>两者唯一不同的是class样式没有定义<code>margin-top</code>和<code>margin-bottom</code></li>
+<li>在标题内还可以包含 <code>&lt;small&gt;</code> 标签或赋予<code>.small</code> 类的元素，可以用来标记副标题。</li>
+</ul>
+<h2 id="页面主体"><a href="#页面主体" class="headerlink" title="页面主体"></a>页面主体</h2><blockquote>
+<p>Bootstrap 将全局 <code>font-size</code>设置为 14px，<code>line-height</code> 设置为 1.428。这些属性直接赋予 <code>&lt;body&gt;</code>元素和所有段落元素。另外，<code>&lt;p&gt;</code>（段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。</p>
+</blockquote>
+<p><strong>.lead样式</strong></p>
+<p>通过添加 <code>.lead</code> 类可以让段落突出显示。主要是调节字体大小、粗细、行间距和margin-bottom</p>
+<blockquote>
+<p><code>variables.less</code>文件中定义的两个 Less 变量决定了排版尺寸：<code>@font-size-base</code> 和 <code>@line-height-base</code>。</p>
+</blockquote>
+<h2 id="内联文本元素"><a href="#内联文本元素" class="headerlink" title="内联文本元素"></a>内联文本元素</h2><p><img src="http://i.imgur.com/SabOoMw.jpg" alt></p>
+<h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><ul>
+<li>text-left</li>
+<li>text-center</li>
+<li>text-right</li>
+<li>text-justify</li>
+</ul>
+<h2 id="改变大小写"><a href="#改变大小写" class="headerlink" title="改变大小写"></a>改变大小写</h2><ul>
+<li>text-lowercase</li>
+<li>text-uppercase</li>
+<li>text-capitalize</li>
+</ul>
+<h2 id="缩略语"><a href="#缩略语" class="headerlink" title="缩略语"></a>缩略语</h2><blockquote>
+<p>当鼠标悬停在缩写和缩写词上时就会显示完整内容</p>
+</blockquote>
+<ol>
+<li><p>基本缩略语：需要为 <abbr> 元素设置 title属性。</abbr></p>
+<p> <abbr title="attribute">attr</abbr></p>
+</li>
+<li><p>首字母缩略语：为缩略语添加 .initialism 类，可让 <code>font-size</code> 稍微小些。</p>
+<p> <abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+</li>
+</ol>
+<h2 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h2><p><img src="http://i.imgur.com/6d5nS71.jpg" alt></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在<code>&lt;blockquote&gt;</code>中引用任意内容。如直接引用，建议用 </p><p> 标签。<br>如果想加文字出处，可以使用<code>footer</code>和<code>cite</code>。如下图所示：</p>
+<p><img src="http://i.imgur.com/oEgONSt.jpg" alt></p>
+<p>Bootstrap还提供了<code>.blockquote-reverse</code>样式，用于右对齐以适应不同的排版。</p>
+<p><img src="http://i.imgur.com/3EvALGI.jpg" alt></p>
+<h2 id="无样式列表"><a href="#无样式列表" class="headerlink" title="无样式列表"></a>无样式列表</h2><blockquote>
+<p>如果需要移除Bootstrap默认的<code>ul</code>、<code>ol</code>的样式，（即去掉<code>li</code>前的圆点），需要添加<code>list-unstyled</code>的样式，如下所示：</p>
+</blockquote>
+<pre><code>&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h2 id="内联列表"><a href="#内联列表" class="headerlink" title="内联列表"></a>内联列表</h2><p>通过设置 <code>.inline-block</code> 样式 并添加少量的内补（padding），将所有元素放置于同一行。</p>
+<pre><code>&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><img src="http://i.imgur.com/2VXEHOQ.jpg" alt></p>
+<p>带上<code>.dl-horizontal</code>样式，可以实现列表水平显示的效果，如下图所示：</p>
+<p><img src="http://i.imgur.com/jsA17aN.jpg" alt></p>
+<p>上图中，如果文字超出宽度，还带有<strong>自动截断</strong>功能，主要是通过源码里的<code>text-overflow</code>的设置</p>
+<pre><code>text-overflow:ellipsis;   //显示省略符号来代表被修剪的文本。
+white-space:nowrap; //    文本不会换行，文本会在在同一行上继续，直到遇到 &lt;br&gt; 标签为止。
+</code></pre><h1 id="4-代码"><a href="#4-代码" class="headerlink" title="4 代码"></a>4 代码</h1><ul>
+<li>内联代码：主要设置code元素的背景色和内部的文字颜色；</li>
+<li>用户输入代码</li>
+<li>多行代码块：用于显示大块的代码段，并保证原有格式不变，可以在<code>pre</code>元素上应用<code>.prescrollable</code>样式，可以控制该区域最大高度为340像素，并可以在y方向滚动。源码：<code>overflow-y:scroll;</code></li>
+</ul>
+<p><img src="http://i.imgur.com/EC3upWd.jpg" alt></p>
+<h1 id="5-表格"><a href="#5-表格" class="headerlink" title="5 表格"></a>5 表格</h1><p>源码文件：table.less</p>
+<ul>
+<li><p>基本表格</p>
+<p>  为任意<code>&lt;table&gt;</code>标签添加<code>.table</code>类可以为其赋予基本的样式。包括 少量的内补（padding）和水平方向的分隔线。</p>
+</li>
+<li><p>条纹状表格</p>
+<p>  在<code>.table</code>类基础上，通过 <code>.table-striped</code> 类可以给<code>&lt;tbody&gt;</code> 之内的每一行增加斑马条纹样式。</p>
+</li>
+</ul>
+<blockquote>
+<p>备注：条纹状表格是依赖 <code>:nth-child</code> CSS 选择器实现的，而这一功能不被<em>Internet Explorer 8</em>支持。</p>
+</blockquote>
+<ul>
+<li><p>带边框表格</p>
+<p>  添加 .table-bordered 类为表格和其中的每个单元格增加边框。</p>
+<p> <code>&lt;table class=&quot;table table-bordered&quot;&gt;</code><br>  …<br> <code>&lt;/table&gt;</code></p>
+</li>
+<li><p>鼠标悬停：</p>
+<p>  通过添加 <code>.table-hover</code> 类可以让<code>&lt;tbody&gt;</code> 中的每一行对鼠标悬停状态作出响应。</p>
+</li>
+<li><p>紧缩表格</p>
+<p>  通过添加 .table-condensed 类可以让表格更加紧凑，单元格中的内补（padding）均会减半。</p>
+</li>
+<li><p>状态类</p>
+<p>  通过下面状态类可以为行或单元格设置颜色。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.active</td>
+<td>鼠标悬停在行或单元格上时所设置的颜色</td>
+</tr>
+<tr>
+<td>.success</td>
+<td>标识成功或积极的动作</td>
+</tr>
+<tr>
+<td>.info</td>
+<td>标识普通的提示信息或动作</td>
+</tr>
+<tr>
+<td>.warning</td>
+<td>标识警告或需要用户注意</td>
+</tr>
+<tr>
+<td>.danger</td>
+<td>标识危险或潜在的带来负面影响的动作</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>响应式表格</p>
+<p>  将任何 .table 元素包裹在 .table-responsive 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于 768px 宽度时，水平滚动条消失。</p>
+  <div class="table-responsive"><br>    <table class="table"><br>  …<br>    </table><br>  </div>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>备注</strong>Firefox 浏览器对 fieldset 元素设置了一些影响 width 属性的样式，导致响应式表格出现问题。可以使用如下解决方式：</p>
+</blockquote>
+<pre><code>@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+</code></pre><h1 id="6-表单"><a href="#6-表单" class="headerlink" title="6 表单"></a>6 表单</h1><p>源码文件：<code>form.less</code></p>
+<h2 id="基本实例"><a href="#基本实例" class="headerlink" title="基本实例"></a>基本实例</h2><ul>
+<li>所有设置了 .form-control 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 width: 100%;。</li>
+<li>将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code>中可以获得最好的排列。</li>
+</ul>
+<p><img src="http://i.imgur.com/KqVeNtP.jpg" alt></p>
+<h2 id="内联表单"><a href="#内联表单" class="headerlink" title="内联表单"></a>内联表单</h2><ul>
+<li>为 <code>&lt;form&gt;</code>元素添加<code>.form-inline</code>类可使其内容左对齐并且表现为 <code>inline-block</code> 级别的控件；</li>
+<li>只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话会使表单折叠）；</li>
+<li>输入框和单选、多选框控件宽度默认设置为<code>width:auto;</code></li>
+<li>多个控件可以排列在同一行</li>
+</ul>
+<h2 id="水平排列的表单"><a href="#水平排列的表单" class="headerlink" title="水平排列的表单"></a>水平排列的表单</h2><p>通过为表单添加 <code>.form-horizontal</code> 类，并联合使用 Bootstrap 预置的栅格类，可以将 label 标签和控件组水平并排布局。</p>
+<pre><code>&lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+。。。
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><h2 id="被支持的控件"><a href="#被支持的控件" class="headerlink" title="被支持的控件"></a>被支持的控件</h2><ol>
+<li><p>输入框</p>
+<p> 只有正确设置了 type 属性的输入控件才能被赋予正确的样式。</p>
+</li>
+<li><p>文本域</p>
+<p> 支持多行文本的表单控件。可根据需要改变 rows 属性。</p>
+</li>
+<li><p>多选和单选框</p>
+<p> 对于和多选或单选框联合使用的 <code>&lt;label&gt;</code> 标签，如果也希望将悬停于上方的鼠标设置为“禁止点击”的样式，请将 <code>.disabled</code> 类赋予 <code>.radio</code>、<code>.radio-inline</code>、<code>.checkbox</code>、<code>.checkbox-inline</code> 或 <code>&lt;fieldset&gt;</code>。</p>
+</li>
+<li><p>内联单选和多选框</p>
+<p> 通过将 <code>.checkbox-inline</code> 或 <code>.radio-inline</code> 类应用到一系列的多选框（checkbox）或单选框（radio）控件上，可以使这些控件排列在一行。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>备注</strong>对于没用文本的label，只有在非内联单选和非内联多选框上才能起作用</p>
+</blockquote>
+<ol start="5">
+<li>下拉列表（select）</li>
+</ol>
+<p>使用默认选项或添加<code>multiple</code>属性可以同时显示多个选项。</p>
+<pre><code>&lt;select class=&quot;form-control&quot;&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select multiple class=&quot;form-control&quot;&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+&lt;/select&gt;
+</code></pre><h2 id="静态控件"><a href="#静态控件" class="headerlink" title="静态控件"></a>静态控件</h2><pre><code>如果需要在表单中将一行纯文本和 label 元素放置于同一行，为 &lt;p&gt; 元素添加 .form-control-static 类即可。
+</code></pre><h2 id="焦点状态"><a href="#焦点状态" class="headerlink" title="焦点状态"></a>焦点状态</h2><p>Bootstrap将某些表单控件的默认 <code>outline</code> 样式移除，然后对<code>:focus</code> 状态赋予<code>box-shadow</code>属性。</p>
+<h2 id="禁用状态"><a href="#禁用状态" class="headerlink" title="禁用状态"></a>禁用状态</h2><ul>
+<li>为输入框设置 disabled 属性可以防止用户输入，并能对外观做一些修改，使其更直观。</li>
+<li>为<fieldset> 设置 disabled 属性,可以禁用 <fieldset> 中包含的所有控件。</fieldset></fieldset></li>
+</ul>
+<h2 id="只读输入框"><a href="#只读输入框" class="headerlink" title="只读输入框"></a>只读输入框</h2><p>为输入框设置 readonly 属性可以禁止用户输入，并且输入框的样式也是禁用状态。</p>
+<h2 id="校验状态"><a href="#校验状态" class="headerlink" title="校验状态"></a>校验状态</h2><p>添加 <code>.has-warning</code>、<code>.has-error</code> 或 <code>.has-success</code> 类到这些控件的父元素可对表单控件进行校验，改变样式 。任何包含在此元素之内的 <code>.control-label</code>、<code>.form-control</code> 和 <code>.help-block</code> 元素都将接受这些校验状态的样式。</p>
+<p>还可以针对校验状态为输入框添加额外的图标。只需设置相应的 <code>.has-feedback</code> 类并添加正确的图标即可。</p>
+<p><img src="http://i.imgur.com/3wxpO74.jpg" alt></p>
+<blockquote>
+<p><strong>备注</strong>反馈图标只能和<code>&lt;input class=&quot;form-control&quot;&gt;</code>一起使用</p>
+</blockquote>
+<h2 id="控件尺寸"><a href="#控件尺寸" class="headerlink" title="控件尺寸"></a>控件尺寸</h2><ul>
+<li>通过 <code>.input-lg</code> (较大)和 <code>.input-sm</code>(较小) 可以为控件设置高度，通过 <code>.col-lg-*</code> 或<code>.col-sm-*</code>可以为控件设置宽度。</li>
+<li>通过添加 .form-group-lg 或 .form-group-sm 类，为 .form-horizontal 包裹的 label 元素和表单控件快速设置尺寸。</li>
+<li>用栅格系统中的列（column）包裹输入框或其任何父元素，都可很容易的为其设置宽度。</li>
+<li>该样式同样适用于<code>select</code>和<code>textarea</code>。</li>
+</ul>
+
+        </div>
+        <div class="post-reply">
+            
+            
+                <div id="disqus_thread" style="width: 80%; margin: 0 auto;"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+                     */
+                    
+                     var disqus_config = function () {
+
+                     this.page.url = 'http://www.liuxiaowan.com/2016/09/09/Bootstrap-Notes-CSS/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = '/2016/09/09/Bootstrap-Notes-CSS/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://liuxiaowan.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+        <a href="http://example.com/bar.html#disqus_thread">Link</a>.
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+    var header_box = document.querySelector('#header_box')
+    header_box.style.backgroundImage = 'url('+ img.src +')'
+</script>
+
+      </div>
+  </div>
+  <script id="dsq-count-scr" src="//liuxiaowan.disqus.com/count.js" async></script>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Liuxiaowan 2019
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
