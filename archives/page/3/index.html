@@ -189,7 +189,7 @@ ga('send', 'pageview');
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2018/03/01/data-analysis-python-2/">
+        <a href="/2018/03/07/git-upload-couldnotreadusername/">
             <div class="full-height post-hover" style="
                          background-image: url('');
                          height: 350px;
@@ -198,21 +198,25 @@ ga('send', 'pageview');
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            利用Python进行数据分析---读书笔记（二）
+                            Git在`push`时遇到`GitHub could not read Username` 的解..
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">Python</span>
+                                <span class="tag is-post-tag">Git</span>
                             
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
-                            #字典初始化
-1234from collections import defaultdict# 所有的值均会被初始化为0counts = defaultdict(int)
-dict.items()  字典(Dictionary) ite..
+                            解决办法
+打开项目所在目录
+进入.git文件夹
+打开config文件
+在请求串中加入身份信息即可，格式为：
+
+1https://[userName]:[password]@github.com/[username]/project.gi..
                         </p>
-                        <p class="date text-shadow">2018-03-01</p>
+                        <p class="date text-shadow">2018-03-07</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -222,35 +226,11 @@ dict.items()  字典(Dictionary) ite..
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
-<a class="post-hover" href="/2018/02/27/ubuntu-update-GPGerror/" style="height: 48.5%">
+<a class="post-hover" href="/2018/03/07/python-stack-and-unstack/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                Ubuntu16.04使用`apt-get update`报GPG错误解决办法
-            </h3>
-            
-            
-            <span class="tag is-post-tag">Linux</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-在终端中输入sudo apt-get update后出现如下提示：
-W: GPG 错误：htt..
-            </p>
-            <p class="date text-shadow is-marginless">2018-02-27</p>
-        </div>
-    </div>
-</a>
-            
-            
-                
-<a class="post-hover" href="/2018/02/26/python-convention/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                Python笔记（惯例&行话）
+                Python pandas中的stack函数和unstack函数
             </h3>
             
             
@@ -259,9 +239,34 @@ W: GPG 错误：htt..
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                惯例123import numpy as npimport pandas as pdimport..
+                https://www.cnblogs.com/bambipai/p/7658311.html
+
             </p>
-            <p class="date text-shadow is-marginless">2018-02-26</p>
+            <p class="date text-shadow is-marginless">2018-03-07</p>
+        </div>
+    </div>
+</a>
+            
+            
+                
+<a class="post-hover" href="/2018/03/06/pycharm-jupyter/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('打开jupyter.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                Pycharm下使用jupyter
+            </h3>
+            
+            
+            <span class="tag is-post-tag">Python</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                假设已经安装Pycharm的前提下，然后进行如下步骤
+安装jupyter
+如果安装了anacon..
+            </p>
+            <p class="date text-shadow is-marginless">2018-03-06</p>
         </div>
     </div>
 </a>
@@ -271,35 +276,11 @@ W: GPG 错误：htt..
     <div class="column is-12 is-hidden-desktop">
         
         
-<a class="post-hover" href="/2018/02/27/ubuntu-update-GPGerror/" style="height: 48.5%">
+<a class="post-hover" href="/2018/03/07/python-stack-and-unstack/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                Ubuntu16.04使用`apt-get update`报GPG错误解决办法
-            </h3>
-            
-            
-            <span class="tag is-post-tag">Linux</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-在终端中输入sudo apt-get update后出现如下提示：
-W: GPG 错误：htt..
-            </p>
-            <p class="date text-shadow is-marginless">2018-02-27</p>
-        </div>
-    </div>
-</a>
-        
-        
-        
-<a class="post-hover" href="/2018/02/26/python-convention/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                Python笔记（惯例&行话）
+                Python pandas中的stack函数和unstack函数
             </h3>
             
             
@@ -308,9 +289,34 @@ W: GPG 错误：htt..
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                惯例123import numpy as npimport pandas as pdimport..
+                https://www.cnblogs.com/bambipai/p/7658311.html
+
             </p>
-            <p class="date text-shadow is-marginless">2018-02-26</p>
+            <p class="date text-shadow is-marginless">2018-03-07</p>
+        </div>
+    </div>
+</a>
+        
+        
+        
+<a class="post-hover" href="/2018/03/06/pycharm-jupyter/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('打开jupyter.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                Pycharm下使用jupyter
+            </h3>
+            
+            
+            <span class="tag is-post-tag">Python</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                假设已经安装Pycharm的前提下，然后进行如下步骤
+安装jupyter
+如果安装了anacon..
+            </p>
+            <p class="date text-shadow is-marginless">2018-03-06</p>
         </div>
     </div>
 </a>
@@ -323,6 +329,103 @@ W: GPG 错误：htt..
                 
                     
                         <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2018/03/07/python-stack-and-unstack/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Python pandas中的stack函数和unstack函数</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Python</span>
+                                            
+                                        </p>
+                                        <p>
+                                            https://www.cnblogs.com/bambipai/p/7658311.html
+
+                                        </p>
+                                        <p>2018-03-07</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2018/03/06/pycharm-jupyter/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile" style="margin: 10px; background-size: cover;background-image: url('打开jupyter.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Pycharm下使用jupyter</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Python</span>
+                                            
+                                        </p>
+                                        <p>
+                                            假设已经安装Pycharm的前提下，然后进行如下步骤
+安装jupyter
+如果安装了anaconda，那么则自动也安装了jupyter
+如果没有安装anaconda，则输入如下命令
+
+1pip install jupyter
+在Pycharm中打开jupyter
+打开PyCharm
+选择菜单栏中的Tools&gt;Python Console
+
+
+使用j..
+                                        </p>
+                                        <p>2018-03-06</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  " style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2018/03/01/data-analysis-python-2/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>利用Python进行数据分析---读书笔记（二）</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Python</span>
+                                            
+                                        </p>
+                                        <p>
+                                            #字典初始化
+1234from collections import defaultdict# 所有的值均会被初始化为0counts = defaultdict(int)
+dict.items()  字典(Dictionary) items() 函数以列表返回可遍历的(键, 值) 元组数组。
+list.sort([func])用于对原列表进行排序
+col..
+                                        </p>
+                                        <p>2018-03-01</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2018/02/27/ubuntu-update-GPGerror/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -350,7 +453,7 @@ W: GPG 错误：http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu lucid Release: 由
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2018/02/26/python-convention/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -431,35 +534,6 @@ W: GPG 错误：http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu lucid Release: 由
                 
                     
                         <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/02/24/how-to-install-sogoupinyin/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>Ubuntu下如何安装搜狗拼音</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">Linux</span>
-                                            
-                                        </p>
-                                        <p>
-                                            系统环境
-Ubuntu
-
-12xiaowan@xiaowan-pc:~$ cat /proc/versionLinux version 4.4.0-72-generic (buildd@lcy01-17) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #93-Ubuntu SM..
-                                        </p>
-                                        <p>2018-02-24</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2018/02/24/data-analysis-python-1/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -497,105 +571,25 @@ Cython是属于PYTHON的超集，他首先会将PYTHON代码转化成C语言代�
                 
                     
                         <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/02/23/python-20180223/">
+                            <a class="post-hover" href="/2018/02/24/how-to-install-sogoupinyin/">
                             <div class="columns" style="min-height: 230px;">
                                 
                                 <div class="column is-8-desktop post-content is-flex align-center">
                                     <div class="content">
-                                        <h3>Python笔记（系统工具）</h3>
+                                        <h3>Ubuntu下如何安装搜狗拼音</h3>
                                         
                                         <p>
                                             
-                                                <span class="tag is-post-tag">Python</span>
+                                                <span class="tag is-post-tag">Linux</span>
                                             
                                         </p>
                                         <p>
-                                            python系统模块
-sys和os:大多数系统级借口都集中于此
-sys：包含标准输入输出流，模块搜索路径等
-sys.version
-sys.doc
+                                            系统环境
+Ubuntu
 
-
-os.path os内嵌的子模块，为文件和目录处理工具提供可移植的接口
-
-
-glob:用于文件名扩展
-socket:用于网络连接和进程间通信
-threading,_thead,queue:用于运行和同步化..
+12xiaowan@xiaowan-pc:~$ cat /proc/versionLinux version 4.4.0-72-generic (buildd@lcy01-17) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #93-Ubuntu SM..
                                         </p>
-                                        <p>2018-02-23</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/02/21/diary-180221/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>【日记】2018年春节小记</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">日记</span>
-                                            
-                                        </p>
-                                        <p>
-                                            今天是春节假期的最后一天，也是返京的日子。很久没有写一篇日记了，当作生活的记录，今天将此刻的感受用文字写下来，作为日后的回忆。
-爸爸去世以后，今年是我回家过的第一个新年，怎么说，生活在变好，心境也截然不同。
-当然，回去的第一天就去看了爸爸，除了清明回去过之外，这应该是第一次在过年的时候祭拜爸爸，关于爸爸的记忆很多但既模糊又清楚。四年了，伤口也彻底愈合了，..
-                                        </p>
-                                        <p>2018-02-21</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/02/08/python-basic-1/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>Python汇总（一）</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">Python</span>
-                                            
-                                        </p>
-                                        <p>
-                                            基本语法（查询备注）
-raw_input:内建函数，读取标准输入，将读取到的数据赋值给指定的变量
-字符串
-+：用于字符串连接运算
-*：用于字符串重复 
-
-
-列表和元组
-可以存储不同类型的对象
-列表：用中括号，元素的值可以改变；元组：用小括号，元素的值不可改变。
-
-
-字典
-
-用大括号{}
-
-
-for循环中，如果使用print语句，则默认会给每一行添加一个换..
-                                        </p>
-                                        <p>2018-02-08</p>
+                                        <p>2018-02-24</p>
                                         <button class="button is-small">Read More</button>
                                     </div>
                                 </div>
@@ -635,7 +629,7 @@ for循环中，如果使用print语句，则默认会给每一行添加一个换
         <!--请您保留作者署名, 主题制作来之不易-->
         Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
         <br>
-        Copyright © Liuxiaowan 2019
+        Copyright © Liuxiaowan 2020
         <br>
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       </div>
