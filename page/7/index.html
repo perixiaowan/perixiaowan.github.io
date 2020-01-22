@@ -189,7 +189,7 @@ ga('send', 'pageview');
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2017/08/04/python-tuple/">
+        <a href="/2017/08/06/python-copy/">
             <div class="full-height post-hover" style="
                          background-image: url('');
                          height: 350px;
@@ -198,7 +198,7 @@ ga('send', 'pageview');
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            Python笔记（七）-元组
+                            Python笔记（七）-复制&比较&真假
                         </h1>
                         <div>
                         
@@ -208,19 +208,17 @@ ga('send', 'pageview');
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
-                            元组
-不能在原处修改，不可变序列
-写成圆括号
-位置有序，固定长度，异构，任意嵌套
+                            顶层复制
+没有限制条件的分片表达式（L[:]）能够复制序列
+字典copy方法（X.copy()）能够复制字典
+有些内置函数能够生成拷贝（list(L)）
+copy标准库模块能够生成完整拷贝
 
-逗号和圆括号
-逗号
-
-单一对象变成元组，可以在单个元素之后，加一个逗号即可
-&gt;&gt;&gt; x=(40)
-&gt;&gt;&gt; type(..
+深层嵌套复制
+import copy
+遍历对..
                         </p>
-                        <p class="date text-shadow">2017-08-04</p>
+                        <p class="date text-shadow">2017-08-06</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -230,11 +228,11 @@ ga('send', 'pageview');
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
-<a class="post-hover" href="/2017/08/02/python-listanddict/" style="height: 48.5%">
+<a class="post-hover" href="/2017/08/05/python-file/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                Python笔记（六）-列表和字典
+                Python笔记（七）-文件
             </h3>
             
             
@@ -243,37 +241,48 @@ ga('send', 'pageview');
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                概述
-可变长；可修改；
-可包含任何种类的对象或者被嵌套；
+                文件
+内置open函数会创建一个Python文件
 
-列表
-map函数对序列中的各项应用一..
+常见文件运算
+
+
+操作
+解释
+
+
+
+
+out..
             </p>
-            <p class="date text-shadow is-marginless">2017-08-02</p>
+            <p class="date text-shadow is-marginless">2017-08-05</p>
         </div>
     </div>
 </a>
             
             
                 
-<a class="post-hover" href="/2017/08/01/happybirthday/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('http://www.liuxiaowan.com/2017/08/01/happybirthday/xiaowan.jpg')">
+<a class="post-hover" href="/2017/08/04/python-tuple/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                HappyBirthday
+                Python笔记（七）-元组
             </h3>
             
             
-            <span class="tag is-post-tag">日记</span>
+            <span class="tag is-post-tag">Python</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                小碗儿，生日快乐，HappyBirthday!
-30岁了，人生开始了新的起点，生活已经在慢慢精彩..
+                元组
+不能在原处修改，不可变序列
+写成圆括号
+位置有序，固定长度，异构，任意嵌套
+
+逗号和圆括号..
             </p>
-            <p class="date text-shadow is-marginless">2017-08-01</p>
+            <p class="date text-shadow is-marginless">2017-08-04</p>
         </div>
     </div>
 </a>
@@ -283,11 +292,11 @@ map函数对序列中的各项应用一..
     <div class="column is-12 is-hidden-desktop">
         
         
-<a class="post-hover" href="/2017/08/02/python-listanddict/" style="height: 48.5%">
+<a class="post-hover" href="/2017/08/05/python-file/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                Python笔记（六）-列表和字典
+                Python笔记（七）-文件
             </h3>
             
             
@@ -296,37 +305,48 @@ map函数对序列中的各项应用一..
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                概述
-可变长；可修改；
-可包含任何种类的对象或者被嵌套；
+                文件
+内置open函数会创建一个Python文件
 
-列表
-map函数对序列中的各项应用一..
+常见文件运算
+
+
+操作
+解释
+
+
+
+
+out..
             </p>
-            <p class="date text-shadow is-marginless">2017-08-02</p>
+            <p class="date text-shadow is-marginless">2017-08-05</p>
         </div>
     </div>
 </a>
         
         
         
-<a class="post-hover" href="/2017/08/01/happybirthday/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('http://www.liuxiaowan.com/2017/08/01/happybirthday/xiaowan.jpg')">
+<a class="post-hover" href="/2017/08/04/python-tuple/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                HappyBirthday
+                Python笔记（七）-元组
             </h3>
             
             
-            <span class="tag is-post-tag">日记</span>
+            <span class="tag is-post-tag">Python</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                小碗儿，生日快乐，HappyBirthday!
-30岁了，人生开始了新的起点，生活已经在慢慢精彩..
+                元组
+不能在原处修改，不可变序列
+写成圆括号
+位置有序，固定长度，异构，任意嵌套
+
+逗号和圆括号..
             </p>
-            <p class="date text-shadow is-marginless">2017-08-01</p>
+            <p class="date text-shadow is-marginless">2017-08-04</p>
         </div>
     </div>
 </a>
@@ -339,6 +359,95 @@ map函数对序列中的各项应用一..
                 
                     
                         <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2017/08/05/python-file/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Python笔记（七）-文件</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Python</span>
+                                            
+                                        </p>
+                                        <p>
+                                            文件
+内置open函数会创建一个Python文件
+
+常见文件运算
+
+
+操作
+解释
+
+
+
+
+output = open(r’C:\spam’,’w’)
+创建输出文件
+
+
+output = open(r’C:\spam’,’a’)
+在文件尾部追加内容打开文件
+
+
+input = open(‘data’,’r’)
+创建输入文件
+
+
+input = open(‘..
+                                        </p>
+                                        <p>2017-08-05</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2017/08/04/python-tuple/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Python笔记（七）-元组</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Python</span>
+                                            
+                                        </p>
+                                        <p>
+                                            元组
+不能在原处修改，不可变序列
+写成圆括号
+位置有序，固定长度，异构，任意嵌套
+
+逗号和圆括号
+逗号
+
+单一对象变成元组，可以在单个元素之后，加一个逗号即可
+&gt;&gt;&gt; x=(40)
+&gt;&gt;&gt; type(x)
+&lt;class &apos;int&apos;&gt;
+&gt;&gt;&gt; y=(40,)
+&gt;&g..
+                                        </p>
+                                        <p>2017-08-04</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2017/08/02/python-listanddict/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -374,7 +483,7 @@ map函数对序列中的各项应用一个函数把结果收集到一个列表�
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2017/08/01/happybirthday/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -621,99 +730,6 @@ $ vim ~/.ssh/known_hosts
                         </div>
                     
                 
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2017/07/26/python-3-digit/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>Python笔记（三）-数字</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">Python</span>
-                                            
-                                        </p>
-                                        <p>
-                                            数字常量
-十六进制：以0x或0X开头
-八进制：以数字0o或o0开头
-hex(I),oct(I),bin(I)：把一个整数分别转换为十六进制，八进制，二进制
-int(str,base)：根据每个给定的进制把一个运行时字符串转换为一个整数
-complex(real,imag)：创建复数
-浮点数无法精确的表现一些值：交互提示模式下结果的自动回显会比打印语句显示..
-                                        </p>
-                                        <p>2017-07-26</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2017/07/22/python-2/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>Python笔记（二）-对象类型</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">Python</span>
-                                            
-                                        </p>
-                                        <p>
-                                            核心数据类型
-
-
-
-对象类型
-例子 常量／创建
-
-
-
-
-数字
-1234
-
-
-字符串
-‘spam‘
-
-
-列表
-[1,[2,’three’]]
-
-
-字典
-{‘food’:’spam’,’taste’:’yum’}
-
-
-元组
-(1,’spam’,4,’U’)
-
-
-文件
-myfile=open(‘egg’,’r’)
-
-
-集合
-set(‘abc’),{‘a’,’b..
-                                        </p>
-                                        <p>2017-07-22</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
                 <!--翻頁-->
                 <nav class="pagination is-flex" style="justify-content: flex-end">
                     
@@ -870,7 +886,7 @@ set(‘abc’),{‘a’,’b..
         <!--post数量和tag category 数量-->
         <div class="site-box is-flex">
             <div class="flex-1 is-flex flex-column center full-height right-line">
-                <strong>116</strong>
+                <strong>118</strong>
                 <p>Posts</p>
             </div>
             <div class="flex-1 is-flex flex-column center full-height">
@@ -885,16 +901,16 @@ set(‘abc’),{‘a’,’b..
         </div>
         <div class="content-inner is-flex flex-wrap justify-space-between">
             
-                <a class="tags-item" href="tags/日记" title="日记" rel="7">
-                    日记
-                </a>
-            
                 <a class="tags-item" href="tags/blog" title="blog" rel="3">
                     blog
                 </a>
             
                 <a class="tags-item" href="tags/原创" title="原创" rel="15">
                     原创
+                </a>
+            
+                <a class="tags-item" href="tags/日记" title="日记" rel="7">
+                    日记
                 </a>
             
                 <a class="tags-item" href="tags/Linux" title="Linux" rel="18">
@@ -905,12 +921,12 @@ set(‘abc’),{‘a’,’b..
                     数据库
                 </a>
             
-                <a class="tags-item" href="tags/Github" title="Github" rel="1">
-                    Github
-                </a>
-            
                 <a class="tags-item" href="tags/CSS3" title="CSS3" rel="1">
                     CSS3
+                </a>
+            
+                <a class="tags-item" href="tags/Github" title="Github" rel="1">
+                    Github
                 </a>
             
                 <a class="tags-item" href="tags/hexo" title="hexo" rel="2">
@@ -945,6 +961,10 @@ set(‘abc’),{‘a’,’b..
                     诗歌
                 </a>
             
+                <a class="tags-item" href="tags/服务器" title="服务器" rel="3">
+                    服务器
+                </a>
+            
                 <a class="tags-item" href="tags/Java" title="Java" rel="4">
                     Java
                 </a>
@@ -953,16 +973,8 @@ set(‘abc’),{‘a’,’b..
                     转载
                 </a>
             
-                <a class="tags-item" href="tags/服务器" title="服务器" rel="3">
-                    服务器
-                </a>
-            
                 <a class="tags-item" href="tags/html5" title="html5" rel="1">
                     html5
-                </a>
-            
-                <a class="tags-item" href="tags/Wireshark" title="Wireshark" rel="2">
-                    Wireshark
                 </a>
             
                 <a class="tags-item" href="tags/Bootstrap" title="Bootstrap" rel="5">
@@ -971,6 +983,10 @@ set(‘abc’),{‘a’,’b..
             
                 <a class="tags-item" href="tags/前端" title="前端" rel="5">
                     前端
+                </a>
+            
+                <a class="tags-item" href="tags/Wireshark" title="Wireshark" rel="2">
+                    Wireshark
                 </a>
             
                 <a class="tags-item" href="tags/MachineLearning" title="MachineLearning" rel="9">
@@ -1009,12 +1025,12 @@ set(‘abc’),{‘a’,’b..
                     读书
                 </a>
             
-                <a class="tags-item" href="tags/books" title="books" rel="2">
-                    books
+                <a class="tags-item" href="tags/readings" title="readings" rel="1">
+                    readings
                 </a>
             
-                <a class="tags-item" href="tags/readings" title="readings" rel="2">
-                    readings
+                <a class="tags-item" href="tags/books" title="books" rel="5">
+                    books
                 </a>
             
         </div>
@@ -1032,7 +1048,7 @@ set(‘abc’),{‘a’,’b..
             <strong>Archives</strong>
         </div>
         <div class="content-inner">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 </aside>

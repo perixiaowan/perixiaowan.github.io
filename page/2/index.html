@@ -189,7 +189,7 @@ ga('send', 'pageview');
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2018/05/24/flask-notes-01/">
+        <a href="/2018/05/29/flask-secret-key/">
             <div class="full-height post-hover" style="
                          background-image: url('');
                          height: 350px;
@@ -198,7 +198,7 @@ ga('send', 'pageview');
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            Flask笔记（一）
+                            Flask中session的SECRET_KEY值
                         </h1>
                         <div>
                         
@@ -208,12 +208,10 @@ ga('send', 'pageview');
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
-                            1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘templates ‘和 ‘static’ 里。
-2 安装Flask 依赖两个外部库：’Werkzeug’ 和 ‘Jinja2’ 。
-
-Werkz..
+                            在flask项目中，Session, Cookies以及一些第三方扩展都会用到SECRET_KEY值，这是一个比较重要的配置值。如果没有配置SECRET_KEY值，会出现如下错误：
+1RuntimeError: The session ..
                         </p>
-                        <p class="date text-shadow">2018-05-24</p>
+                        <p class="date text-shadow">2018-05-29</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -223,48 +221,44 @@ Werkz..
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
-<a class="post-hover" href="/2018/05/21/pip-source-install/" style="height: 48.5%">
+<a class="post-hover" href="/2018/05/24/flask-notes-01/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                pip临时更换源并安装包
+                Flask笔记（一）
             </h3>
             
             
-            <span class="tag is-post-tag">Python</span>
+            <span class="tag is-post-tag">Flask</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                可用源
-豆瓣：http://pypi.douban.com/simple/
-
-清华：https:..
+                1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘tem..
             </p>
-            <p class="date text-shadow is-marginless">2018-05-21</p>
+            <p class="date text-shadow is-marginless">2018-05-24</p>
         </div>
     </div>
 </a>
             
             
                 
-<a class="post-hover" href="/2018/05/20/reading-books-2018/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('reading-books-2018/dunkeerke.png')">
+<a class="post-hover" href="/2018/05/24/flask-notes-01/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                2018年，我读了哪些书？看了哪些电影？
+                Flask笔记（一）
             </h3>
             
             
-            <span class="tag is-post-tag">日记</span>
+            <span class="tag is-post-tag">Flask</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                2018年，我读了这些书1.《敦刻尔克》（第1本）
-只有读了原著，才有可能在脑海中将历史真实事件..
+                1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘tem..
             </p>
-            <p class="date text-shadow is-marginless">2018-05-20</p>
+            <p class="date text-shadow is-marginless">2018-05-24</p>
         </div>
     </div>
 </a>
@@ -274,48 +268,44 @@ Werkz..
     <div class="column is-12 is-hidden-desktop">
         
         
-<a class="post-hover" href="/2018/05/21/pip-source-install/" style="height: 48.5%">
+<a class="post-hover" href="/2018/05/24/flask-notes-01/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                pip临时更换源并安装包
+                Flask笔记（一）
             </h3>
             
             
-            <span class="tag is-post-tag">Python</span>
+            <span class="tag is-post-tag">Flask</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                可用源
-豆瓣：http://pypi.douban.com/simple/
-
-清华：https:..
+                1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘tem..
             </p>
-            <p class="date text-shadow is-marginless">2018-05-21</p>
+            <p class="date text-shadow is-marginless">2018-05-24</p>
         </div>
     </div>
 </a>
         
         
         
-<a class="post-hover" href="/2018/05/20/reading-books-2018/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('reading-books-2018/dunkeerke.png')">
+<a class="post-hover" href="/2018/05/24/flask-notes-01/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                2018年，我读了哪些书？看了哪些电影？
+                Flask笔记（一）
             </h3>
             
             
-            <span class="tag is-post-tag">日记</span>
+            <span class="tag is-post-tag">Flask</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                2018年，我读了这些书1.《敦刻尔克》（第1本）
-只有读了原著，才有可能在脑海中将历史真实事件..
+                1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘tem..
             </p>
-            <p class="date text-shadow is-marginless">2018-05-20</p>
+            <p class="date text-shadow is-marginless">2018-05-24</p>
         </div>
     </div>
 </a>
@@ -328,6 +318,66 @@ Werkz..
                 
                     
                         <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2018/05/24/flask-notes-01/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Flask笔记（一）</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Flask</span>
+                                            
+                                        </p>
+                                        <p>
+                                            1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘templates ‘和 ‘static’ 里。
+2 安装Flask 依赖两个外部库：’Werkzeug’ 和 ‘Jinja2’ 。
+
+Werkzeug 是一个 WSGI（在 Web 应用和多种服务器之间的标准 Python 接口) 工具集。
+Jinja2 负责渲染..
+                                        </p>
+                                        <p>2018-05-24</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2018/05/24/flask-notes-01/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Flask笔记（一）</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">Flask</span>
+                                            
+                                        </p>
+                                        <p>
+                                            1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘templates ‘和 ‘static’ 里。
+2 安装Flask 依赖两个外部库：’Werkzeug’ 和 ‘Jinja2’ 。
+
+Werkzeug 是一个 WSGI（在 Web 应用和多种服务器之间的标准 Python 接口) 工具集。
+Jinja2 负责渲染..
+                                        </p>
+                                        <p>2018-05-24</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2018/05/21/pip-source-install/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -359,7 +409,7 @@ Werkz..
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2018/05/20/reading-books-2018/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -539,61 +589,6 @@ setup.py安装、部署、打包的脚..
                         </div>
                     
                 
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/03/22/mysql-importdata-error/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>mysql导入数据出现MySQL server has gone away的解决方法</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">数据库</span>
-                                            
-                                        </p>
-                                        <p>
-                                            问题描述当使用mysql客户端或者在linux命令行中导入数据时，都提示MySQL server has gone away的错误。
-  [root@i** ~]# mysql -u root -p databasetest &lt; test.sql
-提示如下错误信息
-  ERROR 2006 (HY000): MySQL server has gon..
-                                        </p>
-                                        <p>2018-03-22</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/03/14/python-pandas-pivottable/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>Pandas分组统计函数：pivot_table和crosstab</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">Python</span>
-                                            
-                                        </p>
-                                        <p>
-                                            透视表pivot_table语法1pandas.pivot_table(data, values=None, index=None, columns=None, aggfunc=&apos;mean&apos;, fill_value=None, margins=False, dropna=True, margins_name=&apos;All&apo..
-                                        </p>
-                                        <p>2018-03-14</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
                 <!--翻頁-->
                 <nav class="pagination is-flex" style="justify-content: flex-end">
                     
@@ -750,7 +745,7 @@ setup.py安装、部署、打包的脚..
         <!--post数量和tag category 数量-->
         <div class="site-box is-flex">
             <div class="flex-1 is-flex flex-column center full-height right-line">
-                <strong>116</strong>
+                <strong>118</strong>
                 <p>Posts</p>
             </div>
             <div class="flex-1 is-flex flex-column center full-height">
@@ -765,16 +760,16 @@ setup.py安装、部署、打包的脚..
         </div>
         <div class="content-inner is-flex flex-wrap justify-space-between">
             
-                <a class="tags-item" href="tags/日记" title="日记" rel="7">
-                    日记
-                </a>
-            
                 <a class="tags-item" href="tags/blog" title="blog" rel="3">
                     blog
                 </a>
             
                 <a class="tags-item" href="tags/原创" title="原创" rel="15">
                     原创
+                </a>
+            
+                <a class="tags-item" href="tags/日记" title="日记" rel="7">
+                    日记
                 </a>
             
                 <a class="tags-item" href="tags/Linux" title="Linux" rel="18">
@@ -785,12 +780,12 @@ setup.py安装、部署、打包的脚..
                     数据库
                 </a>
             
-                <a class="tags-item" href="tags/Github" title="Github" rel="1">
-                    Github
-                </a>
-            
                 <a class="tags-item" href="tags/CSS3" title="CSS3" rel="1">
                     CSS3
+                </a>
+            
+                <a class="tags-item" href="tags/Github" title="Github" rel="1">
+                    Github
                 </a>
             
                 <a class="tags-item" href="tags/hexo" title="hexo" rel="2">
@@ -825,6 +820,10 @@ setup.py安装、部署、打包的脚..
                     诗歌
                 </a>
             
+                <a class="tags-item" href="tags/服务器" title="服务器" rel="3">
+                    服务器
+                </a>
+            
                 <a class="tags-item" href="tags/Java" title="Java" rel="4">
                     Java
                 </a>
@@ -833,16 +832,8 @@ setup.py安装、部署、打包的脚..
                     转载
                 </a>
             
-                <a class="tags-item" href="tags/服务器" title="服务器" rel="3">
-                    服务器
-                </a>
-            
                 <a class="tags-item" href="tags/html5" title="html5" rel="1">
                     html5
-                </a>
-            
-                <a class="tags-item" href="tags/Wireshark" title="Wireshark" rel="2">
-                    Wireshark
                 </a>
             
                 <a class="tags-item" href="tags/Bootstrap" title="Bootstrap" rel="5">
@@ -851,6 +842,10 @@ setup.py安装、部署、打包的脚..
             
                 <a class="tags-item" href="tags/前端" title="前端" rel="5">
                     前端
+                </a>
+            
+                <a class="tags-item" href="tags/Wireshark" title="Wireshark" rel="2">
+                    Wireshark
                 </a>
             
                 <a class="tags-item" href="tags/MachineLearning" title="MachineLearning" rel="9">
@@ -889,12 +884,12 @@ setup.py安装、部署、打包的脚..
                     读书
                 </a>
             
-                <a class="tags-item" href="tags/books" title="books" rel="2">
-                    books
+                <a class="tags-item" href="tags/readings" title="readings" rel="1">
+                    readings
                 </a>
             
-                <a class="tags-item" href="tags/readings" title="readings" rel="2">
-                    readings
+                <a class="tags-item" href="tags/books" title="books" rel="5">
+                    books
                 </a>
             
         </div>
@@ -912,7 +907,7 @@ setup.py安装、部署、打包的脚..
             <strong>Archives</strong>
         </div>
         <div class="content-inner">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 </aside>
