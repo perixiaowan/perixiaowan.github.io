@@ -189,7 +189,7 @@ ga('send', 'pageview');
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2018/03/07/python-stack-and-unstack/">
+        <a href="/2018/03/07/git-upload-couldnotreadusername/">
             <div class="full-height post-hover" style="
                          background-image: url('');
                          height: 350px;
@@ -198,18 +198,23 @@ ga('send', 'pageview');
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            Python pandas中的stack函数和unstack函数
+                            Git在`push`时遇到`GitHub could not read Username` 的解..
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">Python</span>
+                                <span class="tag is-post-tag">Git</span>
                             
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
-                            https://www.cnblogs.com/bambipai/p/7658311.html
+                            解决办法
+打开项目所在目录
+进入.git文件夹
+打开config文件
+在请求串中加入身份信息即可，格式为：
 
+1https://[userName]:[password]@github.com/[username]/project.gi..
                         </p>
                         <p class="date text-shadow">2018-03-07</p>
                         <button class="button is-info is-small">Read More</button>
