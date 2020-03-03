@@ -565,21 +565,27 @@ setup.py安装、部署、打包的脚..
                 
                     
                         <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2018/03/07/python-stack-and-unstack/">
+                            <a class="post-hover" href="/2018/03/07/git-upload-couldnotreadusername/">
                             <div class="columns" style="min-height: 230px;">
                                 
                                 <div class="column is-8-desktop post-content is-flex align-center">
                                     <div class="content">
-                                        <h3>Python pandas中的stack函数和unstack函数</h3>
+                                        <h3>Git在`push`时遇到`GitHub could not read Username` 的解决办法</h3>
                                         
                                         <p>
                                             
-                                                <span class="tag is-post-tag">Python</span>
+                                                <span class="tag is-post-tag">Git</span>
                                             
                                         </p>
                                         <p>
-                                            https://www.cnblogs.com/bambipai/p/7658311.html
+                                            解决办法
+打开项目所在目录
+进入.git文件夹
+打开config文件
+在请求串中加入身份信息即可，格式为：
 
+1https://[userName]:[password]@github.com/[username]/project.git
+修改后1234[remote &quot;origin&quot;]	url = https://perixiaow..
                                         </p>
                                         <p>2018-03-07</p>
                                         <button class="button is-small">Read More</button>
