@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mac小兔">
 <meta property="og:description" content="1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘templates ‘和 ‘static’ 里。 2 安装Flask 依赖两个外部库：’Werkzeug’ 和 ‘Jinja2’ 。  Werkzeug 是一个 WSGI（在 Web 应用和多种服务器之间的标准 Python 接口) 工具集。 Jinja2 负责渲染模板。  2.1 virtualenv vi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-14T11:55:15.348Z">
+<meta property="og:updated_time" content="2018-05-25T10:27:09.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask笔记（一）">
 <meta name="twitter:description" content="1 配置与惯例按照惯例，模板和静态文件分别存储在应用 Python 源代码树下的子目录 ‘templates ‘和 ‘static’ 里。 2 安装Flask 依赖两个外部库：’Werkzeug’ 和 ‘Jinja2’ 。  Werkzeug 是一个 WSGI（在 Web 应用和多种服务器之间的标准 Python 接口) 工具集。 Jinja2 负责渲染模板。  2.1 virtualenv vi">
@@ -304,54 +304,7 @@ ga('send', 'pageview');
 <li>要把文件按客户端提供的文件名存储在服务器上，需把它传递给 Werkzeug 提供的 secure_filename() 函数</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/upload&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br><span class="line">def upload_file():</span><br><span class="line">    if request.method == &apos;POST&apos;:</span><br><span class="line">        f = request.files[&apos;the_file&apos;]</span><br><span class="line">        f.save(&apos;/var/www/uploads/&apos; + secure_filename(f.filename))</span><br></pre></td></tr></table></figure>
-<h1 id="10-上传进度条"><a href="#10-上传进度条" class="headerlink" title="10 上传进度条"></a>10 上传进度条</h1><h1 id="11-Cookies"><a href="#11-Cookies" class="headerlink" title="11 Cookies"></a>11 Cookies</h1><ul>
-<li>通过 cookies 属性来访问 Cookies，用响应对象的 set_cookie 方法来设置 Cookies。</li>
-<li>请求对象的 cookies 属性是一个内容为客户端提交的所有 Cookies 的字典.</li>
-</ul>
-<h3 id="读取cookies"><a href="#读取cookies" class="headerlink" title="读取cookies"></a>读取cookies</h3><pre><code>username = request.cookies.get(&apos;username&apos;)
-</code></pre><h3 id="存储cookies"><a href="#存储cookies" class="headerlink" title="存储cookies"></a>存储cookies</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from flask import make_response</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    resp = make_response(render_template(...))</span><br><span class="line">    resp.set_cookie(&apos;username&apos;, &apos;the username&apos;)</span><br><span class="line">    return resp</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Cookies 是设置在响应对象上的;</li>
-<li>可以使用 make_response() 函数然后再进行修改。</li>
-</ul>
-<h1 id="12-会话"><a href="#12-会话" class="headerlink" title="12 会话"></a>12 会话</h1><ul>
-<li>session 对象:允许你在不同请求间存储特定用户的信息。在 Cookies 的基础上实现的，并且对 Cookies 进行密钥签名。</li>
-</ul>
-<h1 id="13-重定向和错误"><a href="#13-重定向和错误" class="headerlink" title="13 重定向和错误"></a>13 重定向和错误</h1><p> redirect() 函数把用户重定向到其它地方。放弃请求并返回错误代码，用 abort() 函数。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from flask import abort</span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">   # 401 意味着禁止访问</span><br><span class="line">   abort(401)</span><br><span class="line">   this_is_never_executed()</span><br></pre></td></tr></table></figure>
-<h3 id="定制错误页面"><a href="#定制错误页面" class="headerlink" title="定制错误页面"></a>定制错误页面</h3><ul>
-<li><p>使用 errorhandler() 装饰器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from flask import render_template</span><br><span class="line"></span><br><span class="line">@app.errorhandler(404)</span><br><span class="line">def page_not_found(error):</span><br><span class="line">    return render_template(&apos;page_not_found.html&apos;), 404</span><br></pre></td></tr></table></figure>
-<h1 id="14-关于响应"><a href="#14-关于响应" class="headerlink" title="14 关于响应"></a>14 关于响应</h1><p>Flask 把返回值转换为响应对象的逻辑</p>
-</li>
-</ul>
-<ul>
-<li>如果返回的是一个合法的响应对象，它会从视图直接返回。</li>
-<li>如果返回的是一个字符串，响应对象会用字符串数据和默认参数创建。</li>
-<li>如果返回的是一个元组，且元组中的元素可以提供额外的信息。这样的元组必须是<code>(response, status, headers)</code>的形式，且至少包含一个元素。 status 值会覆盖状态代码， headers 可以是一个列表或字典，作为额外的消息标头值。</li>
-<li>如果上述条件均不满足， Flask 会假设返回值是一个合法的 WSGI 应用程序，并转换为一个请求对象。</li>
-</ul>
-<h3 id="修改响应对象"><a href="#修改响应对象" class="headerlink" title="修改响应对象"></a>修改响应对象</h3><ul>
-<li>把返回值表达式传递给 make_response() ；</li>
-<li>获取结果对象并修改；</li>
-<li>然后再返回它</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@app.errorhandler(404)</span><br><span class="line">def not_found(error):</span><br><span class="line">    resp = make_response(render_template(&apos;error.html&apos;), 404)</span><br><span class="line">    resp.headers[&apos;X-Something&apos;] = &apos;A value&apos;</span><br><span class="line">    return resp</span><br></pre></td></tr></table></figure>
-<h1 id="15-消息闪现"><a href="#15-消息闪现" class="headerlink" title="15 消息闪现"></a>15 消息闪现</h1><ul>
-<li>消息闪现系统通常会在请求结束时记录信息，并在下一个（且仅在下一个）请求中访问记录的信息。展现这些消息通常结合要模板布局。</li>
-<li>使用 flash() 方法可以闪现一条消息。</li>
-<li>要操作消息本身，可以使用 get_flashed_messages() 函数，且在模板中也可以使用。</li>
-</ul>
-<h1 id="16-日志记录"><a href="#16-日志记录" class="headerlink" title="16 日志记录"></a>16 日志记录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.basicConfig(filename=&apos;example.log&apos;,level=logging.DEBUG)</span><br><span class="line">logging.debug(&apos;This message should go to the log file&apos;)</span><br><span class="line">logging.info(&apos;So should this&apos;)</span><br><span class="line">logging.warning(&apos;And this, too&apos;)</span><br></pre></td></tr></table></figure>
-<h1 id="17-路径"><a href="#17-路径" class="headerlink" title="17 路径"></a>17 路径</h1><p>提供了 <code>app.root_path</code> 属性以获取应用的路径。配合 <code>os.path</code> 模块使用，轻松可达任意文件</p>
-<h1 id="18-导入配置"><a href="#18-导入配置" class="headerlink" title="18 导入配置"></a>18 导入配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config.from_envvar(‘FLASKR_SETTINGS’, silent=True)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>设置一个名为<code>FLASKR_SETTINGS</code>的环境变量，指向要加载的配置文件。启用静默模式告诉 Flask 在没有设置该环境变量的情况下噤声。</li>
-<li>只有名称全为大写字母的变量才会被采用。</li>
-</ul>
-<h1 id="question"><a href="#question" class="headerlink" title="question"></a>question</h1><h2 id="1-服务器公开可见"><a href="#1-服务器公开可见" class="headerlink" title="1)服务器公开可见"></a>1)服务器公开可见</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.run(host=&apos;0.0.0.0&apos;)</span><br></pre></td></tr></table></figure>
-<p>这会让操作系统监听所有公网 IP。</p>
-<h1 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h1><p>有两种途径来启用调试模式。两种方法的效果完全相同。</p>
+<h1 id="10-上传进度条"><a href="#10-上传进度条" class="headerlink" title="10 上传进度条"></a>10 上传进度条</h1><h1 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h1><p>有两种途径来启用调试模式。两种方法的效果完全相同。</p>
 <h2 id="4-1-直接在应用对象上设置"><a href="#4-1-直接在应用对象上设置" class="headerlink" title="4.1 直接在应用对象上设置"></a>4.1 直接在应用对象上设置</h2><pre><code>app.debug = True
 app.run()
 </code></pre><h2 id="4-2-作为-run-方法的一个参数传入"><a href="#4-2-作为-run-方法的一个参数传入" class="headerlink" title="4.2 作为 run 方法的一个参数传入"></a>4.2 作为 run 方法的一个参数传入</h2><pre><code>app.run(debug=True)
@@ -416,7 +369,7 @@ app.run()
         <!--请您保留作者署名, 主题制作来之不易-->
         Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
         <br>
-        Copyright © Liuxiaowan 2019
+        Copyright © Liuxiaowan 2020
         <br>
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       </div>
