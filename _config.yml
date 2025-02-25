@@ -44,7 +44,6 @@ sass:
   sass_dir: _sass
   style: :compressed
 
-theme: minima
 # Options
 
 # Replace this value and uncomment to enable Google Analytics tracking
