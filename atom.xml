@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Xiaowan Liu</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://perixiaowan.github.io/</id>
+  <link href="https://perixiaowan.github.io/" rel="alternate"/>
+  <link href="https://perixiaowan.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Xiaowan Liu</rights>
+  <subtitle>
+    <![CDATA[读过的书&&走过的路]]>
+  </subtitle>
+  <title>嫦娥的月亮兔</title>
+  <updated>2026-03-31T16:47:41.377Z</updated>
+  <entry>
+    <author>
+      <name>Xiaowan Liu</name>
+    </author>
+    <id>https://perixiaowan.github.io/2026/03/31/test-2026/</id>
+    <link href="https://perixiaowan.github.io/2026/03/31/test-2026/"/>
+    <published>2026-03-31T16:47:41.000Z</published>
+    <title>test-2026</title>
+    <updated>2026-03-31T16:47:41.377Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Xiaowan Liu</name>
+    </author>
+    <id>https://perixiaowan.github.io/2026/03/31/hello-world/</id>
+    <link href="https://perixiaowan.github.io/2026/03/31/hello-world/"/>
+    <published>2026-03-31T16:29:20.036Z</published>
+    <summary>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
+    </summary>
+    <title>Hello World</title>
+    <updated>2026-03-31T16:29:20.036Z</updated>
+  </entry>
+</feed>
