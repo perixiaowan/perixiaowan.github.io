@@ -18,7 +18,7 @@ jobs:
     steps:
       # 第一步：检出代码
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           #token: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0  # 拉取完整 Git 历史，Hexo 需要用到 Git 信息生成文章日期
@@ -26,13 +26,13 @@ jobs:
           submodules: true #recursive
       # 第二步：设置 Node.js 环境
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
           # Ref: https://github.com/actions/setup-node#supported-version-syntax
           node-version: "24"
       - name: Restore cached NPM dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: cache
         with:
           path: node_modules
@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: npx hexo generate
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
   deploy:
