@@ -4,7 +4,7 @@
 
 # Site
 title: 嫦娥的月亮兔    #网站标题
-subtitle: '读过的书&&走过的路'
+subtitle: '读过的书&走过的路'
 description: 会讲究，能将就，温和却有力量，谦卑却有内涵~ #大家好，非常感谢关注我的博客，我将定期为大家分享java，IOS，HTML5，Docker等相关技术文章，欢迎大家多多来访~^_^    #网站描述
 keywords:
 author: Xiaowan Liu
@@ -14,7 +14,7 @@ timezone: ''  #网站时区
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://perixiaowan.github.io
-permalink: :year/:month/:day/:title/  #文章链接地址格式
+permalink: :year/:title/  #文章链接地址格式
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -106,7 +106,6 @@ deploy:
   type: git
   repo: https://github.com/perixiaowan/perixiaowan.github.io.git
   branch: main
-  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
 
 # [new]Search function
 search:
