@@ -1,0 +1,28 @@
+# _config.template.yml
+
+# ... 其他非敏感配置保持不变 ...
+
+# Deployment - GitHub Actions 中不需要，留空
+deploy:
+  type: ''
+
+# Algolia 搜索 - 敏感信息通过环境变量注入
+algolia:
+  appId: ${ALGOLIA_APP_ID}
+  apiKey: ${ALGOLIA_API_KEY}
+  adminApiKey: ${ALGOLIA_ADMIN_API_KEY}
+  chunkSize: 5000
+  indexName: "你的索引名"
+  fields:
+    - content:strip:truncate,0,200
+    - tags
+    - permalink
+    - excerpt:strip
+    - title
+    - categories
+
+# Web Push 通知 - 敏感信息通过环境变量注入
+webPushNotification:
+  webpushrKey: ${WEBPUSHR_KEY}
+  webpushrAuthToken: ${WEBPUSHR_AUTH_TOKEN}
+  trackingCode: ${WEBPUSHR_TRACKING_CODE}
