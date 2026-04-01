@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: npx hexo generate
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
   deploy:
