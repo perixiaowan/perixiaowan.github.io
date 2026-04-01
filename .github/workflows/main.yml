@@ -5,16 +5,15 @@ on:
     branches:
       - dev  # 当 dev 分支有推送时触发
     workflow_dispatch:  # 允许手动触发
-
+permissions:
+      contents: read
+      pages: write
+      id-token: write
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     steps:
       # 第一步：检出代码
       - name: Checkout repository
