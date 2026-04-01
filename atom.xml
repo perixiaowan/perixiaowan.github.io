@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <author>
-    <name>Xiaowan Liu</name>
+    <name>Xiaowan</name>
   </author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <id>https://perixiaowan.github.io/</id>
   <link href="https://perixiaowan.github.io/" rel="alternate"/>
   <link href="https://perixiaowan.github.io/atom.xml" rel="self"/>
-  <rights>All rights reserved 2026, Xiaowan Liu</rights>
+  <rights>All rights reserved 2026, Xiaowan</rights>
   <subtitle>
-    <![CDATA[读过的书&&走过的路]]>
+    <![CDATA[读过的书&走过的路]]>
   </subtitle>
   <title>嫦娥的月亮兔</title>
-  <updated>2026-03-31T16:47:41.377Z</updated>
+  <updated>2026-04-01T07:19:34.706Z</updated>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
+    <category term="test1" scheme="https://perixiaowan.github.io/tags/test1/"/>
+    <category term="test2" scheme="https://perixiaowan.github.io/tags/test2/"/>
     <id>https://perixiaowan.github.io/2026/test-2026/</id>
     <link href="https://perixiaowan.github.io/2026/test-2026/"/>
     <published>2026-03-31T16:47:41.000Z</published>
+    <summary>
+      <![CDATA[<p>this is a]]>
+    </summary>
     <title>test-2026</title>
-    <updated>2026-03-31T16:47:41.377Z</updated>
+    <updated>2026-04-01T07:19:34.706Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
+    <category term="test1" scheme="https://perixiaowan.github.io/tags/test1/"/>
     <id>https://perixiaowan.github.io/2026/hello-world/</id>
     <link href="https://perixiaowan.github.io/2026/hello-world/"/>
     <published>2026-03-31T16:29:20.036Z</published>
@@ -34,14 +40,12 @@
       <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
     </summary>
     <title>Hello World</title>
-    <updated>2026-03-31T16:29:20.036Z</updated>
+    <updated>2026-04-01T07:21:50.938Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="blog" scheme="https://perixiaowan.github.io/tags/blog/"/>
-    <category term="原创" scheme="https://perixiaowan.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     <category term="javascript" scheme="https://perixiaowan.github.io/tags/javascript/"/>
     <id>https://perixiaowan.github.io/2016/howto-custom-analysis-inyourblog-1/</id>
     <link href="https://perixiaowan.github.io/2016/howto-custom-analysis-inyourblog-1/"/>
@@ -50,14 +54,13 @@
       <![CDATA[<p>目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。</p>]]>
     </summary>
     <title>手把手教你在博客中添加统计分析功能（1）</title>
-    <updated>2017-06-08T03:44:05.000Z</updated>
+    <updated>2026-04-01T10:07:14.768Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="原创" scheme="https://perixiaowan.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    <category term="others" scheme="https://perixiaowan.github.io/tags/others/"/>
+    <category term="markdown" scheme="https://perixiaowan.github.io/tags/markdown/"/>
     <id>https://perixiaowan.github.io/2016/how-to-cite-img-on-markdownpad/</id>
     <link href="https://perixiaowan.github.io/2016/how-to-cite-img-on-markdownpad/"/>
     <published>2016-08-02T13:56:18.000Z</published>
@@ -69,13 +72,12 @@
 </blockquote>]]>
     </summary>
     <title>如何在MarkdownPad中引用图片</title>
-    <updated>2017-06-08T03:43:58.000Z</updated>
+    <updated>2026-04-01T10:06:55.637Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="原创" scheme="https://perixiaowan.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     <category term="hexo" scheme="https://perixiaowan.github.io/tags/hexo/"/>
     <id>https://perixiaowan.github.io/2016/hexo-questions/</id>
     <link href="https://perixiaowan.github.io/2016/hexo-questions/"/>
@@ -85,14 +87,13 @@
 <h1 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h1><p>如下图所示：<br><img]]>
     </summary>
     <title>hexo使用中遇到的问题及处理方法</title>
-    <updated>2017-06-08T04:14:24.000Z</updated>
+    <updated>2026-04-01T10:06:30.438Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="原创" scheme="https://perixiaowan.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    <category term="Linux" scheme="https://perixiaowan.github.io/tags/Linux/"/>
+    <category term="linux" scheme="https://perixiaowan.github.io/tags/linux/"/>
     <id>https://perixiaowan.github.io/2016/linux-reading-notes/</id>
     <link href="https://perixiaowan.github.io/2016/linux-reading-notes/"/>
     <published>2016-07-28T03:27:43.000Z</published>
@@ -100,13 +101,13 @@
       <![CDATA[<p>在学习过程中记录的一些常用命令，供日常参考。</p>]]>
     </summary>
     <title>《鸟哥的Linux私房菜》读书笔记</title>
-    <updated>2026-04-01T06:34:12.483Z</updated>
+    <updated>2026-04-01T10:07:19.350Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="CSS3" scheme="https://perixiaowan.github.io/tags/CSS3/"/>
+    <category term="css" scheme="https://perixiaowan.github.io/tags/css/"/>
     <id>https://perixiaowan.github.io/2016/css-selector/</id>
     <link href="https://perixiaowan.github.io/2016/css-selector/"/>
     <published>2016-07-26T09:56:31.000Z</published>
@@ -114,14 +115,13 @@
       <![CDATA[<p>新增的选择器可以简化开发流程，参考链接<br><a href="http://www.w3school.com.cn/cssref/css_selectors.asp"]]>
     </summary>
     <title>CSS3新增选择器（收藏）</title>
-    <updated>2016-08-22T00:34:44.000Z</updated>
+    <updated>2026-04-01T10:06:36.689Z</updated>
   </entry>
   <entry>
     <author>
-      <name>Xiaowan Liu</name>
+      <name>Xiaowan</name>
     </author>
-    <category term="blog" scheme="https://perixiaowan.github.io/tags/blog/"/>
-    <category term="Github" scheme="https://perixiaowan.github.io/tags/Github/"/>
+    <category term="github" scheme="https://perixiaowan.github.io/tags/github/"/>
     <id>https://perixiaowan.github.io/2016/build-blog-on-github/</id>
     <link href="https://perixiaowan.github.io/2016/build-blog-on-github/"/>
     <published>2016-06-17T09:06:10.000Z</published>
@@ -130,6 +130,6 @@
 <p>2、博客使用Markdown语法<br>3、需要了解的内容（能掌握更好）：<br>	1）html+css+javascript<br>	2）git基本语法<br>	3）markdown语法<br>	4）nodejs<br>4、使用Hexo（基于Node.js）和Jekyll(基于Ruby开发的)</p>]]>
     </summary>
     <title>github博客搭建</title>
-    <updated>2026-04-01T06:37:44.020Z</updated>
+    <updated>2026-04-01T07:20:09.292Z</updated>
   </entry>
 </feed>
