@@ -9,29 +9,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
       # 第一步：检出代码
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.DEPLOY_KEY }}
+          #token: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0  # 拉取完整 Git 历史，Hexo 需要用到 Git 信息生成文章日期
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
-          submodules: recursive
+          submodules: true #recursive
       # 第二步：设置 Node.js 环境
-      - name: Use Node.js 24
+      - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
           # Ref: https://github.com/actions/setup-node#supported-version-syntax
           node-version: "24"
-      - name: Cache NPM dependencies
+      - name: Restore cached NPM dependencies
         uses: actions/cache@v4
+        id: cache
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
+            ${{ runner.os }}-node-
       # 第三步：从模板生成 Hexo 主配置文件
       # 第四步：从模板生成 Butterfly 主题配置文件
       # 第五步：安装依赖
@@ -39,16 +44,13 @@ jobs:
         run: npm install
       # 第六步：构建静态文件
       - name: Build
-        run: npm run build
+        run: npx hexo generate
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
