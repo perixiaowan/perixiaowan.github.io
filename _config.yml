@@ -105,7 +105,7 @@ theme: hexo-theme-matery #landscape
 deploy:
   type: git
   repo: https://github.com/perixiaowan/perixiaowan.github.io.git
-  branch: main
+  branch: gh-pages
 
 # [new]Search function
 search:
@@ -164,10 +164,10 @@ music:
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: true  # 列表默认折叠
 
-  # index page dream text,
+# index page dream text,
 # 配置首页显示"梦想"的语句.
 dream:
   enable: true
   showTitle: true
-  title: 心若不动，风又奈何
+  title: 守心不恋
   text: 物来顺应，未来不迎，当时不杂，既过不恋。—— 曾国藩
