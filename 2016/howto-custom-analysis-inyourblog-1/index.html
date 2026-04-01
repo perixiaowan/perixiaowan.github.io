@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS3新增选择器（收藏）, 嫦娥的月亮兔">
-    <meta name="description" content="新增的选择器可以简化开发流程，参考链接http://www.w3school.com.cn/cssref/css_selectors.asp
-">
+    <meta name="keywords" content="手把手教你在博客中添加统计分析功能（1）, 嫦娥的月亮兔">
+    <meta name="description" content="目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的googl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CSS3新增选择器（收藏） | 嫦娥的月亮兔</title>
+    <title>手把手教你在博客中添加统计分析功能（1） | 嫦娥的月亮兔</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -338,12 +337,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CSS3新增选择器（收藏）</h1>
+                    <h1 class="description center-align post-title">手把手教你在博客中添加统计分析功能（1）</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +366,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS3/">
-                                <span class="chip bg-color">CSS3</span>
+                            <a href="/tags/blog/">
+                                <span class="chip bg-color">blog</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8E%9F%E5%88%9B/">
+                                <span class="chip bg-color">原创</span>
+                            </a>
+                        
+                            <a href="/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
                             </a>
                         
                     </div>
@@ -383,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2016-07-26
+                    2016-08-03
                 </div>
                 
 
@@ -407,7 +414,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>新增的选择器可以简化开发流程，参考链接<br><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/cssref/css_selectors.asp" title="CSS选择器参考手册">http://www.w3school.com.cn/cssref/css_selectors.asp</a></p>
+                <p>目前，有一些公司，比如百度、Google，为用户提供网站统计分析功能，我们只需通过这些公司提供的api接口，在我们自己的网站中进行调用，即可实现对网站的统计分析。本文就百度统计3.0版做个简单的介绍。下一篇给大家介绍Google的google analytics分析工具。</p>
+<span id="more"></span>
+
+<h3 id="注册网站"><a href="#注册网站" class="headerlink" title="注册网站"></a>注册网站</h3><ol>
+<li>打开<a target="_blank" rel="noopener" href="http://tongji.baidu.com/web/welcome/login" title="百度统计分析网站">http://tongji.baidu.com/web/welcome/login</a></li>
+<li>注册百度统计站长版<br> 其中，在‘网站’这一项，填写自己的网站域名，比如：<blockquote>
+<p>perixiaowan.github.io</p>
+</blockquote>
+</li>
+</ol>
+<p>注册完毕之后，显示界面如图1所示</p>
+<p><img src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_1.JPG?raw=true" alt="百度统计分析代码"><br>图1 百度统计分析代码获取</p>
+<h3 id="添加分析代码"><a href="#添加分析代码" class="headerlink" title="添加分析代码"></a>添加分析代码</h3><p>将上图1所示代码段copy至自己的代码中，如下所示</p>
+<pre><code>&lt;script&gt;
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b760b7848c7e06e1931a383d0a2c116f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+&lt;/script&gt;
+</code></pre>
+<p>最好将其放至生成html的模板中，这样可在每次撰写新的md文件时，hexo g后会自动将此段代码加入html中。避免每次写新文章手动添加分析代码的麻烦。本人项目中，将此段代码放置了theme主题下的layout》post.ejs文件中，如图2所示</p>
+<p><img src="https://github.com/perixiaowan/MarkdownPhotos/blob/master/blog/analytics_2.JPG?raw=true" alt="统计功能代码位置2"><br>图2 统计功能代码位置</p>
+<h3 id="更新github"><a href="#更新github" class="headerlink" title="更新github"></a>更新github</h3><pre><code>hexo clean &amp; hexo g &amp; hexo d
+</code></pre>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>至此，一个简单的百度统计功能就被加进自己的博客中，当每次撰写新的博客，并发布至github上后，就可实时监测文字被访问的统计信息。可以依据这些数据，对自己的网站进行SEO等改进措施。</p>
+<p>**<br>在下一章中，我将为大家介绍如何在自己的博客中添加google analytics分析工具，欢迎大家经常来拜访Mac小兔噢^_^**</p>
 
                 
             </div>
@@ -434,7 +469,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://perixiaowan.github.io/2016/07/26/css-selector/">https://perixiaowan.github.io/2016/07/26/css-selector/</a>
+                    <a href="https://perixiaowan.github.io/2016/howto-custom-analysis-inyourblog-1/">https://perixiaowan.github.io/2016/howto-custom-analysis-inyourblog-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -472,8 +507,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CSS3/">
-                                    <span class="chip bg-color">CSS3</span>
+                                <a href="/tags/blog/">
+                                    <span class="chip bg-color">blog</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8E%9F%E5%88%9B/">
+                                    <span class="chip bg-color">原创</span>
+                                </a>
+                            
+                                <a href="/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
                                 </a>
                             
                         </div>
@@ -556,25 +599,64 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2016/07/28/linux-reading-notes/">
+                <a href="/2026/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="《鸟哥的Linux私房菜》读书笔记">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">《鸟哥的Linux私房菜》读书笔记</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在学习过程中记录的一些常用命令，供日常参考。
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2016-07-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-31
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Xiaowan Liu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2016/how-to-cite-img-on-markdownpad/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="如何在MarkdownPad中引用图片">
+                        
+                        <span class="card-title">如何在MarkdownPad中引用图片</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在Markdownpad中，上传本地图片需要pro收费版，那么引用图片如何做到不花钱呢？我们知道引用带有url链接的图片则是不收费的。那么，我们可以通过将本地图片转换成url来使用。
+下面我给大家介绍一种可以将本地照片转换成url的方法。
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-08-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -590,58 +672,8 @@
                         <span class="chip bg-color">原创</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2016/06/17/build-blog-on-github/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="github博客搭建">
-                        
-                        <span class="card-title">github博客搭建</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            博客基本特点1、gh-pages服务：有300MB空间
-2、博客使用Markdown语法3、需要了解的内容（能掌握更好）：	1）html+css+javascript	2）git基本语法	3）markdown语法	4）nodejs4、使用H
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2016-06-17
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Xiaowan Liu
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
-                    </a>
-                    
-                    <a href="/tags/Github/">
-                        <span class="chip bg-color">Github</span>
+                    <a href="/tags/others/">
+                        <span class="chip bg-color">others</span>
                     </a>
                     
                 </div>
