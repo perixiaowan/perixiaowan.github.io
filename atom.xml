@@ -36,4 +36,20 @@
     <title>Hello World</title>
     <updated>2026-03-31T16:29:20.036Z</updated>
   </entry>
+  <entry>
+    <author>
+      <name>Xiaowan Liu</name>
+    </author>
+    <category term="blog" scheme="https://perixiaowan.github.io/tags/blog/"/>
+    <category term="Github" scheme="https://perixiaowan.github.io/tags/Github/"/>
+    <id>https://perixiaowan.github.io/2016/06/17/build-blog-on-github/</id>
+    <link href="https://perixiaowan.github.io/2016/06/17/build-blog-on-github/"/>
+    <published>2016-06-17T09:06:10.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="博客基本特点"><a href="#博客基本特点" class="headerlink" title="博客基本特点"></a><strong>博客基本特点</strong></h1><p>1、gh-pages服务：有300MB空间</p>
+<p>2、博客使用Markdown语法<br>3、需要了解的内容（能掌握更好）：<br>	1）html+css+javascript<br>	2）git基本语法<br>	3）markdown语法<br>	4）nodejs<br>4、使用Hexo（基于Node.js）和Jekyll(基于Ruby开发的)</p>]]>
+    </summary>
+    <title>github博客搭建</title>
+    <updated>2017-06-08T03:42:36.000Z</updated>
+  </entry>
 </feed>
