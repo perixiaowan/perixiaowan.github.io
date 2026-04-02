@@ -1,5 +1,5 @@
 ---
-title: book-Tolerance-FangLong
+title: 《宽容》（Tolerance）读书笔记
 date: 2026-04-02 21:40:54
 categories: 
     - 读书笔记

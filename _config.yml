@@ -163,11 +163,3 @@ music:
   preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: true  # 列表默认折叠
-
-# index page dream text,
-# 配置首页显示"梦想"的语句.
-dream:
-  enable: true
-  showTitle: true
-  title: 守心不恋
-  text: 物来顺应，未来不迎，当时不杂，既过不恋。—— 曾国藩
