@@ -1,19 +1,19 @@
 [{
-    "avatar": "/source/imgs/ebooks.png",
+    "avatar": "https://raw.githubusercontent.com/perixiaowan/ebook-treasure-chest/refs/heads/main/.github/logo.png",
     "name": "ebooks",
     "introduction": "一个汇聚了各类电子书下载链接的地方",
     "url": "https://jbiaojerry.github.io/ebook-treasure-chest/",
     "title": "前去学习"
 }, {
-    "avatar": "http://image.luokangyuan.com/4027734.jpeg",
-    "name": "闪烁之狐",
-    "introduction": "编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬",
-    "url": "https://blinkfox.github.io/",
+    "avatar": "https://avatars.githubusercontent.com/u/11458263?v=4",
+    "name": "冴羽",
+    "introduction": "JavaScript 深入系列（闭包、原型、异步、设计模式），适合想夯实 JS 底层的开发者",
+    "url": "https://github.com/mqyqingfeng/Blog",
     "title": "前去学习"
 }, {
-    "avatar": "http://image.luokangyuan.com/avatar.jpg",
-    "name": "ja_rome",
-    "introduction": "平凡的脚步也可以走出伟大的行程",
-    "url": "https://me.csdn.net/jlh912008548",
+    "avatar": "https://avatars.githubusercontent.com/u/11247099?v=4 ",
+    "name": "antfu（Anthony Fu）",
+    "introduction": "Vite/Vue 核心贡献者，前端工程化、工具链、性能优化、源码分析，风格精炼、实战性极强。",
+    "url": "https://antfu.me/posts",
     "title": "前去学习"
 }]  
