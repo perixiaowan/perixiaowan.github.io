@@ -2,7 +2,7 @@
 title: github博客搭建
 date: 2016-06-17 15:06:10
 tags: 
-	- github 
+	- Github 
 ---
 
 # **博客基本特点**#

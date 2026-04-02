@@ -2,7 +2,8 @@
 title: 《鸟哥的Linux私房菜》读书笔记
 date: 2016-07-28 09:27:43
 tags: 
-    - linux
+    - Linux
+    - 读书笔记
 ---
 
 

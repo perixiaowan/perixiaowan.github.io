@@ -1,8 +1,8 @@
 ---
-title: hexo使用中遇到的问题及处理方法
+title: Hexo使用中遇到的问题及处理方法
 date: 2016-08-02 11:03:43
 tags: 
-	- hexo
+	- Hexo
 ---
 
 <!--more-->
