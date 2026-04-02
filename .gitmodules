@@ -1,3 +1,3 @@
 [submodule "themes/hexo-theme-matery"]
 	path = themes/hexo-theme-matery
-	url = git@github.com:perixiaowan/hexo-theme-matery.git
+	url = https://github.com/perixiaowan/hexo-theme-matery.git
